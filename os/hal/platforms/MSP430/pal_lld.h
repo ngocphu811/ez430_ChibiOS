@@ -36,6 +36,14 @@
 #undef PAL_MODE_INPUT_ANALOG
 #undef PAL_MODE_OUTPUT_OPENDRAIN
 
+#undef __MSP430_HAS_PORT3__
+#undef __MSP430_HAS_PORT4__
+#undef __MSP430_HAS_PORT5__
+#undef __MSP430_HAS_PORT6__
+#undef __MSP430_HAS_PORT3_R__
+#undef __MSP430_HAS_PORT4_R__
+#undef __MSP430_HAS_PORT5_R__
+#undef __MSP430_HAS_PORT6_R__
 /*===========================================================================*/
 /* I/O Ports Types and constants.                                            */
 /*===========================================================================*/
@@ -180,7 +188,7 @@ typedef msp430_ioport_t *ioportid_t;
 #if defined(__MSP430_HAS_PORT1__) ||                                    \
     defined(__MSP430_HAS_PORT1_R__) ||                                  \
     defined(__DOXYGEN__)
-#define IOPORT1         ((ioportid_t)P1IN_)
+#define IOPORT1         ((ioportid_t)P1IN)
 #endif
 
 /**
@@ -190,7 +198,7 @@ typedef msp430_ioport_t *ioportid_t;
 #if defined(__MSP430_HAS_PORT2__) ||                                    \
     defined(__MSP430_HAS_PORT2_R__) ||                                  \
     defined(__DOXYGEN__)
-#define IOPORT2         ((ioportid_t)P2IN_)
+#define IOPORT2         ((ioportid_t)P2IN)
 #endif
 
 /**

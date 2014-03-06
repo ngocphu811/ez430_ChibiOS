@@ -50,7 +50,7 @@ include $(CHIBIOS)/os/hal/platforms/MSP430/platform.mk
 include $(CHIBIOS)/os/hal/hal.mk
 include $(CHIBIOS)/os/ports/GCC/MSP430/port.mk
 include $(CHIBIOS)/os/kernel/kernel.mk
-include $(CHIBIOS)/test/test.mk
+#include $(CHIBIOS)/test/test.mk
 
 # C sources here.
 CSRC = $(PORTSRC) \

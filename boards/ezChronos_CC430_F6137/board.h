@@ -24,8 +24,8 @@
 /*
  * Board identifier.
  */
-#define BOARD_OLIMEX_MSP430_P1611
-#define BOARD_NAME "Olimex MSP430-P1611"
+#define BOARD_EZ430_CHRONOS
+#define BOARD_NAME "ez430 Chronos"
 
 /*
  * Clock constants.
@@ -46,6 +46,10 @@
 #define P6_I_BUTTON             1
 #define P6_I_BUTTON_MASK        (1 << P6_I_BUTTON)
 
+#undef __MSP430_HAS_PORT3__
+#undef __MSP430_HAS_PORT4__
+#undef __MSP430_HAS_PORT5__
+#undef __MSP430_HAS_PORT6__
 /*
  * Initial I/O ports settings.
  */
