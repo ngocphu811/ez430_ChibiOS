@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="ez430_ChibiOS" InternalType="Console">
+  <VirtualDirectory Name="os">
+    <VirtualDirectory Name="various">
+      <VirtualDirectory Name="lwip_bindings">
+        <VirtualDirectory Name="arch">
+          <File Name="../os/various/lwip_bindings/arch/cc.h"/>
+          <File Name="../os/various/lwip_bindings/arch/perf.h"/>
+          <File Name="../os/various/lwip_bindings/arch/sys_arch.c"/>
+          <File Name="../os/various/lwip_bindings/arch/sys_arch.h"/>
+        </VirtualDirectory>
+        <File Name="../os/various/lwip_bindings/lwipthread.c"/>
+        <File Name="../os/various/lwip_bindings/lwipthread.h"/>
+        <File Name="../os/various/lwip_bindings/lwip.mk"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="devices_lib">
+        <VirtualDirectory Name="accel">
+          <File Name="../os/various/devices_lib/accel/lis302dl.c"/>
+          <File Name="../os/various/devices_lib/accel/lis302dl.h"/>
+        </VirtualDirectory>
+        <VirtualDirectory Name="lcd">
+          <File Name="../os/various/devices_lib/lcd/lcd3310.c"/>
+          <File Name="../os/various/devices_lib/lcd/lcd3310.h"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+      <VirtualDirectory Name="cpp_wrappers">
+        <File Name="../os/various/cpp_wrappers/ch.cpp"/>
+        <File Name="../os/various/cpp_wrappers/ch.hpp"/>
+        <File Name="../os/various/cpp_wrappers/kernel.mk"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="fatfs_bindings">
+        <File Name="../os/various/fatfs_bindings/fatfs_diskio.c"/>
+        <File Name="../os/various/fatfs_bindings/fatfs_syscall.c"/>
+        <File Name="../os/various/fatfs_bindings/fatfs.mk"/>
+      </VirtualDirectory>
+      <File Name="../os/various/chprintf.c"/>
+      <File Name="../os/various/chprintf.h"/>
+      <File Name="../os/various/chrtclib.c"/>
+      <File Name="../os/various/chrtclib.h"/>
+      <File Name="../os/various/evtimer.c"/>
+      <File Name="../os/various/evtimer.h"/>
+      <File Name="../os/various/memstreams.c"/>
+      <File Name="../os/various/memstreams.h"/>
+      <File Name="../os/various/shell.c"/>
+      <File Name="../os/various/shell.h"/>
+      <File Name="../os/various/syscalls.c"/>
+      <File Name="../os/various/usb_msc.c"/>
+      <File Name="../os/various/usb_msc.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="ports">
+      <VirtualDirectory Name="GCC">
+        <VirtualDirectory Name="MSP430">
+          <File Name="../os/ports/GCC/MSP430/chcore.h"/>
+          <File Name="../os/ports/GCC/MSP430/chtypes.h"/>
+          <File Name="../os/ports/GCC/MSP430/port.mk"/>
+          <File Name="../os/ports/GCC/MSP430/rules.mk"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="kernel">
+      <VirtualDirectory Name="include">
+        <File Name="../os/kernel/include/ch.h"/>
+        <File Name="../os/kernel/include/chbsem.h"/>
+        <File Name="../os/kernel/include/chcond.h"/>
+        <File Name="../os/kernel/include/chdebug.h"/>
+        <File Name="../os/kernel/include/chdynamic.h"/>
+        <File Name="../os/kernel/include/chevents.h"/>
+        <File Name="../os/kernel/include/chfiles.h"/>
+        <File Name="../os/kernel/include/chheap.h"/>
+        <File Name="../os/kernel/include/chinline.h"/>
+        <File Name="../os/kernel/include/chlists.h"/>
+        <File Name="../os/kernel/include/chmboxes.h"/>
+        <File Name="../os/kernel/include/chmemcore.h"/>
+        <File Name="../os/kernel/include/chmempools.h"/>
+        <File Name="../os/kernel/include/chmsg.h"/>
+        <File Name="../os/kernel/include/chmtx.h"/>
+        <File Name="../os/kernel/include/chqueues.h"/>
+        <File Name="../os/kernel/include/chregistry.h"/>
+        <File Name="../os/kernel/include/chschd.h"/>
+        <File Name="../os/kernel/include/chsem.h"/>
+        <File Name="../os/kernel/include/chstreams.h"/>
+        <File Name="../os/kernel/include/chsys.h"/>
+        <File Name="../os/kernel/include/chthreads.h"/>
+        <File Name="../os/kernel/include/chvt.h"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="src">
+        <File Name="../os/kernel/src/chcond.c"/>
+        <File Name="../os/kernel/src/chdebug.c"/>
+        <File Name="../os/kernel/src/chdynamic.c"/>
+        <File Name="../os/kernel/src/chevents.c"/>
+        <File Name="../os/kernel/src/chheap.c"/>
+        <File Name="../os/kernel/src/chlists.c"/>
+        <File Name="../os/kernel/src/chmboxes.c"/>
+        <File Name="../os/kernel/src/chmemcore.c"/>
+        <File Name="../os/kernel/src/chmempools.c"/>
+        <File Name="../os/kernel/src/chmsg.c"/>
+        <File Name="../os/kernel/src/chmtx.c"/>
+        <File Name="../os/kernel/src/chqueues.c"/>
+        <File Name="../os/kernel/src/chregistry.c"/>
+        <File Name="../os/kernel/src/chschd.c"/>
+        <File Name="../os/kernel/src/chsem.c"/>
+        <File Name="../os/kernel/src/chsys.c"/>
+        <File Name="../os/kernel/src/chthreads.c"/>
+        <File Name="../os/kernel/src/chvt.c"/>
+      </VirtualDirectory>
+      <File Name="../os/kernel/kernel.mk"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="hal">
+      <VirtualDirectory Name="platforms">
+        <VirtualDirectory Name="MSP430">
+          <File Name="../os/hal/platforms/MSP430/hal_lld.c"/>
+          <File Name="../os/hal/platforms/MSP430/hal_lld.h"/>
+          <File Name="../os/hal/platforms/MSP430/pal_lld.c"/>
+          <File Name="../os/hal/platforms/MSP430/pal_lld.h"/>
+          <File Name="../os/hal/platforms/MSP430/serial_lld.c"/>
+          <File Name="../os/hal/platforms/MSP430/serial_lld.h"/>
+          <File Name="../os/hal/platforms/MSP430/hal_macros.h"/>
+          <File Name="../os/hal/platforms/MSP430/HAL_PMM.c"/>
+          <File Name="../os/hal/platforms/MSP430/HAL_PMM.h"/>
+          <File Name="../os/hal/platforms/MSP430/hal_UCS.c"/>
+          <File Name="../os/hal/platforms/MSP430/hal_UCS.h"/>
+          <File Name="../os/hal/platforms/MSP430/platform.mk"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
+      <VirtualDirectory Name="include">
+        <File Name="../os/hal/include/adc.h"/>
+        <File Name="../os/hal/include/can.h"/>
+        <File Name="../os/hal/include/dac.h"/>
+        <File Name="../os/hal/include/ext.h"/>
+        <File Name="../os/hal/include/gpt.h"/>
+        <File Name="../os/hal/include/hal.h"/>
+        <File Name="../os/hal/include/i2c.h"/>
+        <File Name="../os/hal/include/i2s.h"/>
+        <File Name="../os/hal/include/icu.h"/>
+        <File Name="../os/hal/include/io_block.h"/>
+        <File Name="../os/hal/include/io_channel.h"/>
+        <File Name="../os/hal/include/mac.h"/>
+        <File Name="../os/hal/include/mii.h"/>
+        <File Name="../os/hal/include/mmcsd.h"/>
+        <File Name="../os/hal/include/mmc_spi.h"/>
+        <File Name="../os/hal/include/pal.h"/>
+        <File Name="../os/hal/include/pwm.h"/>
+        <File Name="../os/hal/include/rtc.h"/>
+        <File Name="../os/hal/include/sdc.h"/>
+        <File Name="../os/hal/include/serial.h"/>
+        <File Name="../os/hal/include/serial_usb.h"/>
+        <File Name="../os/hal/include/spi.h"/>
+        <File Name="../os/hal/include/tm.h"/>
+        <File Name="../os/hal/include/uart.h"/>
+        <File Name="../os/hal/include/usb.h"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="src">
+        <File Name="../os/hal/src/adc.c"/>
+        <File Name="../os/hal/src/can.c"/>
+        <File Name="../os/hal/src/dac.c"/>
+        <File Name="../os/hal/src/ext.c"/>
+        <File Name="../os/hal/src/gpt.c"/>
+        <File Name="../os/hal/src/hal.c"/>
+        <File Name="../os/hal/src/i2c.c"/>
+        <File Name="../os/hal/src/i2s.c"/>
+        <File Name="../os/hal/src/icu.c"/>
+        <File Name="../os/hal/src/mac.c"/>
+        <File Name="../os/hal/src/mmcsd.c"/>
+        <File Name="../os/hal/src/mmc_spi.c"/>
+        <File Name="../os/hal/src/pal.c"/>
+        <File Name="../os/hal/src/pwm.c"/>
+        <File Name="../os/hal/src/rtc.c"/>
+        <File Name="../os/hal/src/sdc.c"/>
+        <File Name="../os/hal/src/serial.c"/>
+        <File Name="../os/hal/src/serial_usb.c"/>
+        <File Name="../os/hal/src/spi.c"/>
+        <File Name="../os/hal/src/tm.c"/>
+        <File Name="../os/hal/src/uart.c"/>
+        <File Name="../os/hal/src/usb.c"/>
+      </VirtualDirectory>
+      <File Name="../os/hal/hal.mk"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="fs">
+      <VirtualDirectory Name="fatfs">
+        <File Name="../os/fs/fatfs/fatfs_fsimpl.cpp"/>
+        <File Name="../os/fs/fatfs/fatfs_fsimpl.hpp"/>
+      </VirtualDirectory>
+      <File Name="../os/fs/fs.hpp"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="boards">
+    <VirtualDirectory Name="ezChronos_CC430_F6137">
+      <File Name="../boards/ezChronos_CC430_F6137/board.c"/>
+      <File Name="../boards/ezChronos_CC430_F6137/board.h"/>
+      <File Name="../boards/ezChronos_CC430_F6137/hal_lcd.c"/>
+      <File Name="../boards/ezChronos_CC430_F6137/hal_lcd.h"/>
+      <File Name="../boards/ezChronos_CC430_F6137/hal_lcd_fonts.c"/>
+      <File Name="../boards/ezChronos_CC430_F6137/hal_lcd_fonts.h"/>
+      <File Name="../boards/ezChronos_CC430_F6137/board.mk"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="Application">
+    <VirtualDirectory Name="CC430-CC430F6137-GCC">
+      <File Name="../Application/CC430-CC430F6137-GCC/chconf.h"/>
+      <File Name="../Application/CC430-CC430F6137-GCC/halconf.h"/>
+      <File Name="../Application/CC430-CC430F6137-GCC/main.c"/>
+      <File Name="../Application/CC430-CC430F6137-GCC/Makefile"/>
+      <File Name="../Application/CC430-CC430F6137-GCC/mcuconf.h"/>
+      <File Name="../Application/CC430-CC430F6137-GCC/globals.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Drivers"/>
+    <VirtualDirectory Name="Logic"/>
+    <VirtualDirectory Name="drivers">
+      <File Name="../Application/drivers/display.c"/>
+      <File Name="../Application/drivers/display.h"/>
+      <File Name="drivers.mk"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="mspgcc" DebuggerType="GNU gdb debugger" Type="" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" C_Options="-g" Required="yes" PreCompiledHeader="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="mspgcc" DebuggerType="GNU gdb debugger" Type="" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="" C_Options="" Required="yes" PreCompiledHeader="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="-O2" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+  </Settings>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
+</CodeLite_Project>

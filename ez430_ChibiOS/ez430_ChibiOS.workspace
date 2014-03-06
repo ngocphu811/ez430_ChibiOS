@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Workspace Name="ez430_ChibiOS" Database="./ez430_ChibiOS.tags">
+  <Project Name="ez430_FreeRTOS" Path="../../../cc430/ez430_FreeRTOS/ez430_FreeRTOS.project" Active="No"/>
+  <Project Name="ez430_ChibiOS" Path="ez430_ChibiOS.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Project Name="ez430_FreeRTOS" ConfigName="Debug"/>
+      <Project Name="ez430_ChibiOS" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="ez430_FreeRTOS" ConfigName="Release"/>
+      <Project Name="ez430_ChibiOS" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

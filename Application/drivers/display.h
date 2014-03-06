@@ -1,217 +1,378 @@
+// *************************************************************************************************
+//
+//	Copyright (C) 2009 Texas Instruments Incorporated - http://www.ti.com/ 
+//	 
+//	 
+//	  Redistribution and use in source and binary forms, with or without 
+//	  modification, are permitted provided that the following conditions 
+//	  are met:
+//	
+//	    Redistributions of source code must retain the above copyright 
+//	    notice, this list of conditions and the following disclaimer.
+//	 
+//	    Redistributions in binary form must reproduce the above copyright
+//	    notice, this list of conditions and the following disclaimer in the 
+//	    documentation and/or other materials provided with the   
+//	    distribution.
+//	 
+//	    Neither the name of Texas Instruments Incorporated nor the names of
+//	    its contributors may be used to endorse or promote products derived
+//	    from this software without specific prior written permission.
+//	
+//	  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
+//	  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
+//	  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+//	  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT 
+//	  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+//	  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT 
+//	  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+//	  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+//	  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
+//	  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+//	  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+// *************************************************************************************************
+
+#ifndef __DISPLAY_H
+#define __DISPLAY_H
+
+
+// *************************************************************************************************
+// Include section
+
+#include <project.h>
+
 /*
- * display.h
- *
- *  Created on: 7 févr. 2014
- *      Author: rpa
+ * Set some options at compile time for how the time is displayed
+ * The options are, in order of code space used-
+ * OPTION_TIME_DISPLAY == CLOCK_24HR
+ * OPTION_TIME_DISPLAY == CLOCK_AM_PM
+ * OPTION_TIME_DISPLAY == CLOCK_DISPLAY_SELECT
  */
 
-#ifndef DISPLAY_H_
-#define DISPLAY_H_
+#define CLOCK_24HR              0
+#define CLOCK_AM_PM             1
+#define CLOCK_DISPLAY_SELECT    2
 
-//#include "../cc430f6137_HAL/hal_lcd.h"
-
-/*!
-	\brief Virtual LCD screen
-	\sa #lcd_screens_create()
-*/
-struct lcd_screen {
-	uint8_t *segmem; /*!< pointer to segment memory location */
-	uint8_t *blkmem; /*!< pointer to blinking memory location */
-};
-
-/*!
-	\brief Creates virtual screens
-	\details Virtual screens are used to display data outside of the real screen. After creating <i>nr</i> number of screens, you can select which screen to write data to using the <i>scr_nr</i> argument available in any of the display functions:<br />
-	 #display_symbol()<br />
-    #display_char()<br />
-    #display_chars()<br />
-    #display_clear()<br />
-
-	After creating the virtual screens using this function, the screen 0 is always selected as the active screen. This means that any writes to screen 0 will actually be imediately displayed on the real screen, while writes to other screens will be saved until lcd_screen_activate() is called.
-	\note Each virtual screen takes 24bytes of memory. It is less than the code that you would actually need to write to handle the cases where these functions are meant to be used. However, RAM memory on the ez430 chronos is limited too so don't use a bazilion of screens.
-	\note Never, ever forget to destroy the created screens using lcd_screens_destroy() !
-	\sa lcd_screens_destroy(), lcd_screen_activate()
-*/
-void lcd_screens_create(
-	uint8_t nr /*!< the number of screens to create */
-);
-
-/*!
-	\brief Destroys all virtual screen
-	\details Destroys all #lcd_screen created by #lcd_screens_create()
-*/
-void lcd_screens_destroy(void);
-
-/*!
-	\brief Activates a virtual screen
-	\details Virtual screens are used to display data outside of the real screen. See lcd_screens_create() on how to create virtual screens.<br />
-	This function selects the active screen. The active screen is the screen where any writes to it will be imediately displayed in the real screen.
-	\note If you set the <i>scr_nr</i> to 0xff, the next screen will be automatically activated.
-	\sa lcd_screens_destroy(), lcd_screens_create()
-*/
-void lcd_screen_activate(
-	uint8_t scr_nr /*!< the screen number to activate, or 0xff */
-);
-
-/*!
-	\brief Clears the screen
-	\details Clears the screen as instructed by <i>line</i>. If no virtual screens are created, the argument <i>scr_nr</i> is ignored, otherwise it selects which screen the operation will affect.
-*/
-void display_clear(
-	uint8_t scr_nr, /*!< the virtual screen number to clear */
-	uint8_t line /*!< If zero, clears the entire screen (symbols and lines).<br />If one, clears the first line.<br />If two, clears the second line. */
-);
-
-/*
-    \brief Display a custom collection of segments
-    \details Changes the <i>state</i> of <i>segment</i> state according to user specified <i>bits</i>. If no virtual screens are created, the argument <i>scr_nr</i> is ignored, otherwise it selects which screen the operation will affect.
-    \sa #display_char()
-*/
-void display_bits(
-	uint8_t scr_nr, /*!< the virtual screen number where to display */
-	enum display_segment segment, /*!< A segment */
-	uint8_t bits, /*!< The bits of the segment */
-	enum display_segstate state /*!< A bitfield with state operations to be performed on the segment */
-);
-
-/*!
-	\brief Displays a single character
-	\details Changes the <i>state</i> of <i>segment</i> state according to bits calculated from <i>chr</i>. If no virtual screens are created, the argument <i>scr_nr</i> is ignored, otherwise it selects which screen the operation will affect.
-
-	For example, the following line:<br />
-	\code
-	display_char(0, LCD_SEG_L1_3, 'C', SEG_SET);<br />
-	\endcode
-	Changes the bits of the 4th segment (from the right) of first line to show a 'C' character. The 'C' character is shown in the real screen.
-
-	Another but a little more complex example:<br />
-	\code
-	// changes the bits of the 4th segment (from the right) of first line to show the '1' character in the real screen.
-	display_char(0, LCD_SEG_L1_3, '1', SEG_SET);
-
-	// makes all bits of the segment to blink. because only the bits corresponding to the '1' character are being shown, only the displayed '1' blinks.
-	display_char(0, LCD_SEG_L1_3, '8', BLINK_ON);
-
-	// changes the bits of the segment to show the '8' character. this operation doesn't change the blinking bits, so the displayed '8' will blink.
-	display_char(0, LCD_SEG_L1_3, '8', SEG_SET);
-
-	// turns off blinking for the bits corresponding to the '-' character. In this case because the bits of '8' were blinking, turning off '-' will make the bits of '0' continue blinking, while the '-' remains static.
-	display_char(0, LCD_SEG_L1_3, '-', BLINK_OFF);
-	\endcode
-	\sa #display_chars()
-*/
-void display_char(
-	uint8_t scr_nr, /*!< the virtual screen number where to display */
-	enum display_segment segment, /*!< A segment */
-	char chr, /*!< The character to be displayed */
-	enum display_segstate state /*!< A bitfield with state operations to be performed on the segment */
-);
+#ifndef OPTION_TIME_DISPLAY
+#warning "OPTION_TIME_DISPLAY not defined, 0 = 24Hr, 1 = AM/PM, 2 = selectable"
+#endif
 
 
-/*!
-	\brief Displays several consecutive characters
-	\details Smiliar to #display_char() except it works with a vector of chars.
 
-	Example:<br />
-	\code
-	// changes the bits of the 4th to 1st segments (from the right) of the first line to show the "4321" string in the real screen.
-	display_chars(0, LCD_SEG_L1_3_0, "4321", SEG_SET);
+// *************************************************************************************************
+// Extern section
 
-	// makes all bits of the first three segments to blink. because only the bits corresponding to the "4321" characters are being shown, only the first three displayed "432" segments blink.
-	display_chars(0, LCD_SEG_L1_3_0, "888 ", BLINK_ON);
-
-	// changes the bits of the segments to show the "8888" string. this operation doesn't change the blinking bits, so the first three displayed "888" segments will blink, while the last '8' segment is static.
-	display_chars(0, LCD_SEG_L1_3_0, "8888", SEG_SET);
-
-	// turns off blinking for the bits corresponding to the "----" characters. In this case because the bits of "888 " were blinking, turning off "----" will actually set the blinking bits to "000 ". Because the "8888" string is being displayed, only the first three "000" bits will blink, the first three "---" bits will remain static and the last segment remains static.
-	display_chars(0, LCD_SEG_L1_3_0, "----", BLINK_OFF);
-	\endcode
-	Also, passing NULL as the <i>str</i> argument is equivalent of passing a vector of '8' characters. Consider the previous example, where the string "8888" can equivalently be replaced with NULL.
-
-	\note See #_sprintf() on how to convert decimals into a string.
-	\sa #display_char(), #_sprintf()
-*/
-void display_chars(
-	uint8_t scr_nr, /*!< the virtual screen number where to display */
-	enum display_segment_array segments, /*!< A segment array */
-	char const * str, /*!< A pointer to a vector of chars to be displayed */
-	enum display_segstate state /*!< A bitfield with state operations to be performed on the segment */
-);
-
-/*!
-	\brief Displays a symbol
-	\details Changes the <i>state</i> of the segment of <i>symbol</i>. If no virtual screens are created, the argument <i>scr_nr</i> is ignored, otherwise it selects which screen the operation will affect.
-	Example:
-	\code
-	// turns on the "heart" segment and make it blink
-	display_symbol(0, LCD_ICON_HEART, SEG_SET | BLINK_ON);
-	\endcode
-*/
-void display_symbol(
-	uint8_t scr_nr,       /*!< the virtual screen number */
-	enum display_segment symbol, /*!< the segment to display */
-	enum display_segstate state /*!< A bitfield with state operations to be performed on the segment */
-);
-
-/*!
-	\brief pseudo printf function
-	\details Displays in screen <i>scr_nr</i>, at segments <i>segments</i>, the string containing the number <i>n</i> formatted according to <i>fmt</i>. This function is equivalent to calling display_chars(scr_nr, segments, _sprintf(fmt, n), SEG_SET).
-	\sa #display_chars, #_sprintf
-*/
-
-#define _printf(scr_nr, segments, fmt, n) \
-	display_chars((scr_nr), (segments), _sprintf((fmt), (n)), SEG_SET)
+// Constants defined in library
+extern const u8 lcd_font[];
+extern const u8 * segments_lcdmem[];
+extern const u8 segments_bitmask[];
+extern const u8 itoa_conversion_table[][3];
 
 
-/*!
-	\brief pseudo sprintf function
-	\details Returns a pointer to the string containing the number <i>n</i> formatted according to <i>fmt</i>. The format is NOT compatible with stdio's format.
-	Example:
-	\code
-	// returns " 8"
-	_sprintf("%2u", 8);
+// *************************************************************************************************
+// Global Variable section
 
-	// returns "0020"
-	_sprintf("%04u", 20);
+// Set of display flags
+typedef union
+{
+  struct
+  {
+  	// Line1 + Line2 + Icons
+    u16 full_update      		: 1;    // 1 = Redraw all content
+    u16 partial_update      	: 1;    // 1 = Update changes
+  	
+  	// Line only
+    u16 line1_full_update     	: 1;    // 1 = Redraw Line1 content
+    u16 line2_full_update     	: 1;    // 1 = Redraw Line2 content
 
-	// returns "-048"
-	_sprintf("%03s", -48);
+	// Logic module data update flags
+    u16 update_time      		: 1;    // 1 = Time was updated 
+#ifdef CONFIG_SIDEREAL
+	u16 update_sidereal_time	: 1;	// 1 = Sidereal Time was updated
+#endif
+    u16 update_stopwatch     	: 1;    // 1 = Stopwatch was updated
+#ifdef CONFIG_EGGTIMER
+    u16 update_eggtimer : 1;
+#endif
+#ifdef CONFIG_INTTIMER
+    u16 update_inttimer : 1;
+#endif
+    u16 update_temperature   	: 1;    // 1 = Temperature was updated
+    u16 update_battery_voltage 	: 1;    // 1 = Battery voltage was updated
+    u16 update_date      		: 1;    // 1 = Date was updated
+    u16 update_alarm      		: 1;    // 1 = Alarm time was updated
+    u16 update_acceleration		: 1; 	// 1 = Acceleration data was updated
+  } flag;
+  u16 all_flags;            // Shortcut to all display flags (for reset)
+} s_display_flags;
 
-	// returns " 048"
-	_sprintf("%03s", 48);
+extern volatile s_display_flags display;
 
-	// returns "0xff"
-	_sprintf("0x%02", 0xff);
 
-	// returns "st1x"
-	_sprintf("st%1ux", 1)
-	\endcode
+// *************************************************************************************************
+// Defines section
 
-	<b>WARNING:</b> You must always specify the number of digits or bad results will happen! "%u" formats are not allowed!
+// Display function modes
+#define DISPLAY_LINE_UPDATE_FULL		(BIT0)
+#define DISPLAY_LINE_UPDATE_PARTIAL		(BIT1)
+#define DISPLAY_LINE_CLEAR				(BIT2)
+#define DISPLAY_LINE_MESSAGE			(BIT3)
 
-	\return a pointer to a string
-*/
+// Definitions for line view style
+#define DISPLAY_DEFAULT_VIEW			(0u)
+#define DISPLAY_ALTERNATIVE_VIEW		(1u)
+#define DISPLAY_ALTERNATIVE2_VIEW		(2u)
+ 
+// Definitions for line access
+#define LINE1							(1u)
+#define LINE2							(2u)
 
-char *_sprintf(
-	const char *fmt, /*!< the format specifier */
-	int16_t n        /*!< the number to be used in the format specifier */
-);
+// LCD display modes
+#define SEG_OFF					(0u)
+#define	SEG_ON					(1u)
+#define SEG_ON_BLINK_ON			(2u)
+#define SEG_ON_BLINK_OFF		(3u)
+#define SEG_OFF_BLINK_OFF		(4u)
 
-/*!
-	\brief Converts an integer from a range into a percent string between 0 and 100
-	\details Takes the number <i>n</i> and returns a string representation of that number as a percent between low and high. The returned string is 3 characters long.
+// 7-segment character bit assignments
+#define SEG_A                	(BIT4)
+#define SEG_B                	(BIT5)
+#define SEG_C                	(BIT6)
+#define SEG_D                	(BIT7)
+#define SEG_E                	(BIT2)
+#define SEG_F                	(BIT0)
+#define SEG_G                	(BIT1)
 
-	Example:
-	\code
-	// this returns "4F"
-	uint8_t *s = _itoa(0x4F, 2, 0);
-	\endcode
-	\return a string representation of <i>n</i>
-*/
-char *_itopct(
-		uint32_t low,     /*!< the 0% value */
-		uint32_t high,     /*!< the 100% value */
-		uint32_t n
-);
+// ------------------------------------------
+// LCD symbols for easier access
+//
+// xxx_SEG_xxx 		= Seven-segment character (sequence 5-4-3-2-1-0)
+// xxx_SYMB_xxx 	= Display symbol, e.g. "AM" for ante meridiem 
+// xxx_UNIT_xxx 	= Display unit, e.g. "km/h" for kilometers per hour
+// xxx_ICON_xxx 	= Display icon, e.g. heart to indicate reception of heart rate data
+// xxx_L1_xxx 		= Item is part of Line1 information 
+// xxx_L2_xxx 		= Item is part of Line2 information
 
-#endif /* DISPLAY_H_ */
+// Symbols for Line1
+#define LCD_SYMB_AM					0
+#define LCD_SYMB_PM					1
+#define LCD_SYMB_ARROW_UP			2
+#define LCD_SYMB_ARROW_DOWN			3
+#define LCD_SYMB_PERCENT			4
+
+// Symbols for Line2
+#define LCD_SYMB_TOTAL				5
+#define LCD_SYMB_AVERAGE			6
+#define LCD_SYMB_MAX				7
+#define LCD_SYMB_BATTERY			8
+
+// Units for Line1
+#define LCD_UNIT_L1_FT				9
+#define LCD_UNIT_L1_K				10
+#define LCD_UNIT_L1_M				11
+#define LCD_UNIT_L1_I				12
+#define LCD_UNIT_L1_PER_S			13
+#define LCD_UNIT_L1_PER_H			14
+#define LCD_UNIT_L1_DEGREE			15
+
+// Units for Line2
+#define LCD_UNIT_L2_KCAL			16
+#define LCD_UNIT_L2_KM				17
+#define LCD_UNIT_L2_MI				18
+
+// Icons
+#define LCD_ICON_HEART				19
+#define LCD_ICON_STOPWATCH			20
+#define LCD_ICON_RECORD				21
+#define LCD_ICON_ALARM				22
+#define LCD_ICON_BEEPER1			23
+#define LCD_ICON_BEEPER2			24
+#define LCD_ICON_BEEPER3			25
+
+// Line1 7-segments
+#define LCD_SEG_L1_3				26
+#define LCD_SEG_L1_2				27
+#define LCD_SEG_L1_1				28
+#define LCD_SEG_L1_0				29
+#define LCD_SEG_L1_COL				30
+#define LCD_SEG_L1_DP1				31
+#define LCD_SEG_L1_DP0				32
+
+// Line2 7-segments
+#define LCD_SEG_L2_5				33
+#define LCD_SEG_L2_4				34
+#define LCD_SEG_L2_3				35
+#define LCD_SEG_L2_2				36
+#define LCD_SEG_L2_1				37
+#define LCD_SEG_L2_0				38
+#define LCD_SEG_L2_COL1				39
+#define LCD_SEG_L2_COL0				40
+#define LCD_SEG_L2_DP				41
+
+
+// Line1 7-segment arrays
+#define LCD_SEG_L1_3_0				70
+#define LCD_SEG_L1_2_0				71
+#define LCD_SEG_L1_1_0				72
+#define LCD_SEG_L1_3_1				73
+#define LCD_SEG_L1_3_2				74
+
+// Line2 7-segment arrays
+#define LCD_SEG_L2_5_0				90
+#define LCD_SEG_L2_4_0				91
+#define LCD_SEG_L2_3_0				92
+#define LCD_SEG_L2_2_0				93
+#define LCD_SEG_L2_1_0				94
+#define LCD_SEG_L2_5_2				95
+#define LCD_SEG_L2_3_2				96
+#define LCD_SEG_L2_5_4				97
+#define LCD_SEG_L2_4_2				98
+#define LCD_SEG_L2_4_3				99
+
+
+// LCD controller memory map
+#define LCD_MEM_1          			((u8*)0x0A20)
+#define LCD_MEM_2          			((u8*)0x0A21)
+#define LCD_MEM_3          			((u8*)0x0A22)
+#define LCD_MEM_4          			((u8*)0x0A23)
+#define LCD_MEM_5          			((u8*)0x0A24)
+#define LCD_MEM_6          			((u8*)0x0A25)
+#define LCD_MEM_7          			((u8*)0x0A26)
+#define LCD_MEM_8          	 		((u8*)0x0A27)
+#define LCD_MEM_9          			((u8*)0x0A28)
+#define LCD_MEM_10         			((u8*)0x0A29)
+#define LCD_MEM_11         			((u8*)0x0A2A)
+#define LCD_MEM_12         			((u8*)0x0A2B)
+
+
+// Memory assignment
+#define LCD_SEG_L1_0_MEM			(LCD_MEM_6)
+#define LCD_SEG_L1_1_MEM			(LCD_MEM_4)
+#define LCD_SEG_L1_2_MEM			(LCD_MEM_3)
+#define LCD_SEG_L1_3_MEM			(LCD_MEM_2)
+#define LCD_SEG_L1_COL_MEM			(LCD_MEM_1)
+#define LCD_SEG_L1_DP1_MEM			(LCD_MEM_1)
+#define LCD_SEG_L1_DP0_MEM			(LCD_MEM_5)
+#define LCD_SEG_L2_0_MEM			(LCD_MEM_8)
+#define LCD_SEG_L2_1_MEM			(LCD_MEM_9)
+#define LCD_SEG_L2_2_MEM			(LCD_MEM_10)
+#define LCD_SEG_L2_3_MEM			(LCD_MEM_11)
+#define LCD_SEG_L2_4_MEM			(LCD_MEM_12)
+#define LCD_SEG_L2_5_MEM			(LCD_MEM_12)
+#define LCD_SEG_L2_COL1_MEM			(LCD_MEM_1)
+#define LCD_SEG_L2_COL0_MEM			(LCD_MEM_5)
+#define LCD_SEG_L2_DP_MEM			(LCD_MEM_9)
+#define LCD_SYMB_AM_MEM				(LCD_MEM_1)
+#define LCD_SYMB_PM_MEM				(LCD_MEM_1)
+#define LCD_SYMB_ARROW_UP_MEM		(LCD_MEM_1)
+#define LCD_SYMB_ARROW_DOWN_MEM		(LCD_MEM_1)
+#define LCD_SYMB_PERCENT_MEM		(LCD_MEM_5)
+#define LCD_SYMB_TOTAL_MEM			(LCD_MEM_11)
+#define LCD_SYMB_AVERAGE_MEM		(LCD_MEM_10)
+#define LCD_SYMB_MAX_MEM			(LCD_MEM_8)
+#define LCD_SYMB_BATTERY_MEM		(LCD_MEM_7)
+#define LCD_UNIT_L1_FT_MEM			(LCD_MEM_5)
+#define LCD_UNIT_L1_K_MEM			(LCD_MEM_5)
+#define LCD_UNIT_L1_M_MEM			(LCD_MEM_7)
+#define LCD_UNIT_L1_I_MEM			(LCD_MEM_7)
+#define LCD_UNIT_L1_PER_S_MEM		(LCD_MEM_5)
+#define LCD_UNIT_L1_PER_H_MEM		(LCD_MEM_7)
+#define LCD_UNIT_L1_DEGREE_MEM		(LCD_MEM_5)
+#define LCD_UNIT_L2_KCAL_MEM		(LCD_MEM_7)
+#define LCD_UNIT_L2_KM_MEM			(LCD_MEM_7)
+#define LCD_UNIT_L2_MI_MEM			(LCD_MEM_7)
+#define LCD_ICON_HEART_MEM			(LCD_MEM_2)
+#define LCD_ICON_STOPWATCH_MEM		(LCD_MEM_3)
+#define LCD_ICON_RECORD_MEM			(LCD_MEM_1)
+#define LCD_ICON_ALARM_MEM			(LCD_MEM_4)
+#define LCD_ICON_BEEPER1_MEM		(LCD_MEM_5)
+#define LCD_ICON_BEEPER2_MEM		(LCD_MEM_6)
+#define LCD_ICON_BEEPER3_MEM		(LCD_MEM_7)
+
+// Bit masks for write access
+#define LCD_SEG_L1_0_MASK			(BIT2+BIT1+BIT0+BIT7+BIT6+BIT5+BIT4)
+#define LCD_SEG_L1_1_MASK			(BIT2+BIT1+BIT0+BIT7+BIT6+BIT5+BIT4)
+#define LCD_SEG_L1_2_MASK			(BIT2+BIT1+BIT0+BIT7+BIT6+BIT5+BIT4)
+#define LCD_SEG_L1_3_MASK			(BIT2+BIT1+BIT0+BIT7+BIT6+BIT5+BIT4)
+#define LCD_SEG_L1_COL_MASK			(BIT5)
+#define LCD_SEG_L1_DP1_MASK			(BIT6)
+#define LCD_SEG_L1_DP0_MASK			(BIT2)
+#define LCD_SEG_L2_0_MASK			(BIT3+BIT2+BIT1+BIT0+BIT6+BIT5+BIT4)
+#define LCD_SEG_L2_1_MASK			(BIT3+BIT2+BIT1+BIT0+BIT6+BIT5+BIT4)
+#define LCD_SEG_L2_2_MASK			(BIT3+BIT2+BIT1+BIT0+BIT6+BIT5+BIT4)
+#define LCD_SEG_L2_3_MASK			(BIT3+BIT2+BIT1+BIT0+BIT6+BIT5+BIT4)
+#define LCD_SEG_L2_4_MASK			(BIT3+BIT2+BIT1+BIT0+BIT6+BIT5+BIT4)
+#define LCD_SEG_L2_5_MASK			(BIT7)
+#define LCD_SEG_L2_COL1_MASK		(BIT4)
+#define LCD_SEG_L2_COL0_MASK		(BIT0)
+#define LCD_SEG_L2_DP_MASK			(BIT7)
+#define LCD_SYMB_AM_MASK			(BIT1+BIT0)
+#define LCD_SYMB_PM_MASK			(BIT0)
+#define LCD_SYMB_ARROW_UP_MASK		(BIT2)
+#define LCD_SYMB_ARROW_DOWN_MASK	(BIT3)
+#define LCD_SYMB_PERCENT_MASK		(BIT4)
+#define LCD_SYMB_TOTAL_MASK			(BIT7)
+#define LCD_SYMB_AVERAGE_MASK		(BIT7)
+#define LCD_SYMB_MAX_MASK			(BIT7)
+#define LCD_SYMB_BATTERY_MASK		(BIT7)
+#define LCD_UNIT_L1_FT_MASK			(BIT5)
+#define LCD_UNIT_L1_K_MASK			(BIT6)
+#define LCD_UNIT_L1_M_MASK			(BIT1)
+#define LCD_UNIT_L1_I_MASK			(BIT0)
+#define LCD_UNIT_L1_PER_S_MASK		(BIT7)
+#define LCD_UNIT_L1_PER_H_MASK		(BIT2)
+#define LCD_UNIT_L1_DEGREE_MASK		(BIT1)
+#define LCD_UNIT_L2_KCAL_MASK		(BIT4)
+#define LCD_UNIT_L2_KM_MASK			(BIT5)
+#define LCD_UNIT_L2_MI_MASK			(BIT6)
+#define LCD_ICON_HEART_MASK			(BIT3)
+#define LCD_ICON_STOPWATCH_MASK		(BIT3)
+#define LCD_ICON_RECORD_MASK		(BIT7)
+#define LCD_ICON_ALARM_MASK			(BIT3)
+#define LCD_ICON_BEEPER1_MASK		(BIT3)
+#define LCD_ICON_BEEPER2_MASK		(BIT3)
+#define LCD_ICON_BEEPER3_MASK		(BIT3)
+
+
+
+// *************************************************************************************************
+// API section
+
+// Physical LCD memory write
+extern void write_lcd_mem(u8 * lcdmem, u8 bits, u8 bitmask, u8 state);
+
+// Display init / clear
+extern void lcd_init(void);
+extern void clear_display(void);
+extern void clear_display_all(void);
+extern void clear_line(u8 line);
+
+// Blinking function
+extern void start_blink(void);
+extern void stop_blink(void);
+extern void clear_blink_mem(void);
+extern void set_blink_rate(u8 bits);
+
+// Character / symbol draw functions
+extern void display_char(u8 segment, u8 chr, u8 mode);
+extern void display_chars(u8 segments, u8 * str, u8 mode);
+extern void display_symbol(u8 symbol, u8 mode);
+
+// Time display function
+extern void DisplayTime(u8 updateMode);
+extern void display_am_pm_symbol(u8 timeAM);
+
+// Set_value display functions
+extern void display_value1(u8 segments, u32 value, u8 digits, u8 blanks, u8 disp_mode);
+extern void display_hours_12_or_24(u8 segments, u32 value, u8 digits, u8 blanks, u8 disp_mode);
+
+// Integer to string conversion 
+extern u8 * _itoa(u32 n, u8 digits, u8 blanks);
+
+// Segment index helper function
+extern u8 switch_seg(u8 line, u8 index1, u8 index2);
+
+void display_all_off(void);
+
+#endif // __DISPLAY_
