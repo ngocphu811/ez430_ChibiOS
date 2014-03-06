@@ -35,8 +35,8 @@ _port_switch:
         push    r6
         push    r5
         push    r4
-        mov r1, 6(r14)
-        mov 6(r15), r1
+        mov 	r1, 6(r14)
+        mov 	6(r15), r1
         pop     r4
         pop     r5
         pop     r6

@@ -46,7 +46,11 @@ const PALConfig pal_default_config =
 };
 #endif
 
+#if defined(__CC430F6137__)
+CH_IRQ_HANDLER(TIMER0_A0) {
+#else
 CH_IRQ_HANDLER(TIMERA0) {
+#endif
 
   CH_IRQ_PROLOGUE();
 
@@ -73,8 +77,8 @@ void boardInit(void) {
   /*
    * Timer 0 setup, uses SMCLK as source.
    */
-  TACCR0 = SMCLK / 4 / CH_FREQUENCY - 1;/* Counter limit.               */
-  TACTL = TACLR;                        /* Clean start.                 */
-  TACTL = TASSEL_2 | ID_2 | MC_1;       /* Src=SMCLK, ID=4, cmp=TACCR0. */
-  TACCTL0 = CCIE;                       /* Interrupt on compare.        */
+//  TACCR0 = SMCLK / 4 / CH_FREQUENCY - 1;/* Counter limit.               */
+//  TACTL = TACLR;                        /* Clean start.                 */
+//  TACTL = TASSEL_2 | ID_2 | MC_1;       /* Src=SMCLK, ID=4, cmp=TACCR0. */
+//  TACCTL0 = CCIE;                       /* Interrupt on compare.        */
 }

@@ -53,7 +53,7 @@ int main(void) {
   /*
    * Activates the serial driver 1 using the driver default configuration.
    */
-  sdStart(&SD1, NULL);
+  //sdStart(&SD1, NULL);
 
   /*
    * Creates the blinker thread.
@@ -65,8 +65,8 @@ int main(void) {
    * checking a button and run a test suite if button was pressed.
    */
   while (TRUE) {
-    if (!palReadPad(IOPORT6, P6_I_BUTTON))
-      TestThread(&SD1);
+    if (!palReadPad(IOPORT2, P2_I_BUTTON)) ;
+     // TestThread(&SD1);
     chThdSleepMilliseconds(500);
   }
   return 0;

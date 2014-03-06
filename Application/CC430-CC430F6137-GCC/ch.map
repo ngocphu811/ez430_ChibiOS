@@ -1,0 +1,2152 @@
+Archive member included because of file (symbol)
+
+/usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+                              /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o (_reset_vector__)
+/usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+                              /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o) (__watchdog_support)
+/usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__init_stack.o)
+                              /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o) (__init_stack)
+/usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__low_level_init.o)
+                              /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o) (__low_level_init)
+/usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+                              /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o) (__do_copy_data)
+/usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+                              /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o) (__do_clear_bss)
+/usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__stop_progExec__.o)
+                              /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o) (__stop_progExec__)
+/usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_endless_loop__.o)
+                              /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o) (_endless_loop__)
+/usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_unexpected_.o)
+                              /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o (_unexpected_)
+
+Allocating common symbols
+Common symbol       size              file
+
+vtlist              0x8               ../../os/kernel/src/chvt.o
+rlist               0xe               ../../os/kernel/src/chschd.o
+_idle_thread_wa     0x64              ../../os/kernel/src/chsys.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+sfr              0x00000000         0x00000010
+peripheral_8bit  0x00000010         0x000000f0
+peripheral_16bit 0x00000100         0x00000100
+bsl              0x00001000         0x00000800
+infomem          0x00001800         0x00000200
+infod            0x00001800         0x00000080
+infoc            0x00001880         0x00000080
+infob            0x00001900         0x00000080
+infoa            0x00001980         0x00000080
+ram              0x00001c00         0x00000ffe         xw
+rom              0x00008000         0x00007f80         xr
+vectors          0x0000ff80         0x00000080
+ram2             0x00000000         0x00000000         xw
+ram_mirror       0x00000000         0x00000000         xw
+usbram           0x00000000         0x00000000         xw
+far_rom          0x00000000         0x00000000
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+LOAD ../../os/ports/GCC/MSP430/chcoreasm.o
+LOAD ../../os/kernel/src/chsys.o
+LOAD ../../os/kernel/src/chdebug.o
+LOAD ../../os/kernel/src/chlists.o
+LOAD ../../os/kernel/src/chvt.o
+LOAD ../../os/kernel/src/chschd.o
+LOAD ../../os/kernel/src/chthreads.o
+LOAD ../../os/kernel/src/chdynamic.o
+LOAD ../../os/kernel/src/chregistry.o
+LOAD ../../os/kernel/src/chsem.o
+LOAD ../../os/kernel/src/chmtx.o
+LOAD ../../os/kernel/src/chcond.o
+LOAD ../../os/kernel/src/chevents.o
+LOAD ../../os/kernel/src/chmsg.o
+LOAD ../../os/kernel/src/chmboxes.o
+LOAD ../../os/kernel/src/chqueues.o
+LOAD ../../os/kernel/src/chmemcore.o
+LOAD ../../os/kernel/src/chheap.o
+LOAD ../../os/kernel/src/chmempools.o
+LOAD ../../os/hal/src/hal.o
+LOAD ../../os/hal/src/adc.o
+LOAD ../../os/hal/src/can.o
+LOAD ../../os/hal/src/dac.o
+LOAD ../../os/hal/src/ext.o
+LOAD ../../os/hal/src/gpt.o
+LOAD ../../os/hal/src/i2c.o
+LOAD ../../os/hal/src/icu.o
+LOAD ../../os/hal/src/mac.o
+LOAD ../../os/hal/src/mmc_spi.o
+LOAD ../../os/hal/src/mmcsd.o
+LOAD ../../os/hal/src/pal.o
+LOAD ../../os/hal/src/pwm.o
+LOAD ../../os/hal/src/rtc.o
+LOAD ../../os/hal/src/sdc.o
+LOAD ../../os/hal/src/serial.o
+LOAD ../../os/hal/src/serial_usb.o
+LOAD ../../os/hal/src/spi.o
+LOAD ../../os/hal/src/tm.o
+LOAD ../../os/hal/src/uart.o
+LOAD ../../os/hal/src/usb.o
+LOAD ../../os/hal/platforms/MSP430/hal_lld.o
+LOAD ../../os/hal/platforms/MSP430/pal_lld.o
+LOAD ../../os/hal/platforms/MSP430/serial_lld.o
+LOAD ../../boards/ezChronos_CC430_F6137/board.o
+LOAD ../../os/various/evtimer.o
+LOAD main.o
+LOAD /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libgcc.a
+LOAD /usr/lib/gcc/msp430/4.6.4/../../../../msp430/lib/mcpu-430x/mmpy-16/libc.a
+LOAD /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libgcc.a
+LOAD /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a
+                0x00000080                PROVIDE (__info_segment_size, 0x80)
+                0x00001800                PROVIDE (__infod, 0x1800)
+                0x00001880                PROVIDE (__infoc, 0x1880)
+                0x00001900                PROVIDE (__infob, 0x1900)
+                0x00001980                PROVIDE (__infoa, 0x1980)
+                0x00000700                __ADC12CTL0_L = 0x700
+                0x00000701                __ADC12CTL0_H = 0x701
+                0x00000700                __ADC12CTL0 = 0x700
+                0x00000702                __ADC12CTL1_L = 0x702
+                0x00000703                __ADC12CTL1_H = 0x703
+                0x00000702                __ADC12CTL1 = 0x702
+                0x00000704                __ADC12CTL2_L = 0x704
+                0x00000705                __ADC12CTL2_H = 0x705
+                0x00000704                __ADC12CTL2 = 0x704
+                0x0000070a                __ADC12IFG_L = 0x70a
+                0x0000070b                __ADC12IFG_H = 0x70b
+                0x0000070a                __ADC12IFG = 0x70a
+                0x0000070c                __ADC12IE_L = 0x70c
+                0x0000070d                __ADC12IE_H = 0x70d
+                0x0000070c                __ADC12IE = 0x70c
+                0x0000070e                __ADC12IV_L = 0x70e
+                0x0000070f                __ADC12IV_H = 0x70f
+                0x0000070e                __ADC12IV = 0x70e
+                0x00000720                __ADC12MEM0_L = 0x720
+                0x00000721                __ADC12MEM0_H = 0x721
+                0x00000720                __ADC12MEM0 = 0x720
+                0x00000722                __ADC12MEM1_L = 0x722
+                0x00000723                __ADC12MEM1_H = 0x723
+                0x00000722                __ADC12MEM1 = 0x722
+                0x00000724                __ADC12MEM2_L = 0x724
+                0x00000725                __ADC12MEM2_H = 0x725
+                0x00000724                __ADC12MEM2 = 0x724
+                0x00000726                __ADC12MEM3_L = 0x726
+                0x00000727                __ADC12MEM3_H = 0x727
+                0x00000726                __ADC12MEM3 = 0x726
+                0x00000728                __ADC12MEM4_L = 0x728
+                0x00000729                __ADC12MEM4_H = 0x729
+                0x00000728                __ADC12MEM4 = 0x728
+                0x0000072a                __ADC12MEM5_L = 0x72a
+                0x0000072b                __ADC12MEM5_H = 0x72b
+                0x0000072a                __ADC12MEM5 = 0x72a
+                0x0000072c                __ADC12MEM6_L = 0x72c
+                0x0000072d                __ADC12MEM6_H = 0x72d
+                0x0000072c                __ADC12MEM6 = 0x72c
+                0x0000072e                __ADC12MEM7_L = 0x72e
+                0x0000072f                __ADC12MEM7_H = 0x72f
+                0x0000072e                __ADC12MEM7 = 0x72e
+                0x00000730                __ADC12MEM8_L = 0x730
+                0x00000731                __ADC12MEM8_H = 0x731
+                0x00000730                __ADC12MEM8 = 0x730
+                0x00000732                __ADC12MEM9_L = 0x732
+                0x00000733                __ADC12MEM9_H = 0x733
+                0x00000732                __ADC12MEM9 = 0x732
+                0x00000734                __ADC12MEM10_L = 0x734
+                0x00000735                __ADC12MEM10_H = 0x735
+                0x00000734                __ADC12MEM10 = 0x734
+                0x00000736                __ADC12MEM11_L = 0x736
+                0x00000737                __ADC12MEM11_H = 0x737
+                0x00000736                __ADC12MEM11 = 0x736
+                0x00000738                __ADC12MEM12_L = 0x738
+                0x00000739                __ADC12MEM12_H = 0x739
+                0x00000738                __ADC12MEM12 = 0x738
+                0x0000073a                __ADC12MEM13_L = 0x73a
+                0x0000073b                __ADC12MEM13_H = 0x73b
+                0x0000073a                __ADC12MEM13 = 0x73a
+                0x0000073c                __ADC12MEM14_L = 0x73c
+                0x0000073d                __ADC12MEM14_H = 0x73d
+                0x0000073c                __ADC12MEM14 = 0x73c
+                0x0000073e                __ADC12MEM15_L = 0x73e
+                0x0000073f                __ADC12MEM15_H = 0x73f
+                0x0000073e                __ADC12MEM15 = 0x73e
+                0x00000710                __ADC12MCTL0 = 0x710
+                0x00000711                __ADC12MCTL1 = 0x711
+                0x00000712                __ADC12MCTL2 = 0x712
+                0x00000713                __ADC12MCTL3 = 0x713
+                0x00000714                __ADC12MCTL4 = 0x714
+                0x00000715                __ADC12MCTL5 = 0x715
+                0x00000716                __ADC12MCTL6 = 0x716
+                0x00000717                __ADC12MCTL7 = 0x717
+                0x00000718                __ADC12MCTL8 = 0x718
+                0x00000719                __ADC12MCTL9 = 0x719
+                0x0000071a                __ADC12MCTL10 = 0x71a
+                0x0000071b                __ADC12MCTL11 = 0x71b
+                0x0000071c                __ADC12MCTL12 = 0x71c
+                0x0000071d                __ADC12MCTL13 = 0x71d
+                0x0000071e                __ADC12MCTL14 = 0x71e
+                0x0000071f                __ADC12MCTL15 = 0x71f
+                0x000009c0                __AESACTL0_L = 0x9c0
+                0x000009c1                __AESACTL0_H = 0x9c1
+                0x000009c0                __AESACTL0 = 0x9c0
+                0x000009c4                __AESASTAT_L = 0x9c4
+                0x000009c5                __AESASTAT_H = 0x9c5
+                0x000009c4                __AESASTAT = 0x9c4
+                0x000009c6                __AESAKEY_L = 0x9c6
+                0x000009c7                __AESAKEY_H = 0x9c7
+                0x000009c6                __AESAKEY = 0x9c6
+                0x000009c8                __AESADIN_L = 0x9c8
+                0x000009c9                __AESADIN_H = 0x9c9
+                0x000009c8                __AESADIN = 0x9c8
+                0x000009ca                __AESADOUT_L = 0x9ca
+                0x000009cb                __AESADOUT_H = 0x9cb
+                0x000009ca                __AESADOUT = 0x9ca
+                0x000008c0                __CBCTL0_L = 0x8c0
+                0x000008c1                __CBCTL0_H = 0x8c1
+                0x000008c0                __CBCTL0 = 0x8c0
+                0x000008c2                __CBCTL1_L = 0x8c2
+                0x000008c3                __CBCTL1_H = 0x8c3
+                0x000008c2                __CBCTL1 = 0x8c2
+                0x000008c4                __CBCTL2_L = 0x8c4
+                0x000008c5                __CBCTL2_H = 0x8c5
+                0x000008c4                __CBCTL2 = 0x8c4
+                0x000008c6                __CBCTL3_L = 0x8c6
+                0x000008c7                __CBCTL3_H = 0x8c7
+                0x000008c6                __CBCTL3 = 0x8c6
+                0x000008cc                __CBINT_L = 0x8cc
+                0x000008cd                __CBINT_H = 0x8cd
+                0x000008cc                __CBINT = 0x8cc
+                0x000008ce                __CBIV = 0x8ce
+                0x00000f00                __RF1AIFCTL0_L = 0xf00
+                0x00000f01                __RF1AIFCTL0_H = 0xf01
+                0x00000f00                __RF1AIFCTL0 = 0xf00
+                0x00000f02                __RF1AIFCTL1_L = 0xf02
+                0x00000f03                __RF1AIFCTL1_H = 0xf03
+                0x00000f02                __RF1AIFCTL1 = 0xf02
+                0x00000f04                __RF1AIFCTL2_L = 0xf04
+                0x00000f05                __RF1AIFCTL2_H = 0xf05
+                0x00000f04                __RF1AIFCTL2 = 0xf04
+                0x00000f06                __RF1AIFERR_L = 0xf06
+                0x00000f07                __RF1AIFERR_H = 0xf07
+                0x00000f06                __RF1AIFERR = 0xf06
+                0x00000f0c                __RF1AIFERRV_L = 0xf0c
+                0x00000f0d                __RF1AIFERRV_H = 0xf0d
+                0x00000f0c                __RF1AIFERRV = 0xf0c
+                0x00000f0e                __RF1AIFIV_L = 0xf0e
+                0x00000f0f                __RF1AIFIV_H = 0xf0f
+                0x00000f0e                __RF1AIFIV = 0xf0e
+                0x00000f10                __RF1AINSTRW_L = 0xf10
+                0x00000f11                __RF1AINSTRW_H = 0xf11
+                0x00000f10                __RF1AINSTRW = 0xf10
+                0x00000f12                __RF1AINSTR1W_L = 0xf12
+                0x00000f13                __RF1AINSTR1W_H = 0xf13
+                0x00000f12                __RF1AINSTR1W = 0xf12
+                0x00000f14                __RF1AINSTR2W_L = 0xf14
+                0x00000f15                __RF1AINSTR2W_H = 0xf15
+                0x00000f14                __RF1AINSTR2W = 0xf14
+                0x00000f16                __RF1ADINW_L = 0xf16
+                0x00000f17                __RF1ADINW_H = 0xf17
+                0x00000f16                __RF1ADINW = 0xf16
+                0x00000f20                __RF1ASTAT0W_L = 0xf20
+                0x00000f21                __RF1ASTAT0W_H = 0xf21
+                0x00000f20                __RF1ASTAT0W = 0xf20
+                0x00000f22                __RF1ASTAT1W_L = 0xf22
+                0x00000f23                __RF1ASTAT1W_H = 0xf23
+                0x00000f22                __RF1ASTAT1W = 0xf22
+                0x00000f24                __RF1ASTAT2W_L = 0xf24
+                0x00000f25                __RF1ASTAT2W_H = 0xf25
+                0x00000f24                __RF1ASTAT2W = 0xf24
+                0x00000f28                __RF1ADOUT0W_L = 0xf28
+                0x00000f29                __RF1ADOUT0W_H = 0xf29
+                0x00000f28                __RF1ADOUT0W = 0xf28
+                0x00000f2a                __RF1ADOUT1W_L = 0xf2a
+                0x00000f2b                __RF1ADOUT1W_H = 0xf2b
+                0x00000f2a                __RF1ADOUT1W = 0xf2a
+                0x00000f2c                __RF1ADOUT2W_L = 0xf2c
+                0x00000f2d                __RF1ADOUT2W_H = 0xf2d
+                0x00000f2c                __RF1ADOUT2W = 0xf2c
+                0x00000f30                __RF1AIN_L = 0xf30
+                0x00000f31                __RF1AIN_H = 0xf31
+                0x00000f30                __RF1AIN = 0xf30
+                0x00000f32                __RF1AIFG_L = 0xf32
+                0x00000f33                __RF1AIFG_H = 0xf33
+                0x00000f32                __RF1AIFG = 0xf32
+                0x00000f34                __RF1AIES_L = 0xf34
+                0x00000f35                __RF1AIES_H = 0xf35
+                0x00000f34                __RF1AIES = 0xf34
+                0x00000f36                __RF1AIE_L = 0xf36
+                0x00000f37                __RF1AIE_H = 0xf37
+                0x00000f36                __RF1AIE = 0xf36
+                0x00000f38                __RF1AIV_L = 0xf38
+                0x00000f39                __RF1AIV_H = 0xf39
+                0x00000f38                __RF1AIV = 0xf38
+                0x00000f3c                __RF1ARXFIFO_L = 0xf3c
+                0x00000f3d                __RF1ARXFIFO_H = 0xf3d
+                0x00000f3c                __RF1ARXFIFO = 0xf3c
+                0x00000f3e                __RF1ATXFIFO_L = 0xf3e
+                0x00000f3f                __RF1ATXFIFO_H = 0xf3f
+                0x00000f3e                __RF1ATXFIFO = 0xf3e
+                0x00000150                __CRCDI_L = 0x150
+                0x00000151                __CRCDI_H = 0x151
+                0x00000150                __CRCDI = 0x150
+                0x00000152                __CRCDIRB_L = 0x152
+                0x00000153                __CRCDIRB_H = 0x153
+                0x00000152                __CRCDIRB = 0x152
+                0x00000154                __CRCINIRES_L = 0x154
+                0x00000155                __CRCINIRES_H = 0x155
+                0x00000154                __CRCINIRES = 0x154
+                0x00000156                __CRCRESR_L = 0x156
+                0x00000157                __CRCRESR_H = 0x157
+                0x00000156                __CRCRESR = 0x156
+                0x00000500                __DMACTL0_L = 0x500
+                0x00000501                __DMACTL0_H = 0x501
+                0x00000500                __DMACTL0 = 0x500
+                0x00000502                __DMACTL1_L = 0x502
+                0x00000503                __DMACTL1_H = 0x503
+                0x00000502                __DMACTL1 = 0x502
+                0x00000504                __DMACTL2_L = 0x504
+                0x00000505                __DMACTL2_H = 0x505
+                0x00000504                __DMACTL2 = 0x504
+                0x00000506                __DMACTL3_L = 0x506
+                0x00000507                __DMACTL3_H = 0x507
+                0x00000506                __DMACTL3 = 0x506
+                0x00000508                __DMACTL4_L = 0x508
+                0x00000509                __DMACTL4_H = 0x509
+                0x00000508                __DMACTL4 = 0x508
+                0x0000050e                __DMAIV_L = 0x50e
+                0x0000050f                __DMAIV_H = 0x50f
+                0x0000050e                __DMAIV = 0x50e
+                0x00000510                __DMA0CTL_L = 0x510
+                0x00000511                __DMA0CTL_H = 0x511
+                0x00000510                __DMA0CTL = 0x510
+                0x00000512                __DMA0SA = 0x512
+                0x00000516                __DMA0DA = 0x516
+                0x0000051a                __DMA0SZ = 0x51a
+                0x00000520                __DMA1CTL_L = 0x520
+                0x00000521                __DMA1CTL_H = 0x521
+                0x00000520                __DMA1CTL = 0x520
+                0x00000522                __DMA1SA = 0x522
+                0x00000526                __DMA1DA = 0x526
+                0x0000052a                __DMA1SZ = 0x52a
+                0x00000530                __DMA2CTL_L = 0x530
+                0x00000531                __DMA2CTL_H = 0x531
+                0x00000530                __DMA2CTL = 0x530
+                0x00000532                __DMA2SA = 0x532
+                0x00000536                __DMA2DA = 0x536
+                0x0000053a                __DMA2SZ = 0x53a
+                0x00000140                __FCTL1_L = 0x140
+                0x00000141                __FCTL1_H = 0x141
+                0x00000140                __FCTL1 = 0x140
+                0x00000144                __FCTL3_L = 0x144
+                0x00000145                __FCTL3_H = 0x145
+                0x00000144                __FCTL3 = 0x144
+                0x00000146                __FCTL4_L = 0x146
+                0x00000147                __FCTL4_H = 0x147
+                0x00000146                __FCTL4 = 0x146
+                0x00000a00                __LCDBCTL0_L = 0xa00
+                0x00000a01                __LCDBCTL0_H = 0xa01
+                0x00000a00                __LCDBCTL0 = 0xa00
+                0x00000a02                __LCDBCTL1_L = 0xa02
+                0x00000a03                __LCDBCTL1_H = 0xa03
+                0x00000a02                __LCDBCTL1 = 0xa02
+                0x00000a04                __LCDBBLKCTL_L = 0xa04
+                0x00000a05                __LCDBBLKCTL_H = 0xa05
+                0x00000a04                __LCDBBLKCTL = 0xa04
+                0x00000a06                __LCDBMEMCTL_L = 0xa06
+                0x00000a07                __LCDBMEMCTL_H = 0xa07
+                0x00000a06                __LCDBMEMCTL = 0xa06
+                0x00000a08                __LCDBVCTL_L = 0xa08
+                0x00000a09                __LCDBVCTL_H = 0xa09
+                0x00000a08                __LCDBVCTL = 0xa08
+                0x00000a0a                __LCDBPCTL0_L = 0xa0a
+                0x00000a0b                __LCDBPCTL0_H = 0xa0b
+                0x00000a0a                __LCDBPCTL0 = 0xa0a
+                0x00000a0c                __LCDBPCTL1_L = 0xa0c
+                0x00000a0d                __LCDBPCTL1_H = 0xa0d
+                0x00000a0c                __LCDBPCTL1 = 0xa0c
+                0x00000a0e                __LCDBPCTL2_L = 0xa0e
+                0x00000a0f                __LCDBPCTL2_H = 0xa0f
+                0x00000a0e                __LCDBPCTL2 = 0xa0e
+                0x00000a10                __LCDBPCTL3_L = 0xa10
+                0x00000a11                __LCDBPCTL3_H = 0xa11
+                0x00000a10                __LCDBPCTL3 = 0xa10
+                0x00000a12                __LCDBCPCTL_L = 0xa12
+                0x00000a13                __LCDBCPCTL_H = 0xa13
+                0x00000a12                __LCDBCPCTL = 0xa12
+                0x00000a1e                __LCDBIV = 0xa1e
+                0x00000a20                __LCDM1 = 0xa20
+                0x00000a21                __LCDM2 = 0xa21
+                0x00000a22                __LCDM3 = 0xa22
+                0x00000a23                __LCDM4 = 0xa23
+                0x00000a24                __LCDM5 = 0xa24
+                0x00000a25                __LCDM6 = 0xa25
+                0x00000a26                __LCDM7 = 0xa26
+                0x00000a27                __LCDM8 = 0xa27
+                0x00000a28                __LCDM9 = 0xa28
+                0x00000a29                __LCDM10 = 0xa29
+                0x00000a2a                __LCDM11 = 0xa2a
+                0x00000a2b                __LCDM12 = 0xa2b
+                0x00000a2c                __LCDM13 = 0xa2c
+                0x00000a2d                __LCDM14 = 0xa2d
+                0x00000a2e                __LCDM15 = 0xa2e
+                0x00000a2f                __LCDM16 = 0xa2f
+                0x00000a30                __LCDM17 = 0xa30
+                0x00000a31                __LCDM18 = 0xa31
+                0x00000a32                __LCDM19 = 0xa32
+                0x00000a33                __LCDM20 = 0xa33
+                0x00000a34                __LCDM21 = 0xa34
+                0x00000a35                __LCDM22 = 0xa35
+                0x00000a36                __LCDM23 = 0xa36
+                0x00000a37                __LCDM24 = 0xa37
+                0x00000a40                __LCDBM1 = 0xa40
+                0x00000a41                __LCDBM2 = 0xa41
+                0x00000a42                __LCDBM3 = 0xa42
+                0x00000a43                __LCDBM4 = 0xa43
+                0x00000a44                __LCDBM5 = 0xa44
+                0x00000a45                __LCDBM6 = 0xa45
+                0x00000a46                __LCDBM7 = 0xa46
+                0x00000a47                __LCDBM8 = 0xa47
+                0x00000a48                __LCDBM9 = 0xa48
+                0x00000a49                __LCDBM10 = 0xa49
+                0x00000a4a                __LCDBM11 = 0xa4a
+                0x00000a4b                __LCDBM12 = 0xa4b
+                0x00000a4c                __LCDBM13 = 0xa4c
+                0x00000a4d                __LCDBM14 = 0xa4d
+                0x00000a4e                __LCDBM15 = 0xa4e
+                0x00000a4f                __LCDBM16 = 0xa4f
+                0x00000a50                __LCDBM17 = 0xa50
+                0x00000a51                __LCDBM18 = 0xa51
+                0x00000a52                __LCDBM19 = 0xa52
+                0x00000a53                __LCDBM20 = 0xa53
+                0x00000a54                __LCDBM21 = 0xa54
+                0x00000a55                __LCDBM22 = 0xa55
+                0x00000a56                __LCDBM23 = 0xa56
+                0x00000a57                __LCDBM24 = 0xa57
+                0x000004c0                __MPY_L = 0x4c0
+                0x000004c1                __MPY_H = 0x4c1
+                0x000004c0                __MPY = 0x4c0
+                0x000004c2                __MPYS_L = 0x4c2
+                0x000004c3                __MPYS_H = 0x4c3
+                0x000004c2                __MPYS = 0x4c2
+                0x000004c4                __MAC_L = 0x4c4
+                0x000004c5                __MAC_H = 0x4c5
+                0x000004c4                __MAC = 0x4c4
+                0x000004c6                __MACS_L = 0x4c6
+                0x000004c7                __MACS_H = 0x4c7
+                0x000004c6                __MACS = 0x4c6
+                0x000004c8                __OP2_L = 0x4c8
+                0x000004c9                __OP2_H = 0x4c9
+                0x000004c8                __OP2 = 0x4c8
+                0x000004ca                __RESLO_L = 0x4ca
+                0x000004cb                __RESLO_H = 0x4cb
+                0x000004ca                __RESLO = 0x4ca
+                0x000004cc                __RESHI_L = 0x4cc
+                0x000004cd                __RESHI_H = 0x4cd
+                0x000004cc                __RESHI = 0x4cc
+                0x000004ce                __SUMEXT_L = 0x4ce
+                0x000004cf                __SUMEXT_H = 0x4cf
+                0x000004ce                __SUMEXT = 0x4ce
+                0x000004d0                __MPY32L_L = 0x4d0
+                0x000004d1                __MPY32L_H = 0x4d1
+                0x000004d0                __MPY32L = 0x4d0
+                0x000004d2                __MPY32H_L = 0x4d2
+                0x000004d3                __MPY32H_H = 0x4d3
+                0x000004d2                __MPY32H = 0x4d2
+                0x000004d4                __MPYS32L_L = 0x4d4
+                0x000004d5                __MPYS32L_H = 0x4d5
+                0x000004d4                __MPYS32L = 0x4d4
+                0x000004d6                __MPYS32H_L = 0x4d6
+                0x000004d7                __MPYS32H_H = 0x4d7
+                0x000004d6                __MPYS32H = 0x4d6
+                0x000004d8                __MAC32L_L = 0x4d8
+                0x000004d9                __MAC32L_H = 0x4d9
+                0x000004d8                __MAC32L = 0x4d8
+                0x000004da                __MAC32H_L = 0x4da
+                0x000004db                __MAC32H_H = 0x4db
+                0x000004da                __MAC32H = 0x4da
+                0x000004dc                __MACS32L_L = 0x4dc
+                0x000004dd                __MACS32L_H = 0x4dd
+                0x000004dc                __MACS32L = 0x4dc
+                0x000004de                __MACS32H_L = 0x4de
+                0x000004df                __MACS32H_H = 0x4df
+                0x000004de                __MACS32H = 0x4de
+                0x000004e0                __OP2L_L = 0x4e0
+                0x000004e1                __OP2L_H = 0x4e1
+                0x000004e0                __OP2L = 0x4e0
+                0x000004e2                __OP2H_L = 0x4e2
+                0x000004e3                __OP2H_H = 0x4e3
+                0x000004e2                __OP2H = 0x4e2
+                0x000004e4                __RES0_L = 0x4e4
+                0x000004e5                __RES0_H = 0x4e5
+                0x000004e4                __RES0 = 0x4e4
+                0x000004e6                __RES1_L = 0x4e6
+                0x000004e7                __RES1_H = 0x4e7
+                0x000004e6                __RES1 = 0x4e6
+                0x000004e8                __RES2_L = 0x4e8
+                0x000004e9                __RES2_H = 0x4e9
+                0x000004e8                __RES2 = 0x4e8
+                0x000004ea                __RES3_L = 0x4ea
+                0x000004eb                __RES3_H = 0x4eb
+                0x000004ea                __RES3 = 0x4ea
+                0x000004ec                __MPY32CTL0_L = 0x4ec
+                0x000004ed                __MPY32CTL0_H = 0x4ed
+                0x000004ec                __MPY32CTL0 = 0x4ec
+                0x00000200                __PAIN_L = 0x200
+                0x00000201                __PAIN_H = 0x201
+                0x00000200                __PAIN = 0x200
+                0x00000202                __PAOUT_L = 0x202
+                0x00000203                __PAOUT_H = 0x203
+                0x00000202                __PAOUT = 0x202
+                0x00000204                __PADIR_L = 0x204
+                0x00000205                __PADIR_H = 0x205
+                0x00000204                __PADIR = 0x204
+                0x00000206                __PAREN_L = 0x206
+                0x00000207                __PAREN_H = 0x207
+                0x00000206                __PAREN = 0x206
+                0x00000208                __PADS_L = 0x208
+                0x00000209                __PADS_H = 0x209
+                0x00000208                __PADS = 0x208
+                0x0000020a                __PASEL_L = 0x20a
+                0x0000020b                __PASEL_H = 0x20b
+                0x0000020a                __PASEL = 0x20a
+                0x00000218                __PAIES_L = 0x218
+                0x00000219                __PAIES_H = 0x219
+                0x00000218                __PAIES = 0x218
+                0x0000021a                __PAIE_L = 0x21a
+                0x0000021b                __PAIE_H = 0x21b
+                0x0000021a                __PAIE = 0x21a
+                0x0000021c                __PAIFG_L = 0x21c
+                0x0000021d                __PAIFG_H = 0x21d
+                0x0000021c                __PAIFG = 0x21c
+                0x0000020e                __P1IV = 0x20e
+                0x0000021e                __P2IV = 0x21e
+                0x00000220                __PBIN_L = 0x220
+                0x00000221                __PBIN_H = 0x221
+                0x00000220                __PBIN = 0x220
+                0x00000222                __PBOUT_L = 0x222
+                0x00000223                __PBOUT_H = 0x223
+                0x00000222                __PBOUT = 0x222
+                0x00000224                __PBDIR_L = 0x224
+                0x00000225                __PBDIR_H = 0x225
+                0x00000224                __PBDIR = 0x224
+                0x00000226                __PBREN_L = 0x226
+                0x00000227                __PBREN_H = 0x227
+                0x00000226                __PBREN = 0x226
+                0x00000228                __PBDS_L = 0x228
+                0x00000229                __PBDS_H = 0x229
+                0x00000228                __PBDS = 0x228
+                0x0000022a                __PBSEL_L = 0x22a
+                0x0000022b                __PBSEL_H = 0x22b
+                0x0000022a                __PBSEL = 0x22a
+                0x00000240                __PCIN_L = 0x240
+                0x00000241                __PCIN_H = 0x241
+                0x00000240                __PCIN = 0x240
+                0x00000242                __PCOUT_L = 0x242
+                0x00000243                __PCOUT_H = 0x243
+                0x00000242                __PCOUT = 0x242
+                0x00000244                __PCDIR_L = 0x244
+                0x00000245                __PCDIR_H = 0x245
+                0x00000244                __PCDIR = 0x244
+                0x00000246                __PCREN_L = 0x246
+                0x00000247                __PCREN_H = 0x247
+                0x00000246                __PCREN = 0x246
+                0x00000248                __PCDS_L = 0x248
+                0x00000249                __PCDS_H = 0x249
+                0x00000248                __PCDS = 0x248
+                0x0000024a                __PCSEL_L = 0x24a
+                0x0000024b                __PCSEL_H = 0x24b
+                0x0000024a                __PCSEL = 0x24a
+                0x00000320                __PJIN_L = 0x320
+                0x00000321                __PJIN_H = 0x321
+                0x00000320                __PJIN = 0x320
+                0x00000322                __PJOUT_L = 0x322
+                0x00000323                __PJOUT_H = 0x323
+                0x00000322                __PJOUT = 0x322
+                0x00000324                __PJDIR_L = 0x324
+                0x00000325                __PJDIR_H = 0x325
+                0x00000324                __PJDIR = 0x324
+                0x00000326                __PJREN_L = 0x326
+                0x00000327                __PJREN_H = 0x327
+                0x00000326                __PJREN = 0x326
+                0x00000328                __PJDS_L = 0x328
+                0x00000329                __PJDS_H = 0x329
+                0x00000328                __PJDS = 0x328
+                0x000001c0                __PMAPKEYID_L = 0x1c0
+                0x000001c1                __PMAPKEYID_H = 0x1c1
+                0x000001c0                __PMAPKEYID = 0x1c0
+                0x000001c2                __PMAPCTL_L = 0x1c2
+                0x000001c3                __PMAPCTL_H = 0x1c3
+                0x000001c2                __PMAPCTL = 0x1c2
+                0x000001c8                __P1MAP01_L = 0x1c8
+                0x000001c9                __P1MAP01_H = 0x1c9
+                0x000001c8                __P1MAP01 = 0x1c8
+                0x000001ca                __P1MAP23_L = 0x1ca
+                0x000001cb                __P1MAP23_H = 0x1cb
+                0x000001ca                __P1MAP23 = 0x1ca
+                0x000001cc                __P1MAP45_L = 0x1cc
+                0x000001cd                __P1MAP45_H = 0x1cd
+                0x000001cc                __P1MAP45 = 0x1cc
+                0x000001ce                __P1MAP67_L = 0x1ce
+                0x000001cf                __P1MAP67_H = 0x1cf
+                0x000001ce                __P1MAP67 = 0x1ce
+                0x000001d0                __P2MAP01_L = 0x1d0
+                0x000001d1                __P2MAP01_H = 0x1d1
+                0x000001d0                __P2MAP01 = 0x1d0
+                0x000001d2                __P2MAP23_L = 0x1d2
+                0x000001d3                __P2MAP23_H = 0x1d3
+                0x000001d2                __P2MAP23 = 0x1d2
+                0x000001d4                __P2MAP45_L = 0x1d4
+                0x000001d5                __P2MAP45_H = 0x1d5
+                0x000001d4                __P2MAP45 = 0x1d4
+                0x000001d6                __P2MAP67_L = 0x1d6
+                0x000001d7                __P2MAP67_H = 0x1d7
+                0x000001d6                __P2MAP67 = 0x1d6
+                0x000001d8                __P3MAP01_L = 0x1d8
+                0x000001d9                __P3MAP01_H = 0x1d9
+                0x000001d8                __P3MAP01 = 0x1d8
+                0x000001da                __P3MAP23_L = 0x1da
+                0x000001db                __P3MAP23_H = 0x1db
+                0x000001da                __P3MAP23 = 0x1da
+                0x000001dc                __P3MAP45_L = 0x1dc
+                0x000001dd                __P3MAP45_H = 0x1dd
+                0x000001dc                __P3MAP45 = 0x1dc
+                0x000001de                __P3MAP67_L = 0x1de
+                0x000001df                __P3MAP67_H = 0x1df
+                0x000001de                __P3MAP67 = 0x1de
+                0x00000120                __PMMCTL0_L = 0x120
+                0x00000121                __PMMCTL0_H = 0x121
+                0x00000120                __PMMCTL0 = 0x120
+                0x00000122                __PMMCTL1_L = 0x122
+                0x00000123                __PMMCTL1_H = 0x123
+                0x00000122                __PMMCTL1 = 0x122
+                0x00000124                __SVSMHCTL_L = 0x124
+                0x00000125                __SVSMHCTL_H = 0x125
+                0x00000124                __SVSMHCTL = 0x124
+                0x00000126                __SVSMLCTL_L = 0x126
+                0x00000127                __SVSMLCTL_H = 0x127
+                0x00000126                __SVSMLCTL = 0x126
+                0x00000128                __SVSMIO_L = 0x128
+                0x00000129                __SVSMIO_H = 0x129
+                0x00000128                __SVSMIO = 0x128
+                0x0000012c                __PMMIFG_L = 0x12c
+                0x0000012d                __PMMIFG_H = 0x12d
+                0x0000012c                __PMMIFG = 0x12c
+                0x0000012e                __PMMRIE_L = 0x12e
+                0x0000012f                __PMMRIE_H = 0x12f
+                0x0000012e                __PMMRIE = 0x12e
+                0x00000158                __RCCTL0_L = 0x158
+                0x00000159                __RCCTL0_H = 0x159
+                0x00000158                __RCCTL0 = 0x158
+                0x000001b0                __REFCTL0_L = 0x1b0
+                0x000001b1                __REFCTL0_H = 0x1b1
+                0x000001b0                __REFCTL0 = 0x1b0
+                0x000004a0                __RTCCTL01_L = 0x4a0
+                0x000004a1                __RTCCTL01_H = 0x4a1
+                0x000004a0                __RTCCTL01 = 0x4a0
+                0x000004a2                __RTCCTL23_L = 0x4a2
+                0x000004a3                __RTCCTL23_H = 0x4a3
+                0x000004a2                __RTCCTL23 = 0x4a2
+                0x000004a8                __RTCPS0CTL_L = 0x4a8
+                0x000004a9                __RTCPS0CTL_H = 0x4a9
+                0x000004a8                __RTCPS0CTL = 0x4a8
+                0x000004aa                __RTCPS1CTL_L = 0x4aa
+                0x000004ab                __RTCPS1CTL_H = 0x4ab
+                0x000004aa                __RTCPS1CTL = 0x4aa
+                0x000004ac                __RTCPS_L = 0x4ac
+                0x000004ad                __RTCPS_H = 0x4ad
+                0x000004ac                __RTCPS = 0x4ac
+                0x000004ae                __RTCIV = 0x4ae
+                0x000004b0                __RTCTIM0_L = 0x4b0
+                0x000004b1                __RTCTIM0_H = 0x4b1
+                0x000004b0                __RTCTIM0 = 0x4b0
+                0x000004b2                __RTCTIM1_L = 0x4b2
+                0x000004b3                __RTCTIM1_H = 0x4b3
+                0x000004b2                __RTCTIM1 = 0x4b2
+                0x000004b4                __RTCDATE_L = 0x4b4
+                0x000004b5                __RTCDATE_H = 0x4b5
+                0x000004b4                __RTCDATE = 0x4b4
+                0x000004b6                __RTCYEAR_L = 0x4b6
+                0x000004b7                __RTCYEAR_H = 0x4b7
+                0x000004b6                __RTCYEAR = 0x4b6
+                0x000004b8                __RTCAMINHR_L = 0x4b8
+                0x000004b9                __RTCAMINHR_H = 0x4b9
+                0x000004b8                __RTCAMINHR = 0x4b8
+                0x000004ba                __RTCADOWDAY_L = 0x4ba
+                0x000004bb                __RTCADOWDAY_H = 0x4bb
+                0x000004ba                __RTCADOWDAY = 0x4ba
+                0x00000100                __SFRIE1_L = 0x100
+                0x00000101                __SFRIE1_H = 0x101
+                0x00000100                __SFRIE1 = 0x100
+                0x00000102                __SFRIFG1_L = 0x102
+                0x00000103                __SFRIFG1_H = 0x103
+                0x00000102                __SFRIFG1 = 0x102
+                0x00000104                __SFRRPCR_L = 0x104
+                0x00000105                __SFRRPCR_H = 0x105
+                0x00000104                __SFRRPCR = 0x104
+                0x00000180                __SYSCTL_L = 0x180
+                0x00000181                __SYSCTL_H = 0x181
+                0x00000180                __SYSCTL = 0x180
+                0x00000182                __SYSBSLC_L = 0x182
+                0x00000183                __SYSBSLC_H = 0x183
+                0x00000182                __SYSBSLC = 0x182
+                0x00000186                __SYSJMBC_L = 0x186
+                0x00000187                __SYSJMBC_H = 0x187
+                0x00000186                __SYSJMBC = 0x186
+                0x00000188                __SYSJMBI0_L = 0x188
+                0x00000189                __SYSJMBI0_H = 0x189
+                0x00000188                __SYSJMBI0 = 0x188
+                0x0000018a                __SYSJMBI1_L = 0x18a
+                0x0000018b                __SYSJMBI1_H = 0x18b
+                0x0000018a                __SYSJMBI1 = 0x18a
+                0x0000018c                __SYSJMBO0_L = 0x18c
+                0x0000018d                __SYSJMBO0_H = 0x18d
+                0x0000018c                __SYSJMBO0 = 0x18c
+                0x0000018e                __SYSJMBO1_L = 0x18e
+                0x0000018f                __SYSJMBO1_H = 0x18f
+                0x0000018e                __SYSJMBO1 = 0x18e
+                0x00000198                __SYSBERRIV_L = 0x198
+                0x00000199                __SYSBERRIV_H = 0x199
+                0x00000198                __SYSBERRIV = 0x198
+                0x0000019a                __SYSUNIV_L = 0x19a
+                0x0000019b                __SYSUNIV_H = 0x19b
+                0x0000019a                __SYSUNIV = 0x19a
+                0x0000019c                __SYSSNIV_L = 0x19c
+                0x0000019d                __SYSSNIV_H = 0x19d
+                0x0000019c                __SYSSNIV = 0x19c
+                0x0000019e                __SYSRSTIV_L = 0x19e
+                0x0000019f                __SYSRSTIV_H = 0x19f
+                0x0000019e                __SYSRSTIV = 0x19e
+                0x00000340                __TA0CTL = 0x340
+                0x00000342                __TA0CCTL0 = 0x342
+                0x00000344                __TA0CCTL1 = 0x344
+                0x00000346                __TA0CCTL2 = 0x346
+                0x00000348                __TA0CCTL3 = 0x348
+                0x0000034a                __TA0CCTL4 = 0x34a
+                0x00000350                __TA0R = 0x350
+                0x00000352                __TA0CCR0 = 0x352
+                0x00000354                __TA0CCR1 = 0x354
+                0x00000356                __TA0CCR2 = 0x356
+                0x00000358                __TA0CCR3 = 0x358
+                0x0000035a                __TA0CCR4 = 0x35a
+                0x0000036e                __TA0IV = 0x36e
+                0x00000360                __TA0EX0 = 0x360
+                0x00000380                __TA1CTL = 0x380
+                0x00000382                __TA1CCTL0 = 0x382
+                0x00000384                __TA1CCTL1 = 0x384
+                0x00000386                __TA1CCTL2 = 0x386
+                0x00000390                __TA1R = 0x390
+                0x00000392                __TA1CCR0 = 0x392
+                0x00000394                __TA1CCR1 = 0x394
+                0x00000396                __TA1CCR2 = 0x396
+                0x000003ae                __TA1IV = 0x3ae
+                0x000003a0                __TA1EX0 = 0x3a0
+                0x00000160                __UCSCTL0_L = 0x160
+                0x00000161                __UCSCTL0_H = 0x161
+                0x00000160                __UCSCTL0 = 0x160
+                0x00000162                __UCSCTL1_L = 0x162
+                0x00000163                __UCSCTL1_H = 0x163
+                0x00000162                __UCSCTL1 = 0x162
+                0x00000164                __UCSCTL2_L = 0x164
+                0x00000165                __UCSCTL2_H = 0x165
+                0x00000164                __UCSCTL2 = 0x164
+                0x00000166                __UCSCTL3_L = 0x166
+                0x00000167                __UCSCTL3_H = 0x167
+                0x00000166                __UCSCTL3 = 0x166
+                0x00000168                __UCSCTL4_L = 0x168
+                0x00000169                __UCSCTL4_H = 0x169
+                0x00000168                __UCSCTL4 = 0x168
+                0x0000016a                __UCSCTL5_L = 0x16a
+                0x0000016b                __UCSCTL5_H = 0x16b
+                0x0000016a                __UCSCTL5 = 0x16a
+                0x0000016c                __UCSCTL6_L = 0x16c
+                0x0000016d                __UCSCTL6_H = 0x16d
+                0x0000016c                __UCSCTL6 = 0x16c
+                0x0000016e                __UCSCTL7_L = 0x16e
+                0x0000016f                __UCSCTL7_H = 0x16f
+                0x0000016e                __UCSCTL7 = 0x16e
+                0x00000170                __UCSCTL8_L = 0x170
+                0x00000171                __UCSCTL8_H = 0x171
+                0x00000170                __UCSCTL8 = 0x170
+                0x000005c0                __UCA0CTLW0_L = 0x5c0
+                0x000005c1                __UCA0CTLW0_H = 0x5c1
+                0x000005c0                __UCA0CTLW0 = 0x5c0
+                0x000005c6                __UCA0BRW_L = 0x5c6
+                0x000005c7                __UCA0BRW_H = 0x5c7
+                0x000005c6                __UCA0BRW = 0x5c6
+                0x000005c8                __UCA0MCTL = 0x5c8
+                0x000005ca                __UCA0STAT = 0x5ca
+                0x000005cc                __UCA0RXBUF = 0x5cc
+                0x000005ce                __UCA0TXBUF = 0x5ce
+                0x000005d0                __UCA0ABCTL = 0x5d0
+                0x000005d2                __UCA0IRCTL_L = 0x5d2
+                0x000005d3                __UCA0IRCTL_H = 0x5d3
+                0x000005d2                __UCA0IRCTL = 0x5d2
+                0x000005dc                __UCA0ICTL_L = 0x5dc
+                0x000005dd                __UCA0ICTL_H = 0x5dd
+                0x000005dc                __UCA0ICTL = 0x5dc
+                0x000005de                __UCA0IV = 0x5de
+                0x000005e0                __UCB0CTLW0_L = 0x5e0
+                0x000005e1                __UCB0CTLW0_H = 0x5e1
+                0x000005e0                __UCB0CTLW0 = 0x5e0
+                0x000005e6                __UCB0BRW_L = 0x5e6
+                0x000005e7                __UCB0BRW_H = 0x5e7
+                0x000005e6                __UCB0BRW = 0x5e6
+                0x000005ea                __UCB0STAT = 0x5ea
+                0x000005ec                __UCB0RXBUF = 0x5ec
+                0x000005ee                __UCB0TXBUF = 0x5ee
+                0x000005f0                __UCB0I2COA_L = 0x5f0
+                0x000005f1                __UCB0I2COA_H = 0x5f1
+                0x000005f0                __UCB0I2COA = 0x5f0
+                0x000005f2                __UCB0I2CSA_L = 0x5f2
+                0x000005f3                __UCB0I2CSA_H = 0x5f3
+                0x000005f2                __UCB0I2CSA = 0x5f2
+                0x000005fc                __UCB0ICTL_L = 0x5fc
+                0x000005fd                __UCB0ICTL_H = 0x5fd
+                0x000005fc                __UCB0ICTL = 0x5fc
+                0x000005fe                __UCB0IV = 0x5fe
+                0x0000015c                __WDTCTL_L = 0x15c
+                0x0000015d                __WDTCTL_H = 0x15d
+                0x0000015c                __WDTCTL = 0x15c
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.text
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+
+.rela.text
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+
+.rel.rodata
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+
+.rela.rodata
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+
+.rel.data
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+
+.rela.data
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+
+.rel.bss
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+
+.rela.bss
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00008000     0x1b44
+                0x00008000                . = ALIGN (0x2)
+ *(.init .init.*)
+ *(.init0)
+ .init0         0x00008000        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+                0x00008000                _reset_vector__
+ *(.init1)
+ .init1         0x00008000        0xc /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+                0x00008000                __watchdog_support
+ *(.init2)
+ .init2         0x0000800c        0x4 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__init_stack.o)
+                0x0000800c                __init_stack
+ *(.init3)
+ .init3         0x00008010        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__low_level_init.o)
+                0x00008010                __low_level_init
+ *(.init4)
+ .init4         0x00008010       0x18 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+                0x00008010                __do_copy_data
+ .init4         0x00008028       0x16 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+                0x00008028                __do_clear_bss
+ *(.init5)
+ *(.init6)
+ *(.init7)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000803e       0x32 main.o
+                0x0000803e                main
+ *(.fini9)
+ .fini9         0x00008070        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__stop_progExec__.o)
+                0x00008070                __stop_progExec__
+ *(.fini8)
+ *(.fini7)
+ *(.fini6)
+ *(.fini5)
+ *(.fini4)
+ *(.fini3)
+ *(.fini2)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00008070        0x6 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_endless_loop__.o)
+                0x00008070                _endless_loop__
+ *(.fini .fini.*)
+                0x00008076                . = ALIGN (0x2)
+                0x00008076                __ctors_start = .
+ *(.ctors)
+                0x00008076                __ctors_end = .
+                0x00008076                __dtors_start = .
+ *(.dtors)
+                0x00008076                __dtors_end = .
+                0x00008076                . = ALIGN (0x2)
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x00008076        0x4 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+                0x00008076                __isr_37
+                0x00008076                __isr_47
+                0x00008076                __isr_51
+                0x00008076                __isr_14
+                0x00008076                __isr_57
+                0x00008076                __isr_24
+                0x00008076                __isr_4
+                0x00008076                __isr_33
+                0x00008076                __isr_19
+                0x00008076                __isr_29
+                0x00008076                __isr_23
+                0x00008076                __isr_32
+                0x00008076                __isr_11
+                0x00008076                __isr_54
+                0x00008076                __isr_42
+                0x00008076                __isr_49
+                0x00008076                __isr_16
+                0x00008076                __isr_59
+                0x00008076                __isr_39
+                0x00008076                __isr_26
+                0x00008076                __isr_5
+                0x00008076                __isr_46
+                0x00008076                __isr_2
+                0x00008076                __isr_10
+                0x00008076                __isr_53
+                0x00008076                __isr_41
+                0x00008076                __isr_7
+                0x00008076                __isr_60
+                0x00008076                __isr_25
+                0x00008076                __isr_36
+                0x00008076                __isr_34
+                0x00008076                __isr_0
+                0x00008076                __isr_44
+                0x00008076                __isr_28
+                0x00008076                __isr_8
+                0x00008076                __isr_20
+                0x00008076                __isr_61
+                0x00008076                __isr_3
+                0x00008076                __isr_48
+                0x00008076                __isr_18
+                0x00008076                __isr_12
+                0x00008076                __isr_43
+                0x00008076                __isr_50
+                0x00008076                __isr_13
+                0x00008076                __isr_56
+                0x00008076                __isr_27
+                0x00008076                __isr_38
+                0x00008076                __isr_9
+                0x00008076                __isr_35
+                0x00008076                __isr_30
+                0x00008076                __isr_6
+                0x00008076                __isr_22
+                0x00008076                __isr_1
+                0x00008076                __isr_31
+                0x00008076                __isr_45
+                0x00008076                __isr_15
+                0x00008076                __isr_58
+                0x00008076                __isr_17
+                0x00008076                __isr_21
+                0x00008076                __isr_62
+                0x00008076                __isr_52
+                0x00008076                __isr_40
+ .text.crt0     0x0000807a        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+ .text          0x0000807a       0x38 ../../os/ports/GCC/MSP430/chcoreasm.o
+                0x0000807a                _port_switch
+                0x000080a4                _port_thread_start
+                0x000080ae                _port_halt
+ .text          0x000080b2       0xaa ../../os/kernel/src/chsys.o
+                0x000080b2                _idle_thread
+                0x000080be                chSysInit
+                0x00008106                chSysTimerHandlerI
+ .text          0x0000815c        0x0 ../../os/kernel/src/chdebug.o
+ .text          0x0000815c        0x0 ../../os/kernel/src/chlists.o
+ .text          0x0000815c       0x82 ../../os/kernel/src/chvt.o
+                0x0000815c                _vt_init
+                0x00008178                chVTSetI
+                0x000081bc                chVTResetI
+ .text          0x000081de      0x28e ../../os/kernel/src/chschd.o
+                0x00008244                _scheduler_init
+                0x00008260                chSchReadyI
+                0x0000828a                chSchGoSleepS
+                0x000082bc                chSchGoSleepTimeoutS
+                0x0000830c                chSchWakeupS
+                0x00008378                chSchIsPreemptionRequired
+                0x000083a4                chSchDoRescheduleBehind
+                0x000083f4                chSchDoRescheduleAhead
+                0x0000843e                chSchRescheduleS
+                0x00008456                chSchDoReschedule
+ .text          0x0000846c      0x20c ../../os/kernel/src/chthreads.o
+                0x0000846c                _thread_init
+                0x000084c4                chThdCreateI
+                0x0000853a                chThdCreateStatic
+                0x00008558                chThdSetPriority
+                0x00008584                chThdResume
+                0x00008598                chThdTerminate
+                0x000085a2                chThdSleep
+                0x000085b2                chThdSleepUntil
+                0x000085cc                chThdYield
+                0x000085ea                chThdExitS
+                0x0000863a                chThdExit
+                0x00008642                chThdWait
+ .text          0x00008678       0xe6 ../../os/kernel/src/chdynamic.o
+                0x00008678                chThdAddRef
+                0x00008682                chThdRelease
+                0x000086e4                chThdCreateFromHeap
+                0x0000871e                chThdCreateFromMemoryPool
+ .text          0x0000875e       0x30 ../../os/kernel/src/chregistry.o
+                0x0000875e                chRegFirstThread
+                0x0000876c                chRegNextThread
+ .text          0x0000878e      0x1fe ../../os/kernel/src/chsem.o
+                0x0000878e                chSemInit
+                0x0000879c                chSemResetI
+                0x000087d2                chSemReset
+                0x000087e0                chSemWaitS
+                0x00008820                chSemWait
+                0x0000882a                chSemWaitTimeoutS
+                0x00008876                chSemWaitTimeout
+                0x00008880                chSemSignal
+                0x000088ac                chSemSignalI
+                0x000088d4                chSemAddCounterI
+                0x0000890e                chSemSignalWait
+ .text          0x0000898c      0x29c ../../os/kernel/src/chmtx.o
+                0x0000898c                chMtxInit
+                0x0000899a                chMtxLockS
+                0x00008aa2                chMtxLock
+                0x00008aac                chMtxTryLock
+                0x00008ad2                chMtxTryLockS
+                0x00008af2                chMtxUnlock
+                0x00008b62                chMtxUnlockS
+                0x00008bca                chMtxUnlockAll
+ .text          0x00008c28      0x146 ../../os/kernel/src/chcond.o
+                0x00008c28                chCondInit
+                0x00008c32                chCondSignal
+                0x00008c50                chCondSignalI
+                0x00008c6c                chCondBroadcastI
+                0x00008c94                chCondBroadcast
+                0x00008ca2                chCondWaitS
+                0x00008cf8                chCondWait
+                0x00008d02                chCondWaitTimeoutS
+                0x00008d64                chCondWaitTimeout
+ .text          0x00008d6e      0x2a0 ../../os/kernel/src/chevents.o
+                0x00008d6e                chEvtRegisterMask
+                0x00008d8a                chEvtUnregister
+                0x00008da8                chEvtGetAndClearEvents
+                0x00008dc0                chEvtAddEvents
+                0x00008dd2                chEvtGetAndClearFlags
+                0x00008de2                chEvtSignalI
+                0x00008e16                chEvtSignal
+                0x00008e24                chEvtBroadcastFlagsI
+                0x00008e4a                chEvtBroadcastFlags
+                0x00008e58                chEvtGetAndClearFlagsI
+                0x00008e64                chEvtDispatch
+                0x00008e9a                chEvtWaitOne
+                0x00008ed4                chEvtWaitAny
+                0x00008f04                chEvtWaitAll
+                0x00008f38                chEvtWaitOneTimeout
+                0x00008f84                chEvtWaitAnyTimeout
+                0x00008fc8                chEvtWaitAllTimeout
+ .text          0x0000900e       0xa2 ../../os/kernel/src/chmsg.o
+                0x0000900e                chMsgSend
+                0x00009068                chMsgWait
+                0x000090a6                chMsgRelease
+ .text          0x000090b0      0x210 ../../os/kernel/src/chmboxes.o
+                0x000090b0                chMBInit
+                0x000090e4                chMBReset
+                0x00009138                chMBPostS
+                0x0000917a                chMBPost
+                0x00009184                chMBPostI
+                0x000091ba                chMBPostAheadS
+                0x00009200                chMBPostAhead
+                0x0000920a                chMBPostAheadI
+                0x00009242                chMBFetchS
+                0x00009282                chMBFetch
+                0x0000928c                chMBFetchI
+ .text          0x000092c0      0x34c ../../os/kernel/src/chqueues.o
+                0x000092ee                chIQInit
+                0x00009318                chIQResetI
+                0x00009350                chIQPutI
+                0x000093b2                chIQGetTimeout
+                0x00009402                chIQReadTimeout
+                0x00009468                chOQInit
+                0x00009492                chOQResetI
+                0x000094f0                chOQPutTimeout
+                0x00009548                chOQGetI
+                0x000095a2                chOQWriteTimeout
+ .text          0x0000960c       0xca ../../os/kernel/src/chmemcore.o
+                0x0000960c                _core_init
+                0x0000961a                chCoreAlloc
+                0x00009666                chCoreAllocI
+                0x000096aa                chCoreStatus
+ .text          0x000096d6      0x19a ../../os/kernel/src/chheap.o
+                0x000096d6                _heap_init
+                0x000096f2                chHeapInit
+                0x00009712                chHeapAlloc
+                0x000097a6                chHeapFree
+                0x0000982c                chHeapStatus
+ .text          0x00009870       0x82 ../../os/kernel/src/chmempools.o
+                0x00009870                chPoolInit
+                0x0000987e                chPoolLoadArray
+                0x00009898                chPoolAllocI
+                0x000098b6                chPoolAlloc
+                0x000098da                chPoolFreeI
+                0x000098e4                chPoolFree
+ .text          0x000098f2       0x12 ../../os/hal/src/hal.o
+                0x000098f2                halInit
+ .text          0x00009904        0x0 ../../os/hal/src/adc.o
+ .text          0x00009904        0x0 ../../os/hal/src/can.o
+ .text          0x00009904        0x0 ../../os/hal/src/dac.o
+ .text          0x00009904        0x0 ../../os/hal/src/ext.o
+ .text          0x00009904        0x0 ../../os/hal/src/gpt.o
+ .text          0x00009904        0x0 ../../os/hal/src/i2c.o
+ .text          0x00009904        0x0 ../../os/hal/src/icu.o
+ .text          0x00009904        0x0 ../../os/hal/src/mac.o
+ .text          0x00009904        0x0 ../../os/hal/src/mmc_spi.o
+ .text          0x00009904        0x0 ../../os/hal/src/mmcsd.o
+ .text          0x00009904       0x8a ../../os/hal/src/pal.o
+                0x00009904                palReadBus
+                0x00009922                palWriteBus
+                0x0000996a                palSetBusMode
+ .text          0x0000998e        0x0 ../../os/hal/src/pwm.o
+ .text          0x0000998e        0x0 ../../os/hal/src/rtc.o
+ .text          0x0000998e        0x0 ../../os/hal/src/sdc.o
+ .text          0x0000998e        0x0 ../../os/hal/src/serial.o
+ .text          0x0000998e        0x0 ../../os/hal/src/serial_usb.o
+ .text          0x0000998e        0x0 ../../os/hal/src/spi.o
+ .text          0x0000998e        0x0 ../../os/hal/src/tm.o
+ .text          0x0000998e        0x0 ../../os/hal/src/uart.o
+ .text          0x0000998e        0x0 ../../os/hal/src/usb.o
+ .text          0x0000998e       0x6e ../../os/hal/platforms/MSP430/hal_lld.o
+                0x0000998e                hal_lld_init
+ .text          0x000099fc       0x8e ../../os/hal/platforms/MSP430/pal_lld.o
+                0x000099fc                _pal_lld_init
+                0x00009a68                _pal_lld_setgroupmode
+ .text          0x00009a8a        0x0 ../../os/hal/platforms/MSP430/serial_lld.o
+ .text          0x00009a8a       0x1e ../../boards/ezChronos_CC430_F6137/board.o
+                0x00009a8a                vectTIMER0_A0
+                0x00009a8a                __isr_55
+                0x00009aa0                boardInit
+ .text          0x00009aa8       0x50 ../../os/various/evtimer.o
+                0x00009aca                evtStart
+                0x00009ae8                evtStop
+ .text          0x00009af8       0x4a main.o
+ .text          0x00009b42        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+ .text          0x00009b42        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+ .text          0x00009b42        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__init_stack.o)
+ .text          0x00009b42        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__low_level_init.o)
+ .text          0x00009b42        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+ .text          0x00009b42        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+ .text          0x00009b42        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__stop_progExec__.o)
+ .text          0x00009b42        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_endless_loop__.o)
+ .text          0x00009b42        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_unexpected_.o)
+ .text.crt0     0x00009b42        0x2 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_unexpected_.o)
+                0x00009b42                _unexpected_
+                0x00009b44                . = ALIGN (0x2)
+
+.rodata         0x00009b44       0x28
+                0x00009b44                . = ALIGN (0x2)
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x00009b44        0x5 ../../os/kernel/src/chsys.o
+ *fill*         0x00009b49        0x1 00
+ .rodata        0x00009b4a       0x16 ../../os/kernel/src/chregistry.o
+                0x00009b4a                ch_debug
+ .rodata        0x00009b60        0x4 ../../boards/ezChronos_CC430_F6137/board.o
+                0x00009b60                pal_default_config
+ .rodata        0x00009b64        0x8 main.o
+                0x00009b6c                . = ALIGN (0x2)
+                0x00009b6c                _etext = .
+
+.data           0x00001c00        0x0 load address 0x00009b6c
+                0x00001c00                . = ALIGN (0x2)
+                0x00001c00                PROVIDE (__data_start, .)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x00001c00        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+ .data          0x00001c00        0x0 ../../os/ports/GCC/MSP430/chcoreasm.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chsys.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chdebug.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chlists.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chvt.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chschd.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chthreads.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chdynamic.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chregistry.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chsem.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chmtx.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chcond.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chevents.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chmsg.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chmboxes.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chqueues.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chmemcore.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chheap.o
+ .data          0x00001c00        0x0 ../../os/kernel/src/chmempools.o
+ .data          0x00001c00        0x0 ../../os/hal/src/hal.o
+ .data          0x00001c00        0x0 ../../os/hal/src/adc.o
+ .data          0x00001c00        0x0 ../../os/hal/src/can.o
+ .data          0x00001c00        0x0 ../../os/hal/src/dac.o
+ .data          0x00001c00        0x0 ../../os/hal/src/ext.o
+ .data          0x00001c00        0x0 ../../os/hal/src/gpt.o
+ .data          0x00001c00        0x0 ../../os/hal/src/i2c.o
+ .data          0x00001c00        0x0 ../../os/hal/src/icu.o
+ .data          0x00001c00        0x0 ../../os/hal/src/mac.o
+ .data          0x00001c00        0x0 ../../os/hal/src/mmc_spi.o
+ .data          0x00001c00        0x0 ../../os/hal/src/mmcsd.o
+ .data          0x00001c00        0x0 ../../os/hal/src/pal.o
+ .data          0x00001c00        0x0 ../../os/hal/src/pwm.o
+ .data          0x00001c00        0x0 ../../os/hal/src/rtc.o
+ .data          0x00001c00        0x0 ../../os/hal/src/sdc.o
+ .data          0x00001c00        0x0 ../../os/hal/src/serial.o
+ .data          0x00001c00        0x0 ../../os/hal/src/serial_usb.o
+ .data          0x00001c00        0x0 ../../os/hal/src/spi.o
+ .data          0x00001c00        0x0 ../../os/hal/src/tm.o
+ .data          0x00001c00        0x0 ../../os/hal/src/uart.o
+ .data          0x00001c00        0x0 ../../os/hal/src/usb.o
+ .data          0x00001c00        0x0 ../../os/hal/platforms/MSP430/hal_lld.o
+ .data          0x00001c00        0x0 ../../os/hal/platforms/MSP430/pal_lld.o
+ .data          0x00001c00        0x0 ../../os/hal/platforms/MSP430/serial_lld.o
+ .data          0x00001c00        0x0 ../../boards/ezChronos_CC430_F6137/board.o
+ .data          0x00001c00        0x0 ../../os/various/evtimer.o
+ .data          0x00001c00        0x0 main.o
+ .data          0x00001c00        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+ .data          0x00001c00        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+ .data          0x00001c00        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__init_stack.o)
+ .data          0x00001c00        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__low_level_init.o)
+ .data          0x00001c00        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+ .data          0x00001c00        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+ .data          0x00001c00        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__stop_progExec__.o)
+ .data          0x00001c00        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_endless_loop__.o)
+ .data          0x00001c00        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_unexpected_.o)
+                0x00001c00                . = ALIGN (0x2)
+                0x00001c00                _edata = .
+                0x00009b6c                PROVIDE (__data_load_start, LOADADDR (.data))
+                0x00000000                PROVIDE (__data_size, SIZEOF (.data))
+
+.bss            0x00001c00      0x356 load address 0x00009b6c
+                0x00001c00                PROVIDE (__bss_start, .)
+ *(.bss .bss.*)
+ .bss           0x00001c00        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+ .bss           0x00001c00        0x0 ../../os/ports/GCC/MSP430/chcoreasm.o
+ .bss           0x00001c00       0x26 ../../os/kernel/src/chsys.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chdebug.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chlists.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chvt.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chschd.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chthreads.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chdynamic.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chregistry.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chsem.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chmtx.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chcond.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chevents.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chmsg.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chmboxes.o
+ .bss           0x00001c26        0x0 ../../os/kernel/src/chqueues.o
+ .bss           0x00001c26      0x204 ../../os/kernel/src/chmemcore.o
+ .bss           0x00001e2a        0xe ../../os/kernel/src/chheap.o
+ .bss           0x00001e38        0x0 ../../os/kernel/src/chmempools.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/hal.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/adc.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/can.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/dac.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/ext.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/gpt.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/i2c.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/icu.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/mac.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/mmc_spi.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/mmcsd.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/pal.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/pwm.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/rtc.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/sdc.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/serial.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/serial_usb.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/spi.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/tm.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/uart.o
+ .bss           0x00001e38        0x0 ../../os/hal/src/usb.o
+ .bss           0x00001e38        0x0 ../../os/hal/platforms/MSP430/hal_lld.o
+ .bss           0x00001e38        0x0 ../../os/hal/platforms/MSP430/pal_lld.o
+ .bss           0x00001e38        0x0 ../../os/hal/platforms/MSP430/serial_lld.o
+ .bss           0x00001e38        0x0 ../../boards/ezChronos_CC430_F6137/board.o
+ .bss           0x00001e38        0x0 ../../os/various/evtimer.o
+ .bss           0x00001e38       0xa4 main.o
+ .bss           0x00001edc        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+ .bss           0x00001edc        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+ .bss           0x00001edc        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__init_stack.o)
+ .bss           0x00001edc        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__low_level_init.o)
+ .bss           0x00001edc        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+ .bss           0x00001edc        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+ .bss           0x00001edc        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__stop_progExec__.o)
+ .bss           0x00001edc        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_endless_loop__.o)
+ .bss           0x00001edc        0x0 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_unexpected_.o)
+ *(COMMON)
+ COMMON         0x00001edc       0x64 ../../os/kernel/src/chsys.o
+                0x00001edc                _idle_thread_wa
+ COMMON         0x00001f40        0x8 ../../os/kernel/src/chvt.o
+                0x00001f40                vtlist
+ COMMON         0x00001f48        0xe ../../os/kernel/src/chschd.o
+                0x00001f48                rlist
+                0x00001f56                . = ALIGN (0x2)
+                0x00001f56                PROVIDE (__bss_end, .)
+                0x00000356                PROVIDE (__bss_size, SIZEOF (.bss))
+
+.noinit         0x00001f56        0x2 load address 0x00009b6c
+                0x00001f56                PROVIDE (__noinit_start, .)
+ *(.noinit .noinit.*)
+ .noinit.crt0   0x00001f56        0x2 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+                0x00001f56                __wdt_clear_value
+                0x00001f58                . = ALIGN (0x2)
+                0x00001f58                PROVIDE (__noinit_end, .)
+                0x00001f58                . = ALIGN (0x2)
+                0x00001f58                _end = .
+
+.infomem        0x00001800        0x0
+ *(.infomem)
+                0x00001800                . = ALIGN (0x2)
+ *(.infomem.*)
+
+.infomemnobits  0x00001800        0x0
+ *(.infomemnobits)
+                0x00001800                . = ALIGN (0x2)
+ *(.infomemnobits.*)
+
+.infoa
+ *(.infoa .infoa.*)
+
+.infob
+ *(.infob .infob.*)
+
+.infoc
+ *(.infoc .infoc.*)
+
+.infod
+ *(.infod .infod.*)
+
+.vectors        0x0000ff80       0x80
+                0x0000ff80                PROVIDE (__vectors_start, .)
+ *(.vectors*)
+ .vectors       0x0000ff80       0x80 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+                0x0000ff80                __ivtbl_64
+                0x00010000                _vectors_end = .
+
+.fartext        0x00000000        0x0
+                0x00000000                . = ALIGN (0x2)
+ *(.fartext)
+                0x00000000                . = ALIGN (0x2)
+ *(.fartext.*)
+                0x00000000                _efartext = .
+
+.profiler
+ *(.profiler)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x248
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x14 ../../os/kernel/src/chsys.o
+ .debug_aranges
+                0x00000014       0x14 ../../os/kernel/src/chvt.o
+ .debug_aranges
+                0x00000028       0x14 ../../os/kernel/src/chschd.o
+ .debug_aranges
+                0x0000003c       0x14 ../../os/kernel/src/chthreads.o
+ .debug_aranges
+                0x00000050       0x14 ../../os/kernel/src/chdynamic.o
+ .debug_aranges
+                0x00000064       0x14 ../../os/kernel/src/chregistry.o
+ .debug_aranges
+                0x00000078       0x14 ../../os/kernel/src/chsem.o
+ .debug_aranges
+                0x0000008c       0x14 ../../os/kernel/src/chmtx.o
+ .debug_aranges
+                0x000000a0       0x14 ../../os/kernel/src/chcond.o
+ .debug_aranges
+                0x000000b4       0x14 ../../os/kernel/src/chevents.o
+ .debug_aranges
+                0x000000c8       0x14 ../../os/kernel/src/chmsg.o
+ .debug_aranges
+                0x000000dc       0x14 ../../os/kernel/src/chmboxes.o
+ .debug_aranges
+                0x000000f0       0x14 ../../os/kernel/src/chqueues.o
+ .debug_aranges
+                0x00000104       0x14 ../../os/kernel/src/chmemcore.o
+ .debug_aranges
+                0x00000118       0x14 ../../os/kernel/src/chheap.o
+ .debug_aranges
+                0x0000012c       0x14 ../../os/kernel/src/chmempools.o
+ .debug_aranges
+                0x00000140       0x14 ../../os/hal/src/hal.o
+ .debug_aranges
+                0x00000154       0x14 ../../os/hal/src/pal.o
+ .debug_aranges
+                0x00000168       0x14 ../../os/hal/platforms/MSP430/hal_lld.o
+ .debug_aranges
+                0x0000017c       0x14 ../../os/hal/platforms/MSP430/pal_lld.o
+ .debug_aranges
+                0x00000190       0x14 ../../boards/ezChronos_CC430_F6137/board.o
+ .debug_aranges
+                0x000001a4       0x14 ../../os/various/evtimer.o
+ .debug_aranges
+                0x000001b8       0x18 main.o
+ .debug_aranges
+                0x000001d0       0x14 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+ .debug_aranges
+                0x000001e4       0x14 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__init_stack.o)
+ .debug_aranges
+                0x000001f8       0x14 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+ .debug_aranges
+                0x0000020c       0x14 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+ .debug_aranges
+                0x00000220       0x14 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_endless_loop__.o)
+ .debug_aranges
+                0x00000234       0x14 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_unexpected_.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x8829
+ *(.debug_info)
+ .debug_info    0x00000000      0x6ff ../../os/kernel/src/chsys.o
+ .debug_info    0x000006ff       0x68 ../../os/kernel/src/chdebug.o
+ .debug_info    0x00000767       0x68 ../../os/kernel/src/chlists.o
+ .debug_info    0x000007cf      0x1ee ../../os/kernel/src/chvt.o
+ .debug_info    0x000009bd      0x85a ../../os/kernel/src/chschd.o
+ .debug_info    0x00001217      0x86f ../../os/kernel/src/chthreads.o
+ .debug_info    0x00001a86      0x663 ../../os/kernel/src/chdynamic.o
+ .debug_info    0x000020e9      0x5bc ../../os/kernel/src/chregistry.o
+ .debug_info    0x000026a5      0x851 ../../os/kernel/src/chsem.o
+ .debug_info    0x00002ef6      0x811 ../../os/kernel/src/chmtx.o
+ .debug_info    0x00003707      0x743 ../../os/kernel/src/chcond.o
+ .debug_info    0x00003e4a      0x94b ../../os/kernel/src/chevents.o
+ .debug_info    0x00004795      0x54f ../../os/kernel/src/chmsg.o
+ .debug_info    0x00004ce4      0x772 ../../os/kernel/src/chmboxes.o
+ .debug_info    0x00005456      0x955 ../../os/kernel/src/chqueues.o
+ .debug_info    0x00005dab      0x1a8 ../../os/kernel/src/chmemcore.o
+ .debug_info    0x00005f53      0x619 ../../os/kernel/src/chheap.o
+ .debug_info    0x0000656c      0x323 ../../os/kernel/src/chmempools.o
+ .debug_info    0x0000688f       0xfb ../../os/hal/src/hal.o
+ .debug_info    0x0000698a       0x68 ../../os/hal/src/adc.o
+ .debug_info    0x000069f2       0x68 ../../os/hal/src/can.o
+ .debug_info    0x00006a5a       0x68 ../../os/hal/src/dac.o
+ .debug_info    0x00006ac2       0x68 ../../os/hal/src/ext.o
+ .debug_info    0x00006b2a       0x68 ../../os/hal/src/gpt.o
+ .debug_info    0x00006b92       0x68 ../../os/hal/src/i2c.o
+ .debug_info    0x00006bfa       0x68 ../../os/hal/src/icu.o
+ .debug_info    0x00006c62       0x68 ../../os/hal/src/mac.o
+ .debug_info    0x00006cca       0x6f ../../os/hal/src/mmc_spi.o
+ .debug_info    0x00006d39       0x68 ../../os/hal/src/mmcsd.o
+ .debug_info    0x00006da1      0x2af ../../os/hal/src/pal.o
+ .debug_info    0x00007050       0x68 ../../os/hal/src/pwm.o
+ .debug_info    0x000070b8       0x68 ../../os/hal/src/rtc.o
+ .debug_info    0x00007120       0x68 ../../os/hal/src/sdc.o
+ .debug_info    0x00007188       0x68 ../../os/hal/src/serial.o
+ .debug_info    0x000071f0       0x68 ../../os/hal/src/serial_usb.o
+ .debug_info    0x00007258       0x68 ../../os/hal/src/spi.o
+ .debug_info    0x000072c0       0x68 ../../os/hal/src/tm.o
+ .debug_info    0x00007328       0x68 ../../os/hal/src/uart.o
+ .debug_info    0x00007390       0x6f ../../os/hal/src/usb.o
+ .debug_info    0x000073ff      0x15a ../../os/hal/platforms/MSP430/hal_lld.o
+ .debug_info    0x00007559      0x2cb ../../os/hal/platforms/MSP430/pal_lld.o
+ .debug_info    0x00007824       0x68 ../../os/hal/platforms/MSP430/serial_lld.o
+ .debug_info    0x0000788c      0x125 ../../boards/ezChronos_CC430_F6137/board.o
+ .debug_info    0x000079b1      0x56e ../../os/various/evtimer.o
+ .debug_info    0x00007f1f      0x5fe main.o
+ .debug_info    0x0000851d       0x82 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+ .debug_info    0x0000859f       0x82 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__init_stack.o)
+ .debug_info    0x00008621       0x82 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+ .debug_info    0x000086a3       0x82 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+ .debug_info    0x00008725       0x82 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_endless_loop__.o)
+ .debug_info    0x000087a7       0x82 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_unexpected_.o)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000     0x2805
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x15c ../../os/kernel/src/chsys.o
+ .debug_abbrev  0x0000015c       0x2a ../../os/kernel/src/chdebug.o
+ .debug_abbrev  0x00000186       0x2a ../../os/kernel/src/chlists.o
+ .debug_abbrev  0x000001b0      0x111 ../../os/kernel/src/chvt.o
+ .debug_abbrev  0x000002c1      0x29e ../../os/kernel/src/chschd.o
+ .debug_abbrev  0x0000055f      0x298 ../../os/kernel/src/chthreads.o
+ .debug_abbrev  0x000007f7      0x16b ../../os/kernel/src/chdynamic.o
+ .debug_abbrev  0x00000962      0x13a ../../os/kernel/src/chregistry.o
+ .debug_abbrev  0x00000a9c      0x262 ../../os/kernel/src/chsem.o
+ .debug_abbrev  0x00000cfe      0x26b ../../os/kernel/src/chmtx.o
+ .debug_abbrev  0x00000f69      0x241 ../../os/kernel/src/chcond.o
+ .debug_abbrev  0x000011aa      0x26b ../../os/kernel/src/chevents.o
+ .debug_abbrev  0x00001415      0x189 ../../os/kernel/src/chmsg.o
+ .debug_abbrev  0x0000159e      0x1b3 ../../os/kernel/src/chmboxes.o
+ .debug_abbrev  0x00001751      0x2ab ../../os/kernel/src/chqueues.o
+ .debug_abbrev  0x000019fc      0x133 ../../os/kernel/src/chmemcore.o
+ .debug_abbrev  0x00001b2f      0x18d ../../os/kernel/src/chheap.o
+ .debug_abbrev  0x00001cbc      0x1ba ../../os/kernel/src/chmempools.o
+ .debug_abbrev  0x00001e76       0x96 ../../os/hal/src/hal.o
+ .debug_abbrev  0x00001f0c       0x2a ../../os/hal/src/adc.o
+ .debug_abbrev  0x00001f36       0x2a ../../os/hal/src/can.o
+ .debug_abbrev  0x00001f60       0x2a ../../os/hal/src/dac.o
+ .debug_abbrev  0x00001f8a       0x2a ../../os/hal/src/ext.o
+ .debug_abbrev  0x00001fb4       0x2a ../../os/hal/src/gpt.o
+ .debug_abbrev  0x00001fde       0x2a ../../os/hal/src/i2c.o
+ .debug_abbrev  0x00002008       0x2a ../../os/hal/src/icu.o
+ .debug_abbrev  0x00002032       0x2a ../../os/hal/src/mac.o
+ .debug_abbrev  0x0000205c       0x2a ../../os/hal/src/mmc_spi.o
+ .debug_abbrev  0x00002086       0x2a ../../os/hal/src/mmcsd.o
+ .debug_abbrev  0x000020b0       0xfe ../../os/hal/src/pal.o
+ .debug_abbrev  0x000021ae       0x2a ../../os/hal/src/pwm.o
+ .debug_abbrev  0x000021d8       0x2a ../../os/hal/src/rtc.o
+ .debug_abbrev  0x00002202       0x2a ../../os/hal/src/sdc.o
+ .debug_abbrev  0x0000222c       0x2a ../../os/hal/src/serial.o
+ .debug_abbrev  0x00002256       0x2a ../../os/hal/src/serial_usb.o
+ .debug_abbrev  0x00002280       0x2a ../../os/hal/src/spi.o
+ .debug_abbrev  0x000022aa       0x2a ../../os/hal/src/tm.o
+ .debug_abbrev  0x000022d4       0x2a ../../os/hal/src/uart.o
+ .debug_abbrev  0x000022fe       0x2a ../../os/hal/src/usb.o
+ .debug_abbrev  0x00002328       0x5a ../../os/hal/platforms/MSP430/hal_lld.o
+ .debug_abbrev  0x00002382       0xdc ../../os/hal/platforms/MSP430/pal_lld.o
+ .debug_abbrev  0x0000245e       0x2a ../../os/hal/platforms/MSP430/serial_lld.o
+ .debug_abbrev  0x00002488       0xbf ../../boards/ezChronos_CC430_F6137/board.o
+ .debug_abbrev  0x00002547      0x118 ../../os/various/evtimer.o
+ .debug_abbrev  0x0000265f      0x12e main.o
+ .debug_abbrev  0x0000278d       0x14 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+ .debug_abbrev  0x000027a1       0x14 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__init_stack.o)
+ .debug_abbrev  0x000027b5       0x14 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+ .debug_abbrev  0x000027c9       0x14 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+ .debug_abbrev  0x000027dd       0x14 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_endless_loop__.o)
+ .debug_abbrev  0x000027f1       0x14 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_unexpected_.o)
+
+.debug_line     0x00000000     0x25a1
+ *(.debug_line)
+ .debug_line    0x00000000      0x143 ../../os/kernel/src/chsys.o
+ .debug_line    0x00000143       0x1d ../../os/kernel/src/chdebug.o
+ .debug_line    0x00000160       0x1d ../../os/kernel/src/chlists.o
+ .debug_line    0x0000017d       0xee ../../os/kernel/src/chvt.o
+ .debug_line    0x0000026b      0x217 ../../os/kernel/src/chschd.o
+ .debug_line    0x00000482      0x207 ../../os/kernel/src/chthreads.o
+ .debug_line    0x00000689      0x19a ../../os/kernel/src/chdynamic.o
+ .debug_line    0x00000823      0x15e ../../os/kernel/src/chregistry.o
+ .debug_line    0x00000981      0x200 ../../os/kernel/src/chsem.o
+ .debug_line    0x00000b81      0x231 ../../os/kernel/src/chmtx.o
+ .debug_line    0x00000db2      0x1bb ../../os/kernel/src/chcond.o
+ .debug_line    0x00000f6d      0x1eb ../../os/kernel/src/chevents.o
+ .debug_line    0x00001158      0x14c ../../os/kernel/src/chmsg.o
+ .debug_line    0x000012a4      0x18c ../../os/kernel/src/chmboxes.o
+ .debug_line    0x00001430      0x26c ../../os/kernel/src/chqueues.o
+ .debug_line    0x0000169c      0x10d ../../os/kernel/src/chmemcore.o
+ .debug_line    0x000017a9      0x1ca ../../os/kernel/src/chheap.o
+ .debug_line    0x00001973      0x13a ../../os/kernel/src/chmempools.o
+ .debug_line    0x00001aad       0xb6 ../../os/hal/src/hal.o
+ .debug_line    0x00001b63       0x1d ../../os/hal/src/adc.o
+ .debug_line    0x00001b80       0x1d ../../os/hal/src/can.o
+ .debug_line    0x00001b9d       0x1d ../../os/hal/src/dac.o
+ .debug_line    0x00001bba       0x1d ../../os/hal/src/ext.o
+ .debug_line    0x00001bd7       0x1d ../../os/hal/src/gpt.o
+ .debug_line    0x00001bf4       0x1d ../../os/hal/src/i2c.o
+ .debug_line    0x00001c11       0x1d ../../os/hal/src/icu.o
+ .debug_line    0x00001c2e       0x1d ../../os/hal/src/mac.o
+ .debug_line    0x00001c4b       0x1d ../../os/hal/src/mmc_spi.o
+ .debug_line    0x00001c68       0x1d ../../os/hal/src/mmcsd.o
+ .debug_line    0x00001c85       0xe0 ../../os/hal/src/pal.o
+ .debug_line    0x00001d65       0x1d ../../os/hal/src/pwm.o
+ .debug_line    0x00001d82       0x1d ../../os/hal/src/rtc.o
+ .debug_line    0x00001d9f       0x1d ../../os/hal/src/sdc.o
+ .debug_line    0x00001dbc       0x1d ../../os/hal/src/serial.o
+ .debug_line    0x00001dd9       0x1d ../../os/hal/src/serial_usb.o
+ .debug_line    0x00001df6       0x1d ../../os/hal/src/spi.o
+ .debug_line    0x00001e13       0x1d ../../os/hal/src/tm.o
+ .debug_line    0x00001e30       0x1d ../../os/hal/src/uart.o
+ .debug_line    0x00001e4d       0x1d ../../os/hal/src/usb.o
+ .debug_line    0x00001e6a       0xbb ../../os/hal/platforms/MSP430/hal_lld.o
+ .debug_line    0x00001f25       0xc9 ../../os/hal/platforms/MSP430/pal_lld.o
+ .debug_line    0x00001fee       0x1d ../../os/hal/platforms/MSP430/serial_lld.o
+ .debug_line    0x0000200b       0xe3 ../../boards/ezChronos_CC430_F6137/board.o
+ .debug_line    0x000020ee      0x13e ../../os/various/evtimer.o
+ .debug_line    0x0000222c      0x15c main.o
+ .debug_line    0x00002388       0x59 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+ .debug_line    0x000023e1       0x57 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__init_stack.o)
+ .debug_line    0x00002438       0x5d /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+ .debug_line    0x00002495       0x5d /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+ .debug_line    0x000024f2       0x58 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_endless_loop__.o)
+ .debug_line    0x0000254a       0x57 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_unexpected_.o)
+
+.debug_frame    0x00000000      0x9f0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x40 ../../os/kernel/src/chsys.o
+ .debug_frame   0x00000040       0x36 ../../os/kernel/src/chvt.o
+ .debug_frame   0x00000076       0xa4 ../../os/kernel/src/chschd.o
+ .debug_frame   0x0000011a       0xd6 ../../os/kernel/src/chthreads.o
+ .debug_frame   0x000001f0       0x70 ../../os/kernel/src/chdynamic.o
+ .debug_frame   0x00000260       0x30 ../../os/kernel/src/chregistry.o
+ .debug_frame   0x00000290       0xb4 ../../os/kernel/src/chsem.o
+ .debug_frame   0x00000344       0x92 ../../os/kernel/src/chmtx.o
+ .debug_frame   0x000003d6       0x9a ../../os/kernel/src/chcond.o
+ .debug_frame   0x00000470      0x126 ../../os/kernel/src/chevents.o
+ .debug_frame   0x00000596       0x3c ../../os/kernel/src/chmsg.o
+ .debug_frame   0x000005d2       0xc4 ../../os/kernel/src/chmboxes.o
+ .debug_frame   0x00000696       0xe2 ../../os/kernel/src/chqueues.o
+ .debug_frame   0x00000778       0x5e ../../os/kernel/src/chmemcore.o
+ .debug_frame   0x000007d6       0x6c ../../os/kernel/src/chheap.o
+ .debug_frame   0x00000842       0x5a ../../os/kernel/src/chmempools.o
+ .debug_frame   0x0000089c       0x1e ../../os/hal/src/hal.o
+ .debug_frame   0x000008ba       0x46 ../../os/hal/src/pal.o
+ .debug_frame   0x00000900       0x1e ../../os/hal/platforms/MSP430/hal_lld.o
+ .debug_frame   0x0000091e       0x2a ../../os/hal/platforms/MSP430/pal_lld.o
+ .debug_frame   0x00000948       0x36 ../../boards/ezChronos_CC430_F6137/board.o
+ .debug_frame   0x0000097e       0x3c ../../os/various/evtimer.o
+ .debug_frame   0x000009ba       0x36 main.o
+
+.debug_str      0x00000000     0x13f8
+ *(.debug_str)
+ .debug_str     0x00000000      0x3f8 ../../os/kernel/src/chsys.o
+                                0x44f (size before relaxing)
+ .debug_str     0x000003f8       0x1e ../../os/kernel/src/chdebug.o
+                                0x105 (size before relaxing)
+ .debug_str     0x00000416       0x1e ../../os/kernel/src/chlists.o
+                                0x105 (size before relaxing)
+ .debug_str     0x00000434       0x3f ../../os/kernel/src/chvt.o
+                                0x194 (size before relaxing)
+ .debug_str     0x00000473      0x11e ../../os/kernel/src/chschd.o
+                                0x3f6 (size before relaxing)
+ .debug_str     0x00000591       0xec ../../os/kernel/src/chthreads.o
+                                0x3ef (size before relaxing)
+ .debug_str     0x0000067d       0xf2 ../../os/kernel/src/chdynamic.o
+                                0x387 (size before relaxing)
+ .debug_str     0x0000076f       0x42 ../../os/kernel/src/chregistry.o
+                                0x3ce (size before relaxing)
+ .debug_str     0x000007b1       0xc8 ../../os/kernel/src/chsem.o
+                                0x38d (size before relaxing)
+ .debug_str     0x00000879       0x8a ../../os/kernel/src/chmtx.o
+                                0x343 (size before relaxing)
+ .debug_str     0x00000903       0xb0 ../../os/kernel/src/chcond.o
+                                0x363 (size before relaxing)
+ .debug_str     0x000009b3      0x1b9 ../../os/kernel/src/chevents.o
+                                0x45f (size before relaxing)
+ .debug_str     0x00000b6c       0x3d ../../os/kernel/src/chmsg.o
+                                0x2ec (size before relaxing)
+ .debug_str     0x00000ba9       0xe2 ../../os/kernel/src/chmboxes.o
+                                0x35c (size before relaxing)
+ .debug_str     0x00000c8b      0x119 ../../os/kernel/src/chqueues.o
+                                0x3e5 (size before relaxing)
+ .debug_str     0x00000da4       0x60 ../../os/kernel/src/chmemcore.o
+                                0x176 (size before relaxing)
+ .debug_str     0x00000e04       0x6a ../../os/kernel/src/chheap.o
+                                0x336 (size before relaxing)
+ .debug_str     0x00000e6e       0x6c ../../os/kernel/src/chmempools.o
+                                0x1c4 (size before relaxing)
+ .debug_str     0x00000eda       0x5d ../../os/hal/src/hal.o
+                                0x14c (size before relaxing)
+ .debug_str     0x00000f37       0x17 ../../os/hal/src/adc.o
+                                 0xfe (size before relaxing)
+ .debug_str     0x00000f4e       0x17 ../../os/hal/src/can.o
+                                 0xfe (size before relaxing)
+ .debug_str     0x00000f65       0x17 ../../os/hal/src/dac.o
+                                 0xfe (size before relaxing)
+ .debug_str     0x00000f7c       0x17 ../../os/hal/src/ext.o
+                                 0xfe (size before relaxing)
+ .debug_str     0x00000f93       0x17 ../../os/hal/src/gpt.o
+                                 0xfe (size before relaxing)
+ .debug_str     0x00000faa       0x17 ../../os/hal/src/i2c.o
+                                 0xfe (size before relaxing)
+ .debug_str     0x00000fc1       0x17 ../../os/hal/src/icu.o
+                                 0xfe (size before relaxing)
+ .debug_str     0x00000fd8       0x17 ../../os/hal/src/mac.o
+                                 0xfe (size before relaxing)
+ .debug_str     0x00000fef       0x2e ../../os/hal/src/mmc_spi.o
+                                0x115 (size before relaxing)
+ .debug_str     0x0000101d       0x19 ../../os/hal/src/mmcsd.o
+                                0x100 (size before relaxing)
+ .debug_str     0x00001036       0xed ../../os/hal/src/pal.o
+                                0x1ef (size before relaxing)
+ .debug_str     0x00001123       0x17 ../../os/hal/src/pwm.o
+                                 0xfe (size before relaxing)
+ .debug_str     0x0000113a       0x17 ../../os/hal/src/rtc.o
+                                 0xfe (size before relaxing)
+ .debug_str     0x00001151       0x17 ../../os/hal/src/sdc.o
+                                 0xfe (size before relaxing)
+ .debug_str     0x00001168       0x1a ../../os/hal/src/serial.o
+                                0x101 (size before relaxing)
+ .debug_str     0x00001182       0x1e ../../os/hal/src/serial_usb.o
+                                0x105 (size before relaxing)
+ .debug_str     0x000011a0       0x17 ../../os/hal/src/spi.o
+                                 0xfe (size before relaxing)
+ .debug_str     0x000011b7       0x16 ../../os/hal/src/tm.o
+                                 0xfd (size before relaxing)
+ .debug_str     0x000011cd       0x18 ../../os/hal/src/uart.o
+                                 0xff (size before relaxing)
+ .debug_str     0x000011e5       0x17 ../../os/hal/src/usb.o
+                                0x111 (size before relaxing)
+ .debug_str     0x000011fc       0xb0 ../../os/hal/platforms/MSP430/hal_lld.o
+                                0x1fa (size before relaxing)
+ .debug_str     0x000012ac       0x63 ../../os/hal/platforms/MSP430/pal_lld.o
+                                0x230 (size before relaxing)
+ .debug_str     0x0000130f       0x2b ../../os/hal/platforms/MSP430/serial_lld.o
+                                0x112 (size before relaxing)
+ .debug_str     0x0000133a       0x4d ../../boards/ezChronos_CC430_F6137/board.o
+                                0x182 (size before relaxing)
+ .debug_str     0x00001387       0x52 ../../os/various/evtimer.o
+                                0x339 (size before relaxing)
+ .debug_str     0x000013d9       0x1f main.o
+                                0x35a (size before relaxing)
+
+.debug_loc      0x00000000     0x1a14
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x3e ../../os/kernel/src/chsys.o
+ .debug_loc     0x0000003e       0x3a ../../os/kernel/src/chvt.o
+ .debug_loc     0x00000078      0x193 ../../os/kernel/src/chschd.o
+ .debug_loc     0x0000020b      0x1df ../../os/kernel/src/chthreads.o
+ .debug_loc     0x000003ea      0x16a ../../os/kernel/src/chdynamic.o
+ .debug_loc     0x00000554       0x4f ../../os/kernel/src/chregistry.o
+ .debug_loc     0x000005a3      0x25c ../../os/kernel/src/chsem.o
+ .debug_loc     0x000007ff      0x24f ../../os/kernel/src/chmtx.o
+ .debug_loc     0x00000a4e      0x20e ../../os/kernel/src/chcond.o
+ .debug_loc     0x00000c5c      0x312 ../../os/kernel/src/chevents.o
+ .debug_loc     0x00000f6e       0xb1 ../../os/kernel/src/chmsg.o
+ .debug_loc     0x0000101f      0x273 ../../os/kernel/src/chmboxes.o
+ .debug_loc     0x00001292      0x37e ../../os/kernel/src/chqueues.o
+ .debug_loc     0x00001610       0xa5 ../../os/kernel/src/chmemcore.o
+ .debug_loc     0x000016b5      0x1d1 ../../os/kernel/src/chheap.o
+ .debug_loc     0x00001886       0x98 ../../os/kernel/src/chmempools.o
+ .debug_loc     0x0000191e       0x66 ../../os/hal/src/pal.o
+ .debug_loc     0x00001984       0x14 ../../boards/ezChronos_CC430_F6137/board.o
+ .debug_loc     0x00001998       0x55 ../../os/various/evtimer.o
+ .debug_loc     0x000019ed       0x27 main.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x00000000       0xac
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x40 ../../os/kernel/src/chmtx.o
+ .debug_ranges  0x00000040       0x30 ../../os/kernel/src/chcond.o
+ .debug_ranges  0x00000070       0x18 ../../os/kernel/src/chmemcore.o
+ .debug_ranges  0x00000088       0x18 ../../os/kernel/src/chmempools.o
+ .debug_ranges  0x000000a0        0xc main.o
+                0x00002bfe                PROVIDE (__stack, (ORIGIN (ram) + 0xffe))
+                0x00009b6c                PROVIDE (__data_start_rom, _etext)
+                0x00009b6c                PROVIDE (__data_end_rom, (_etext + SIZEOF (.data)))
+OUTPUT(ch.elf elf32-msp430)
+
+Cross Reference Table
+
+Symbol                                            File
+__PAIN_H                                          main.o
+                                                  ../../os/hal/platforms/MSP430/pal_lld.o
+__PAIN_L                                          ../../os/hal/platforms/MSP430/pal_lld.o
+__PBSEL_L                                         ../../boards/ezChronos_CC430_F6137/board.o
+__PCSEL_L                                         ../../os/hal/platforms/MSP430/hal_lld.o
+__PMMCTL0_H                                       ../../os/hal/platforms/MSP430/hal_lld.o
+__PMMCTL0_L                                       ../../os/hal/platforms/MSP430/hal_lld.o
+__SFRIFG1                                         ../../os/hal/platforms/MSP430/hal_lld.o
+__UCSCTL0                                         ../../os/hal/platforms/MSP430/hal_lld.o
+__UCSCTL1                                         ../../os/hal/platforms/MSP430/hal_lld.o
+__UCSCTL2                                         ../../os/hal/platforms/MSP430/hal_lld.o
+__UCSCTL3                                         ../../os/hal/platforms/MSP430/hal_lld.o
+__UCSCTL4                                         ../../os/hal/platforms/MSP430/hal_lld.o
+__UCSCTL6                                         ../../os/hal/platforms/MSP430/hal_lld.o
+__UCSCTL7                                         ../../os/hal/platforms/MSP430/hal_lld.o
+__WDTCTL                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+                                                  ../../os/hal/platforms/MSP430/hal_lld.o
+__bss_size                                        /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+__bss_start                                       /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+__data_load_start                                 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+__data_size                                       /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+__data_start                                      /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+__do_clear_bss                                    /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+__do_copy_data                                    /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+__init_stack                                      /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__init_stack.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+__isr_0                                           /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_1                                           /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_10                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_11                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_12                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_13                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_14                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_15                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_16                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_17                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_18                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_19                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_2                                           /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_20                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_21                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_22                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_23                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_24                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_25                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_26                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_27                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_28                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_29                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_3                                           /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_30                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_31                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_32                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_33                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_34                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_35                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_36                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_37                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_38                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_39                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_4                                           /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_40                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_41                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_42                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_43                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_44                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_45                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_46                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_47                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_48                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_49                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_5                                           /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_50                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_51                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_52                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_53                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_54                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_55                                          ../../boards/ezChronos_CC430_F6137/board.o
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_56                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_57                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_58                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_59                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_6                                           /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_60                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_61                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_62                                          /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_7                                           /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_8                                           /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__isr_9                                           /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__ivtbl_64                                        /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+__low_level_init                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__low_level_init.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+__stack                                           /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__init_stack.o)
+__stop_progExec__                                 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__stop_progExec__.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+__watchdog_support                                /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+__wdt_clear_value                                 /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(__watchdog_support.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_clear_bss.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_copy_data.o)
+_core_init                                        ../../os/kernel/src/chmemcore.o
+                                                  ../../os/kernel/src/chsys.o
+_endless_loop__                                   /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_endless_loop__.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+_heap_init                                        ../../os/kernel/src/chheap.o
+                                                  ../../os/kernel/src/chsys.o
+_idle_thread                                      ../../os/kernel/src/chsys.o
+_idle_thread_wa                                   ../../os/kernel/src/chsys.o
+_pal_lld_init                                     ../../os/hal/platforms/MSP430/pal_lld.o
+                                                  ../../os/hal/src/hal.o
+_pal_lld_setgroupmode                             ../../os/hal/platforms/MSP430/pal_lld.o
+                                                  ../../os/hal/src/pal.o
+_port_halt                                        ../../os/ports/GCC/MSP430/chcoreasm.o
+_port_switch                                      ../../os/ports/GCC/MSP430/chcoreasm.o
+                                                  ../../os/kernel/src/chschd.o
+_port_thread_start                                ../../os/ports/GCC/MSP430/chcoreasm.o
+                                                  ../../os/kernel/src/chthreads.o
+_reset_vector__                                   /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_reset_vector__.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+_scheduler_init                                   ../../os/kernel/src/chschd.o
+                                                  ../../os/kernel/src/chsys.o
+_thread_init                                      ../../os/kernel/src/chthreads.o
+                                                  ../../os/kernel/src/chsys.o
+_unexpected_                                      /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/libcrt0.a(_unexpected_.o)
+                                                  /usr/lib/gcc/msp430/4.6.4/mcpu-430x/mmpy-16/crt0ivtbl64.o
+_vt_init                                          ../../os/kernel/src/chvt.o
+                                                  ../../os/kernel/src/chsys.o
+boardInit                                         ../../boards/ezChronos_CC430_F6137/board.o
+                                                  ../../os/hal/src/hal.o
+chCondBroadcast                                   ../../os/kernel/src/chcond.o
+chCondBroadcastI                                  ../../os/kernel/src/chcond.o
+chCondInit                                        ../../os/kernel/src/chcond.o
+chCondSignal                                      ../../os/kernel/src/chcond.o
+chCondSignalI                                     ../../os/kernel/src/chcond.o
+chCondWait                                        ../../os/kernel/src/chcond.o
+chCondWaitS                                       ../../os/kernel/src/chcond.o
+chCondWaitTimeout                                 ../../os/kernel/src/chcond.o
+chCondWaitTimeoutS                                ../../os/kernel/src/chcond.o
+chCoreAlloc                                       ../../os/kernel/src/chmemcore.o
+                                                  ../../os/kernel/src/chheap.o
+chCoreAllocI                                      ../../os/kernel/src/chmemcore.o
+chCoreStatus                                      ../../os/kernel/src/chmemcore.o
+chEvtAddEvents                                    ../../os/kernel/src/chevents.o
+chEvtBroadcastFlags                               ../../os/kernel/src/chevents.o
+chEvtBroadcastFlagsI                              ../../os/kernel/src/chevents.o
+                                                  ../../os/various/evtimer.o
+chEvtDispatch                                     ../../os/kernel/src/chevents.o
+chEvtGetAndClearEvents                            ../../os/kernel/src/chevents.o
+chEvtGetAndClearFlags                             ../../os/kernel/src/chevents.o
+chEvtGetAndClearFlagsI                            ../../os/kernel/src/chevents.o
+chEvtRegisterMask                                 ../../os/kernel/src/chevents.o
+chEvtSignal                                       ../../os/kernel/src/chevents.o
+chEvtSignalI                                      ../../os/kernel/src/chevents.o
+chEvtUnregister                                   ../../os/kernel/src/chevents.o
+chEvtWaitAll                                      ../../os/kernel/src/chevents.o
+chEvtWaitAllTimeout                               ../../os/kernel/src/chevents.o
+chEvtWaitAny                                      ../../os/kernel/src/chevents.o
+chEvtWaitAnyTimeout                               ../../os/kernel/src/chevents.o
+chEvtWaitOne                                      ../../os/kernel/src/chevents.o
+chEvtWaitOneTimeout                               ../../os/kernel/src/chevents.o
+chHeapAlloc                                       ../../os/kernel/src/chheap.o
+                                                  ../../os/kernel/src/chdynamic.o
+chHeapFree                                        ../../os/kernel/src/chheap.o
+                                                  ../../os/kernel/src/chdynamic.o
+chHeapInit                                        ../../os/kernel/src/chheap.o
+chHeapStatus                                      ../../os/kernel/src/chheap.o
+chIQGetTimeout                                    ../../os/kernel/src/chqueues.o
+chIQInit                                          ../../os/kernel/src/chqueues.o
+chIQPutI                                          ../../os/kernel/src/chqueues.o
+chIQReadTimeout                                   ../../os/kernel/src/chqueues.o
+chIQResetI                                        ../../os/kernel/src/chqueues.o
+chMBFetch                                         ../../os/kernel/src/chmboxes.o
+chMBFetchI                                        ../../os/kernel/src/chmboxes.o
+chMBFetchS                                        ../../os/kernel/src/chmboxes.o
+chMBInit                                          ../../os/kernel/src/chmboxes.o
+chMBPost                                          ../../os/kernel/src/chmboxes.o
+chMBPostAhead                                     ../../os/kernel/src/chmboxes.o
+chMBPostAheadI                                    ../../os/kernel/src/chmboxes.o
+chMBPostAheadS                                    ../../os/kernel/src/chmboxes.o
+chMBPostI                                         ../../os/kernel/src/chmboxes.o
+chMBPostS                                         ../../os/kernel/src/chmboxes.o
+chMBReset                                         ../../os/kernel/src/chmboxes.o
+chMsgRelease                                      ../../os/kernel/src/chmsg.o
+chMsgSend                                         ../../os/kernel/src/chmsg.o
+chMsgWait                                         ../../os/kernel/src/chmsg.o
+chMtxInit                                         ../../os/kernel/src/chmtx.o
+                                                  ../../os/kernel/src/chheap.o
+chMtxLock                                         ../../os/kernel/src/chmtx.o
+                                                  ../../os/kernel/src/chheap.o
+chMtxLockS                                        ../../os/kernel/src/chmtx.o
+                                                  ../../os/kernel/src/chcond.o
+chMtxTryLock                                      ../../os/kernel/src/chmtx.o
+chMtxTryLockS                                     ../../os/kernel/src/chmtx.o
+chMtxUnlock                                       ../../os/kernel/src/chmtx.o
+                                                  ../../os/kernel/src/chheap.o
+chMtxUnlockAll                                    ../../os/kernel/src/chmtx.o
+chMtxUnlockS                                      ../../os/kernel/src/chmtx.o
+                                                  ../../os/kernel/src/chcond.o
+chOQGetI                                          ../../os/kernel/src/chqueues.o
+chOQInit                                          ../../os/kernel/src/chqueues.o
+chOQPutTimeout                                    ../../os/kernel/src/chqueues.o
+chOQResetI                                        ../../os/kernel/src/chqueues.o
+chOQWriteTimeout                                  ../../os/kernel/src/chqueues.o
+chPoolAlloc                                       ../../os/kernel/src/chmempools.o
+                                                  ../../os/kernel/src/chdynamic.o
+chPoolAllocI                                      ../../os/kernel/src/chmempools.o
+chPoolFree                                        ../../os/kernel/src/chmempools.o
+                                                  ../../os/kernel/src/chdynamic.o
+chPoolFreeI                                       ../../os/kernel/src/chmempools.o
+chPoolInit                                        ../../os/kernel/src/chmempools.o
+chPoolLoadArray                                   ../../os/kernel/src/chmempools.o
+chRegFirstThread                                  ../../os/kernel/src/chregistry.o
+chRegNextThread                                   ../../os/kernel/src/chregistry.o
+chSchDoReschedule                                 ../../os/kernel/src/chschd.o
+                                                  ../../boards/ezChronos_CC430_F6137/board.o
+chSchDoRescheduleAhead                            ../../os/kernel/src/chschd.o
+chSchDoRescheduleBehind                           ../../os/kernel/src/chschd.o
+                                                  ../../os/kernel/src/chthreads.o
+chSchGoSleepS                                     ../../os/kernel/src/chschd.o
+                                                  ../../os/kernel/src/chmsg.o
+                                                  ../../os/kernel/src/chevents.o
+                                                  ../../os/kernel/src/chcond.o
+                                                  ../../os/kernel/src/chmtx.o
+                                                  ../../os/kernel/src/chsem.o
+                                                  ../../os/kernel/src/chthreads.o
+chSchGoSleepTimeoutS                              ../../os/kernel/src/chschd.o
+                                                  ../../os/kernel/src/chqueues.o
+                                                  ../../os/kernel/src/chevents.o
+                                                  ../../os/kernel/src/chcond.o
+                                                  ../../os/kernel/src/chsem.o
+                                                  ../../os/kernel/src/chthreads.o
+chSchIsPreemptionRequired                         ../../os/kernel/src/chschd.o
+                                                  ../../boards/ezChronos_CC430_F6137/board.o
+chSchReadyI                                       ../../os/kernel/src/chschd.o
+                                                  ../../os/kernel/src/chqueues.o
+                                                  ../../os/kernel/src/chmsg.o
+                                                  ../../os/kernel/src/chevents.o
+                                                  ../../os/kernel/src/chcond.o
+                                                  ../../os/kernel/src/chmtx.o
+                                                  ../../os/kernel/src/chsem.o
+                                                  ../../os/kernel/src/chthreads.o
+chSchRescheduleS                                  ../../os/kernel/src/chschd.o
+                                                  ../../os/kernel/src/chmboxes.o
+                                                  ../../os/kernel/src/chevents.o
+                                                  ../../os/kernel/src/chcond.o
+                                                  ../../os/kernel/src/chmtx.o
+                                                  ../../os/kernel/src/chsem.o
+                                                  ../../os/kernel/src/chthreads.o
+chSchWakeupS                                      ../../os/kernel/src/chschd.o
+                                                  ../../os/kernel/src/chmsg.o
+                                                  ../../os/kernel/src/chcond.o
+                                                  ../../os/kernel/src/chmtx.o
+                                                  ../../os/kernel/src/chsem.o
+                                                  ../../os/kernel/src/chdynamic.o
+                                                  ../../os/kernel/src/chthreads.o
+chSemAddCounterI                                  ../../os/kernel/src/chsem.o
+chSemInit                                         ../../os/kernel/src/chsem.o
+                                                  ../../os/kernel/src/chmboxes.o
+chSemReset                                        ../../os/kernel/src/chsem.o
+chSemResetI                                       ../../os/kernel/src/chsem.o
+                                                  ../../os/kernel/src/chmboxes.o
+chSemSignal                                       ../../os/kernel/src/chsem.o
+chSemSignalI                                      ../../os/kernel/src/chsem.o
+                                                  ../../os/kernel/src/chmboxes.o
+chSemSignalWait                                   ../../os/kernel/src/chsem.o
+chSemWait                                         ../../os/kernel/src/chsem.o
+chSemWaitS                                        ../../os/kernel/src/chsem.o
+chSemWaitTimeout                                  ../../os/kernel/src/chsem.o
+chSemWaitTimeoutS                                 ../../os/kernel/src/chsem.o
+                                                  ../../os/kernel/src/chmboxes.o
+chSysInit                                         ../../os/kernel/src/chsys.o
+                                                  main.o
+chSysTimerHandlerI                                ../../os/kernel/src/chsys.o
+                                                  ../../boards/ezChronos_CC430_F6137/board.o
+chThdAddRef                                       ../../os/kernel/src/chdynamic.o
+chThdCreateFromHeap                               ../../os/kernel/src/chdynamic.o
+chThdCreateFromMemoryPool                         ../../os/kernel/src/chdynamic.o
+chThdCreateI                                      ../../os/kernel/src/chthreads.o
+                                                  ../../os/kernel/src/chdynamic.o
+chThdCreateStatic                                 ../../os/kernel/src/chthreads.o
+                                                  main.o
+                                                  ../../os/kernel/src/chsys.o
+chThdExit                                         ../../os/kernel/src/chthreads.o
+                                                  ../../os/ports/GCC/MSP430/chcoreasm.o
+chThdExitS                                        ../../os/kernel/src/chthreads.o
+chThdRelease                                      ../../os/kernel/src/chdynamic.o
+                                                  ../../os/kernel/src/chregistry.o
+                                                  ../../os/kernel/src/chthreads.o
+chThdResume                                       ../../os/kernel/src/chthreads.o
+chThdSetPriority                                  ../../os/kernel/src/chthreads.o
+chThdSleep                                        ../../os/kernel/src/chthreads.o
+                                                  main.o
+chThdSleepUntil                                   ../../os/kernel/src/chthreads.o
+chThdTerminate                                    ../../os/kernel/src/chthreads.o
+chThdWait                                         ../../os/kernel/src/chthreads.o
+chThdYield                                        ../../os/kernel/src/chthreads.o
+chVTResetI                                        ../../os/kernel/src/chvt.o
+                                                  ../../os/various/evtimer.o
+                                                  ../../os/kernel/src/chschd.o
+chVTSetI                                          ../../os/kernel/src/chvt.o
+                                                  ../../os/various/evtimer.o
+                                                  ../../os/kernel/src/chschd.o
+ch_debug                                          ../../os/kernel/src/chregistry.o
+                                                  ../../os/kernel/src/chsys.o
+evtStart                                          ../../os/various/evtimer.o
+evtStop                                           ../../os/various/evtimer.o
+halInit                                           ../../os/hal/src/hal.o
+                                                  main.o
+hal_lld_init                                      ../../os/hal/platforms/MSP430/hal_lld.o
+                                                  ../../os/hal/src/hal.o
+main                                              main.o
+palReadBus                                        ../../os/hal/src/pal.o
+palSetBusMode                                     ../../os/hal/src/pal.o
+palWriteBus                                       ../../os/hal/src/pal.o
+pal_default_config                                ../../boards/ezChronos_CC430_F6137/board.o
+                                                  ../../os/hal/src/hal.o
+rlist                                             main.o
+                                                  ../../os/kernel/src/chqueues.o
+                                                  ../../os/kernel/src/chmsg.o
+                                                  ../../os/kernel/src/chevents.o
+                                                  ../../os/kernel/src/chcond.o
+                                                  ../../os/kernel/src/chmtx.o
+                                                  ../../os/kernel/src/chsem.o
+                                                  ../../os/kernel/src/chregistry.o
+                                                  ../../os/kernel/src/chthreads.o
+                                                  ../../os/kernel/src/chschd.o
+                                                  ../../os/kernel/src/chsys.o
+vectTIMER0_A0                                     ../../boards/ezChronos_CC430_F6137/board.o
+vtlist                                            ../../os/kernel/src/chthreads.o
+                                                  ../../os/kernel/src/chvt.o
+                                                  ../../os/kernel/src/chsys.o

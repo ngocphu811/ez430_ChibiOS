@@ -41,10 +41,10 @@
 #define P3_O_TXD0_MASK          (1 << P3_O_TXD0)
 #define P3_I_RXD0               5
 #define P3_I_RXD0_MASK          (1 << P3_I_RXD0)
-#define P6_O_LED                0
+#define P3_O_LED                0
 #define P6_O_LED_MASK           (1 << P6_O_LED)
-#define P6_I_BUTTON             1
-#define P6_I_BUTTON_MASK        (1 << P6_I_BUTTON)
+#define P2_I_BUTTON             1
+#define P2_I_BUTTON_MASK        (1 << P6_I_BUTTON)
 
 #undef __MSP430_HAS_PORT3__
 #undef __MSP430_HAS_PORT4__

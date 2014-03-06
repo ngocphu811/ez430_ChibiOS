@@ -76,7 +76,7 @@ WDTCTL = WDTPW + WDTHOLD;
   
 // ---------------------------------------------------------------------
 // Configure PMM
-SetVCore(3);
+//SetVCore(3);					///<<<<<<<<<<<<<<<<<<<<<
 
 // Set global high power request enable
 PMMCTL0_H = 0xA5;
