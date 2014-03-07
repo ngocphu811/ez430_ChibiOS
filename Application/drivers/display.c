@@ -42,25 +42,26 @@
 // system
 #include <project.h>
 #include <string.h>
+//#include <../globals.h>
 
 // driver
 #include "display.h"
 
 // logic
-#include "clock.h"
-#include "user.h"
-#include "date.h"
-#include "stopwatch.h"
-#include "temperature.h"
+//#include "clock.h"
+//#include "user.h"
+//#include "date.h"
+//#include "stopwatch.h"
+//#include "temperature.h"
 
 
 // *************************************************************************************************
 // Prototypes section
-void write_lcd_mem(u8 * lcdmem, u8 bits, u8 bitmask, u8 state);
-void clear_line(u8 line);
-void display_symbol(u8 symbol, u8 mode);
-void display_char(u8 segment, u8 chr, u8 mode);
-void display_chars(u8 segments, u8 * str, u8 mode);
+void write_lcd_mem(unsigned short * lcdmem, unsigned short bits, unsigned short bitmask, unsigned short state);
+void clear_line(unsigned short line);
+void display_symbol(unsigned short symbol, unsigned short mode);
+void display_char(unsigned short segment, unsigned short chr, unsigned short mode);
+void display_chars(unsigned short segments, unsigned short * str, unsigned short mode);
 
 
 // *************************************************************************************************
@@ -75,13 +76,13 @@ void display_chars(u8 segments, u8 * str, u8 mode);
 volatile s_display_flags display;
 
 // Global return string for itoa function
-u8 itoa_str[8];
+unsigned short itoa_str[8];
 
 
 // *************************************************************************************************
 // Extern section
-extern void (*fptr_lcd_function_line1)(u8 line, u8 update);
-extern void (*fptr_lcd_function_line2)(u8 line, u8 update);
+extern void (*fptr_lcd_function_line1)(unsigned short line, unsigned short update);
+extern void (*fptr_lcd_function_line2)(unsigned short line, unsigned short update);
 
 
 // *************************************************************************************************
@@ -155,10 +156,10 @@ void clear_display(void)
 // *************************************************************************************************
 // @fn          clear_line
 // @brief       Erase segments of a given line.
-// @param      	u8 line	LINE1, LINE2
+// @param      	unsigned short line	LINE1, LINE2
 // @return      none
 // *************************************************************************************************
-void clear_line(u8 line)
+void clear_line(unsigned short line)
 {
 	display_chars(switch_seg(line, LCD_SEG_L1_3_0, LCD_SEG_L2_5_0), NULL, SEG_OFF);
 	if (line == LINE1)
@@ -185,49 +186,49 @@ void clear_line(u8 line)
 //				mode		On, off or blink segments
 // @return      
 // *************************************************************************************************
-void write_lcd_mem(u8 * lcdmem, u8 bits, u8 bitmask, u8 state)
+void write_lcd_mem(unsigned short * lcdmem, unsigned short bits, unsigned short bitmask, unsigned short state)
 {
 	if (state == SEG_ON)
 	{
 		// Clear segments before writing
-		*lcdmem = (u8)(*lcdmem & ~bitmask);
+		*lcdmem = (unsigned short)(*lcdmem & ~bitmask);
 	
 		// Set visible segments
-		*lcdmem = (u8)(*lcdmem | bits);
+		*lcdmem = (unsigned short)(*lcdmem | bits);
 	}
 	else if (state == SEG_OFF)
 	{
 		// Clear segments
-		*lcdmem = (u8)(*lcdmem & ~bitmask);
+		*lcdmem = (unsigned short)(*lcdmem & ~bitmask);
 	}
 	else if (state == SEG_ON_BLINK_ON)
 	{
 		// Clear visible / blink segments before writing
-		*lcdmem 		= (u8)(*lcdmem & ~bitmask);
-		*(lcdmem+0x20) 	= (u8)(*(lcdmem+0x20) & ~bitmask);
+		*lcdmem 		= (unsigned short)(*lcdmem & ~bitmask);
+		*(lcdmem+0x20) 	= (unsigned short)(*(lcdmem+0x20) & ~bitmask);
 	
 		// Set visible / blink segments
-		*lcdmem 		= (u8)(*lcdmem | bits);
-		*(lcdmem+0x20) 	= (u8)(*(lcdmem+0x20) | bits);
+		*lcdmem 		= (unsigned short)(*lcdmem | bits);
+		*(lcdmem+0x20) 	= (unsigned short)(*(lcdmem+0x20) | bits);
 	}
 	else if (state == SEG_ON_BLINK_OFF)
 	{
 		// Clear visible segments before writing
-		*lcdmem = (u8)(*lcdmem & ~bitmask);
+		*lcdmem = (unsigned short)(*lcdmem & ~bitmask);
 	
 		// Set visible segments
-		*lcdmem = (u8)(*lcdmem | bits);
+		*lcdmem = (unsigned short)(*lcdmem | bits);
 
 		// Clear blink segments
-		*(lcdmem+0x20) 	= (u8)(*(lcdmem+0x20) & ~bitmask);
+		*(lcdmem+0x20) 	= (unsigned short)(*(lcdmem+0x20) & ~bitmask);
 	}
 	else if (state == SEG_OFF_BLINK_OFF)
 	{
 		// Clear segments
-		*lcdmem = (u8)(*lcdmem & ~bitmask);
+		*lcdmem = (unsigned short)(*lcdmem & ~bitmask);
 
 		// Clear blink segments
-		*(lcdmem+0x20) 	= (u8)(*(lcdmem+0x20) & ~bitmask);
+		*(lcdmem+0x20) 	= (unsigned short)(*(lcdmem+0x20) & ~bitmask);
 	}
 }
 
@@ -237,15 +238,15 @@ void write_lcd_mem(u8 * lcdmem, u8 bits, u8 bitmask, u8 state)
 // @brief       Generic integer to array routine. Converts integer n to string.
 //				Default conversion result has leading zeros, e.g. "00123"
 //				Option to convert leading '0' into whitespace (blanks)
-// @param       u32 n			integer to convert
-//				u8 digits		number of digits
-//				u8 blanks		fill up result string with number of whitespaces instead of leading zeros  
-// @return      u8				string
+// @param       unsigned long n			integer to convert
+//				unsigned short digits		number of digits
+//				unsigned short blanks		fill up result string with number of whitespaces instead of leading zeros  
+// @return      unsigned short				string
 // *************************************************************************************************
-u8 * _itoa(u32 n, u8 digits, u8 blanks)
+unsigned short * _itoa(unsigned long n, unsigned short digits, unsigned short blanks)
 {
-	u8 i;
-	u8 digits1 = digits;
+	unsigned short i;
+	unsigned short digits1 = digits;
 	
 	// Preset result string
 	memcpy(itoa_str, "0000000", 7);
@@ -295,15 +296,15 @@ u8 * _itoa(u32 n, u8 digits, u8 blanks)
 // *************************************************************************************************
 // @fn          display_value1
 // @brief       Generic decimal display routine. Used exclusively by set_value function.
-// @param       u8 segments		LCD segments where value is displayed
-//				u32 value			Integer value to be displayed
-//				u8 digits			Number of digits to convert
-//				u8 blanks			Number of leadings blanks in itoa result string
+// @param       unsigned short segments		LCD segments where value is displayed
+//				unsigned long value			Integer value to be displayed
+//				unsigned short digits			Number of digits to convert
+//				unsigned short blanks			Number of leadings blanks in itoa result string
 // @return      none
 // *************************************************************************************************
-void display_value1(u8 segments, u32 value, u8 digits, u8 blanks, u8 disp_mode)
+void display_value1(unsigned short segments, unsigned long value, unsigned short digits, unsigned short blanks, unsigned short disp_mode)
 {
-	u8 * str;
+	unsigned short * str;
 
 	str = _itoa(value, digits, blanks);
 
@@ -317,16 +318,16 @@ void display_value1(u8 segments, u32 value, u8 digits, u8 blanks, u8 disp_mode)
 // *************************************************************************************************
 // @fn          display_hours_12_or_24
 // @brief       Display hours in 24H / 12H time format.
-// @param       u8 segments	Segments where to display hour data
-//				u32 value		Hour data
-//				u8 digits		Must be "2"
-//				u8 blanks		Must be "0"
+// @param       unsigned short segments	Segments where to display hour data
+//				unsigned long value		Hour data
+//				unsigned short digits		Must be "2"
+//				unsigned short blanks		Must be "0"
 // @return      none
 // *************************************************************************************************
-void display_hours_12_or_24(u8 segments, u32 value, u8 digits, u8 blanks, u8 disp_mode)
+void display_hours_12_or_24(unsigned short segments, unsigned long value, unsigned short digits, unsigned short blanks, unsigned short disp_mode)
 {
 #if (OPTION_TIME_DISPLAY > CLOCK_24HR)
-  u8 hours;
+  unsigned short hours;
 #endif
 
 #if (OPTION_TIME_DISPLAY == CLOCK_DISPLAY_SELECT)
@@ -348,7 +349,7 @@ void display_hours_12_or_24(u8 segments, u32 value, u8 digits, u8 blanks, u8 dis
 #endif
 #if (OPTION_TIME_DISPLAY != CLOCK_AM_PM)
 		// Display hours in 24H time format 
-		display_value1(segments, (u16) value, digits, blanks, disp_mode);
+		display_value1(segments, (unsigned int) value, digits, blanks, disp_mode);
 #endif
 #if (OPTION_TIME_DISPLAY == CLOCK_DISPLAY_SELECT)
 	}
@@ -359,11 +360,11 @@ void display_hours_12_or_24(u8 segments, u32 value, u8 digits, u8 blanks, u8 dis
 // *************************************************************************************************
 // @fn          display_am_pm_symbol
 // @brief       Display AM or PM symbol.
-// @param       u8 hour		24H internal time format
+// @param       unsigned short hour		24H internal time format
 // @return      none
 // *************************************************************************************************
 #if (OPTION_TIME_DISPLAY > CLOCK_24HR)
-void display_am_pm_symbol(u8 hour)
+void display_am_pm_symbol(unsigned short hour)
 {
 	// Display AM/PM symbol
 	if (is_hour_am(hour))
@@ -382,20 +383,20 @@ void display_am_pm_symbol(u8 hour)
 // *************************************************************************************************
 // @fn          display_symbol
 // @brief       Switch symbol on or off on LCD.
-// @param       u8 symbol		A valid LCD symbol (index 0..42)
-//				u8 state		SEG_ON, SEG_OFF, SEG_BLINK
+// @param       unsigned short symbol		A valid LCD symbol (index 0..42)
+//				unsigned short state		SEG_ON, SEG_OFF, SEG_BLINK
 // @return      none
 // *************************************************************************************************
-void display_symbol(u8 symbol, u8 mode)
+void display_symbol(unsigned short symbol, unsigned short mode)
 {
-	u8 * lcdmem;
-	u8 bits;
-	u8 bitmask;
+	unsigned short * lcdmem;
+	unsigned short bits;
+	unsigned short bitmask;
 	
 	if (symbol <= LCD_SEG_L2_DP) 
 	{
 		// Get LCD memory address for symbol from table
-		lcdmem 	= (u8 *)segments_lcdmem[symbol];
+		lcdmem 	= (unsigned short *)segments_lcdmem[symbol];
 	
 		// Get bits for symbol from table
 		bits 	= segments_bitmask[symbol];
@@ -412,22 +413,22 @@ void display_symbol(u8 symbol, u8 mode)
 // *************************************************************************************************
 // @fn          display_char
 // @brief       Write to 7-segment characters.
-// @param       u8 segment		A valid LCD segment 
-//				u8 chr			Character to display
-//				u8 mode		SEG_ON, SEG_OFF, SEG_BLINK
+// @param       unsigned short segment		A valid LCD segment 
+//				unsigned short chr			Character to display
+//				unsigned short mode		SEG_ON, SEG_OFF, SEG_BLINK
 // @return      none
 // *************************************************************************************************
-void display_char(u8 segment, u8 chr, u8 mode)
+void display_char(unsigned short segment, unsigned short chr, unsigned short mode)
 {
-	u8 * lcdmem;			// Pointer to LCD memory
-	u8 bitmask;			// Bitmask for character
-	u8 bits, bits1;		// Bits to write
+	unsigned short * lcdmem;			// Pointer to LCD memory
+	unsigned short bitmask;			// Bitmask for character
+	unsigned short bits, bits1;		// Bits to write
 	
 	// Write to single 7-segment character
 	if ((segment >= LCD_SEG_L1_3) && (segment <= LCD_SEG_L2_DP))
 	{
 		// Get LCD memory address for segment from table
-		lcdmem = (u8 *)segments_lcdmem[segment];
+		lcdmem = (unsigned short *)segments_lcdmem[segment];
 
 		// Get bitmask for character from table
 		bitmask = segments_bitmask[segment];
@@ -473,16 +474,16 @@ void display_char(u8 segment, u8 chr, u8 mode)
 // *************************************************************************************************
 // @fn          display_chars
 // @brief       Write to consecutive 7-segment characters.
-// @param       u8 segments	LCD segment array 
-//				u8 * str		Pointer to a string
-//				u8 mode		SEG_ON, SEG_OFF, SEG_BLINK
+// @param       unsigned short segments	LCD segment array 
+//				unsigned short * str		Pointer to a string
+//				unsigned short mode		SEG_ON, SEG_OFF, SEG_BLINK
 // @return      none
 // *************************************************************************************************
-void display_chars(u8 segments, u8 * str, u8 mode)
+void display_chars(unsigned short segments, unsigned short * str, unsigned short mode)
 {
-	u8 i;
-	u8 length = 0;			// Write length
-	u8 char_start;			// Starting point for consecutive write
+	unsigned short i;
+	unsigned short length = 0;			// Write length
+	unsigned short char_start;			// Starting point for consecutive write
 	
 	//single charakter
 	if ((segments >= LCD_SEG_L1_3) && (segments <= LCD_SEG_L2_DP))
@@ -526,12 +527,12 @@ void display_chars(u8 segments, u8 * str, u8 mode)
 // @fn          switch_seg
 // @brief       Returns index of 7-segment character. Required for display routines that can draw 
 //				information on both lines.
-// @param       u8 line		LINE1, LINE2
-//				u8 index1		Index of LINE1
-//				u8 index2		Index of LINE2
+// @param       unsigned short line		LINE1, LINE2
+//				unsigned short index1		Index of LINE1
+//				unsigned short index2		Index of LINE2
 // @return      uint8
 // *************************************************************************************************
-u8 switch_seg(u8 line, u8 index1, u8 index2)
+unsigned short switch_seg(unsigned short line, unsigned short index1, unsigned short index2)
 {
 	if (line == LINE1)
 	{
@@ -586,7 +587,7 @@ void clear_blink_mem(void)
 // @param       none
 // @return      none
 // *************************************************************************************************
-void set_blink_rate(u8 bits)
+void set_blink_rate(unsigned short bits)
 {
 	LCDBBLKCTL &= ~(BIT7 | BIT6 | BIT5);	
 	LCDBBLKCTL |= bits;	
@@ -601,8 +602,8 @@ void set_blink_rate(u8 bits)
 // *************************************************************************************************
 void display_all_off(void)
 {
-	u8 * lcdptr = (u8*)0x0A20;
-	u8 i;
+	unsigned short * lcdptr = (unsigned short*)0x0A20;
+	unsigned short i;
 	
 	for (i=1; i<=12; i++) 
 	{

@@ -41,7 +41,7 @@
 #define HAL_PMM_H
 
 #include <stdint.h>
-#include "HAL_MACROS.h"
+//#include "HAL_MACROS.h"
 
 /*******************************************************************************
  * Macros

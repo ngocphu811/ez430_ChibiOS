@@ -49,7 +49,7 @@ extern void reset_batt_measurement(void);
 extern void battery_measurement(void);
 
 // Menu functions
-extern void display_battery_V(u8 line, u8 update);
+extern void display_battery_V(unsigned short line, unsigned short update);
 
 
 // *************************************************************************************************
@@ -73,13 +73,13 @@ struct batt
 	menu_t	 	state;
 	
 	// Counter for alternating "lobatt" display
-	u8 			lobatt_display;
+	unsigned short 			lobatt_display;
 	
 	// Battery voltage
-	u16			voltage;
+	unsigned int		voltage;
 	
 	// Battery voltage offset
-	s16			offset;
+	int			offset;
 };
 extern struct batt sBatt;
 

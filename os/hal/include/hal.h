@@ -30,7 +30,8 @@
 #define _HAL_H_
 
 #include "ch.h"
-#include "board.h"
+//#include "board.h"
+#include <../../boards/ezChronos_CC430_F6137/board.h>
 #include "halconf.h"
 
 #include "hal_lld.h"

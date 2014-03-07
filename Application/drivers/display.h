@@ -64,10 +64,10 @@
 // Extern section
 
 // Constants defined in library
-extern const u8 lcd_font[];
-extern const u8 * segments_lcdmem[];
-extern const u8 segments_bitmask[];
-extern const u8 itoa_conversion_table[][3];
+extern const unsigned short lcd_font[];
+extern const unsigned short * segments_lcdmem[];
+extern const unsigned short segments_bitmask[];
+extern const unsigned short itoa_conversion_table[][3];
 
 
 // *************************************************************************************************
@@ -79,32 +79,32 @@ typedef union
   struct
   {
   	// Line1 + Line2 + Icons
-    u16 full_update      		: 1;    // 1 = Redraw all content
-    u16 partial_update      	: 1;    // 1 = Update changes
+    unsigned int full_update      		: 1;    // 1 = Redraw all content
+    unsigned int partial_update      	: 1;    // 1 = Update changes
   	
   	// Line only
-    u16 line1_full_update     	: 1;    // 1 = Redraw Line1 content
-    u16 line2_full_update     	: 1;    // 1 = Redraw Line2 content
+    unsigned int line1_full_update     	: 1;    // 1 = Redraw Line1 content
+    unsigned int line2_full_update     	: 1;    // 1 = Redraw Line2 content
 
 	// Logic module data update flags
-    u16 update_time      		: 1;    // 1 = Time was updated 
+    unsigned int update_time      		: 1;    // 1 = Time was updated 
 #ifdef CONFIG_SIDEREAL
-	u16 update_sidereal_time	: 1;	// 1 = Sidereal Time was updated
+	unsigned int update_sidereal_time	: 1;	// 1 = Sidereal Time was updated
 #endif
-    u16 update_stopwatch     	: 1;    // 1 = Stopwatch was updated
+    unsigned int update_stopwatch     	: 1;    // 1 = Stopwatch was updated
 #ifdef CONFIG_EGGTIMER
-    u16 update_eggtimer : 1;
+    unsigned int update_eggtimer : 1;
 #endif
 #ifdef CONFIG_INTTIMER
-    u16 update_inttimer : 1;
+    unsigned int update_inttimer : 1;
 #endif
-    u16 update_temperature   	: 1;    // 1 = Temperature was updated
-    u16 update_battery_voltage 	: 1;    // 1 = Battery voltage was updated
-    u16 update_date      		: 1;    // 1 = Date was updated
-    u16 update_alarm      		: 1;    // 1 = Alarm time was updated
-    u16 update_acceleration		: 1; 	// 1 = Acceleration data was updated
+    unsigned int update_temperature   	: 1;    // 1 = Temperature was updated
+    unsigned int update_battery_voltage 	: 1;    // 1 = Battery voltage was updated
+    unsigned int update_date      		: 1;    // 1 = Date was updated
+    unsigned int update_alarm      		: 1;    // 1 = Alarm time was updated
+    unsigned int update_acceleration		: 1; 	// 1 = Acceleration data was updated
   } flag;
-  u16 all_flags;            // Shortcut to all display flags (for reset)
+  unsigned int all_flags;            // Shortcut to all display flags (for reset)
 } s_display_flags;
 
 extern volatile s_display_flags display;
@@ -232,18 +232,18 @@ extern volatile s_display_flags display;
 
 
 // LCD controller memory map
-#define LCD_MEM_1          			((u8*)0x0A20)
-#define LCD_MEM_2          			((u8*)0x0A21)
-#define LCD_MEM_3          			((u8*)0x0A22)
-#define LCD_MEM_4          			((u8*)0x0A23)
-#define LCD_MEM_5          			((u8*)0x0A24)
-#define LCD_MEM_6          			((u8*)0x0A25)
-#define LCD_MEM_7          			((u8*)0x0A26)
-#define LCD_MEM_8          	 		((u8*)0x0A27)
-#define LCD_MEM_9          			((u8*)0x0A28)
-#define LCD_MEM_10         			((u8*)0x0A29)
-#define LCD_MEM_11         			((u8*)0x0A2A)
-#define LCD_MEM_12         			((u8*)0x0A2B)
+#define LCD_MEM_1          			((unsigned short*)0x0A20)
+#define LCD_MEM_2          			((unsigned short*)0x0A21)
+#define LCD_MEM_3          			((unsigned short*)0x0A22)
+#define LCD_MEM_4          			((unsigned short*)0x0A23)
+#define LCD_MEM_5          			((unsigned short*)0x0A24)
+#define LCD_MEM_6          			((unsigned short*)0x0A25)
+#define LCD_MEM_7          			((unsigned short*)0x0A26)
+#define LCD_MEM_8          	 		((unsigned short*)0x0A27)
+#define LCD_MEM_9          			((unsigned short*)0x0A28)
+#define LCD_MEM_10         			((unsigned short*)0x0A29)
+#define LCD_MEM_11         			((unsigned short*)0x0A2A)
+#define LCD_MEM_12         			((unsigned short*)0x0A2B)
 
 
 // Memory assignment
@@ -340,38 +340,38 @@ extern volatile s_display_flags display;
 // API section
 
 // Physical LCD memory write
-extern void write_lcd_mem(u8 * lcdmem, u8 bits, u8 bitmask, u8 state);
+extern void write_lcd_mem(unsigned short * lcdmem, unsigned short bits, unsigned short bitmask, unsigned short state);
 
 // Display init / clear
 extern void lcd_init(void);
 extern void clear_display(void);
 extern void clear_display_all(void);
-extern void clear_line(u8 line);
+extern void clear_line(unsigned short line);
 
 // Blinking function
 extern void start_blink(void);
 extern void stop_blink(void);
 extern void clear_blink_mem(void);
-extern void set_blink_rate(u8 bits);
+extern void set_blink_rate(unsigned short bits);
 
 // Character / symbol draw functions
-extern void display_char(u8 segment, u8 chr, u8 mode);
-extern void display_chars(u8 segments, u8 * str, u8 mode);
-extern void display_symbol(u8 symbol, u8 mode);
+extern void display_char(unsigned short segment, unsigned short chr, unsigned short mode);
+extern void display_chars(unsigned short segments, unsigned short * str, unsigned short mode);
+extern void display_symbol(unsigned short symbol, unsigned short mode);
 
 // Time display function
-extern void DisplayTime(u8 updateMode);
-extern void display_am_pm_symbol(u8 timeAM);
+extern void DisplayTime(unsigned short updateMode);
+extern void display_am_pm_symbol(unsigned short timeAM);
 
 // Set_value display functions
-extern void display_value1(u8 segments, u32 value, u8 digits, u8 blanks, u8 disp_mode);
-extern void display_hours_12_or_24(u8 segments, u32 value, u8 digits, u8 blanks, u8 disp_mode);
+extern void display_value1(unsigned short segments, unsigned long value, unsigned short digits, unsigned short blanks, unsigned short disp_mode);
+extern void display_hours_12_or_24(unsigned short segments, unsigned long value, unsigned short digits, unsigned short blanks, unsigned short disp_mode);
 
 // Integer to string conversion 
-extern u8 * _itoa(u32 n, u8 digits, u8 blanks);
+extern unsigned short * _itoa(unsigned long n, unsigned short digits, unsigned short blanks);
 
 // Segment index helper function
-extern u8 switch_seg(u8 line, u8 index1, u8 index2);
+extern unsigned short switch_seg(unsigned short line, unsigned short index1, unsigned short index2);
 
 void display_all_off(void);
 

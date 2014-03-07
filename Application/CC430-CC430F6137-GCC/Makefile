@@ -51,6 +51,7 @@ include $(CHIBIOS)/os/hal/hal.mk
 include $(CHIBIOS)/os/ports/GCC/MSP430/port.mk
 include $(CHIBIOS)/os/kernel/kernel.mk
 include $(CHIBIOS)/Application/drivers/drivers.mk
+include $(CHIBIOS)/Application/logic/logic.mk
 #include $(CHIBIOS)Application/logic/logic.mk
 #include $(CHIBIOS)/test/test.mk
 
@@ -61,7 +62,8 @@ CSRC = $(PORTSRC) \
        $(HALSRC) \
        $(PLATFORMSRC) \
        $(BOARDSRC) \
-	   $(DRIVERSSRC) \
+	$(DRIVERSSRC) \
+	$(CHIBIOSSRC) \
        $(CHIBIOS)/os/various/evtimer.c \
        main.c
 
@@ -73,7 +75,7 @@ ASMSRC = $(PORTASM)
 
 INCDIR = $(PORTINC) $(KERNINC) $(TESTINC) \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) \
-		 $(DRIVERSINC) \
+	$(DRIVERSINC) $(LOGICINC) \
          $(CHIBIOS)/os/various
 
 #

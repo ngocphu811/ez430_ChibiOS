@@ -1,3 +1,20 @@
+/*
+    Copyright (C) 2011 Angelo Arrifano <miknix@gmail.com>
+		- Improved timer0 API, add register and unregister functions
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 // *************************************************************************************************
 //
 //	Copyright (C) 2009 Texas Instruments Incorporated - http://www.ti.com/ 
@@ -33,8 +50,8 @@
 //
 // *************************************************************************************************
 
-#ifndef RFSIMPLICITI_H_
-#define RFSIMPLICITI_H_
+#ifndef TIMER_H_
+#define TIMER_H_
 
 // *************************************************************************************************
 // Include section
@@ -42,81 +59,49 @@
 
 // *************************************************************************************************
 // Prototypes section
-extern void reset_rf(void);
-extern void sx_rf(unsigned short line);
-extern void sx_ppt(unsigned short line);
-extern void sx_sync(unsigned short line);
-extern void display_rf(unsigned short line, unsigned short update);
-extern void display_ppt(unsigned short line, unsigned short update);
-extern void display_sync(unsigned short line, unsigned short update);
-extern void send_smpl_data(unsigned int data);
-extern unsigned short is_rf(void);
+extern void Timer0_Init(void);
+extern void Timer0_Start(void);
+extern void Timer0_Stop(void);
+extern void Timer0_A1_Start(unsigned int ticks);
+extern void Timer0_A1_Stop(void);
+extern void Timer0_A1_Register(void (*callback)(void));
+extern void Timer0_A1_Unregister(void (*callback)(void));
+extern void Timer0_A3_Start(unsigned int ticks);
+extern void Timer0_A3_Stop(void);
+extern void Timer0_A4_Delay(unsigned int ticks);
+extern void (*fptr_Timer0_A3_function)(void);
+#ifdef CONFIG_USE_GPS
+extern void (*fptr_Timer0_A1_function)(void);
+#endif
+
 
 // *************************************************************************************************
 // Defines section
-
-// SimpliciTI connection states
-typedef enum
+struct cbList {
+	void (*fn)(void);
+	struct cbList *next;
+};
+struct timer
 {
-  SIMPLICITI_OFF = 0,       // Not connected
-#ifdef CONFIG_ACCEL
-  SIMPLICITI_ACCELERATION,	// Transmitting acceleration data and button events
-#endif
-  SIMPLICITI_BUTTONS,		// Transmitting button events
-  SIMPLICITI_SYNC,			// Syncing
-#ifdef CONFIG_PHASE_CLOCK
-  SIMPLICITI_PHASE_CLOCK_START,	// Start new phase
-  SIMPLICITI_PHASE_CLOCK,	// Phase Clock is running
-#endif
-} simpliciti_mode_t;
+	// Timer0_A1 periodic delay
+	unsigned int		timer0_A1_ticks;
+		// Timer0_A3 periodic delay
+	unsigned int		timer0_A3_ticks;
+	// callback queue
+	struct cbList *queue;
+};
+extern struct timer sTimer;
 
-// Stop SimpliciTI transmission after 60 minutes to save power
-#define SIMPLICITI_TIMEOUT									(60*60u)
-
-// Button flags for SimpliciTI data
-#define SIMPLICITI_BUTTON_STAR			(0x10)
-#define SIMPLICITI_BUTTON_NUM			(0x20)
-#define SIMPLICITI_BUTTON_UP			(0x30)
-
-// SimpliciTI mode flag
-#define SIMPLICITI_MOUSE_EVENTS             (0x01)
-#define SIMPLICITI_KEY_EVENTS               (0x02)
-#define SIMPLICITI_PHASE_CLOCK_EVENTS   	(0x03)
-#define SIMPLICITI_PHASE_CLOCK_START_EVENTS	(0x04)
-
-// notify the ap that sync mode started
-#define SIMPLICITI_SYNC_STARTED_EVENTS      (0x10)
-
-
-#define WATCH_ID(dst,offset) \
-		dst[offset] = simpliciti_ed_address[0] ^ simpliciti_ed_address[1];\
-		dst[offset+1] = simpliciti_ed_address[2] ^ simpliciti_ed_address[3];
-
-
-
-#define SIMPLICITI_PHASE_CLOCK_START_RESPONSE	(0x54)
+// Trigger reset when all buttons are pressed
+#define BUTTON_RESET_SEC		(3u)
 
 // *************************************************************************************************
 // Global Variable section
-struct RFsmpl
-{
-	// SIMPLICITI_OFF, SIMPLICITI_ACCELERATION, SIMPLICITI_BUTTONS
-	simpliciti_mode_t 	mode;
-	
-	// Timeout until SimpliciTI transmission is automatically stopped
-	unsigned int					timeout;
-};
-extern struct RFsmpl sRFsmpl;
 
-extern unsigned char simpliciti_flag;
 
 // *************************************************************************************************
 // Extern section
-#ifdef SIMPLICITY_TX_ONLY_REQ
-extern void start_simpliciti_tx_only(simpliciti_mode_t mode);
-#endif
-
-extern int simpliciti_get_rvc_callback(unsigned short len) __attribute__((noinline));
 
 
-#endif /*RFSIMPLICITI_H_*/
+
+#endif /*TIMER_H_*/

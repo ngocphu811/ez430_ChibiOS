@@ -46,37 +46,37 @@
 // *************************************************************************************************
 // Prototypes section
 extern void reset_clock(void);
-extern void sx_time(u8 line);
-extern void mx_time(u8 line);
+extern void sx_time(unsigned short line);
+extern void mx_time(unsigned short line);
 extern void clock_tick(void);
-extern void display_selection_Timeformat1(u8 segments, u32 index, u8 digits, u8 blanks, u8 dummy);
-extern void display_time(u8 line, u8 update);
+extern void display_selection_Timeformat1(unsigned short segments, unsigned long index, unsigned short digits, unsigned short blanks, unsigned short dummy);
+extern void display_time(unsigned short line, unsigned short update);
 
 // English units support
-extern u8 convert_hour_to_12H_format(u8 hour);
-extern u8 is_hour_am(u8 hour);
+extern unsigned short convert_hour_to_12H_format(unsigned short hour);
+extern unsigned short is_hour_am(unsigned short hour);
 
 
 // *************************************************************************************************
 // Global Variable section
 struct time
 {
-	u32 	system_time;
+	unsigned long 	system_time;
 
 	// Flag to minimize display updates
-	u8 		drawFlag;
+	unsigned short 		drawFlag;
 
 	// Viewing style
-	u8		line1ViewStyle;
-	u8		line2ViewStyle;
+	unsigned short		line1ViewStyle;
+	unsigned short		line2ViewStyle;
 	
 	// Time data
-	u8		hour;
-	u8		minute;
-	u8 		second;
+	unsigned short		hour;
+	unsigned short		minute;
+	unsigned short 		second;
 	
 	// Inactivity detection (exits set_value() function)
-	u32 	last_activity;
+	unsigned long 	last_activity;
 	#ifdef CONFIG_SIDEREAL
 	// offset of local time from UTC (=1: set time is UTC+1 =CET)
 	s8		UTCoffset;

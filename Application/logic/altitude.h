@@ -44,15 +44,15 @@
 // *************************************************************************************************
 // Prototypes section
 extern void reset_altitude_measurement(void);
-extern u8 is_altitude_measurement(void);
+extern unsigned short is_altitude_measurement(void);
 extern void start_altitude_measurement(void);
 extern void stop_altitude_measurement(void);
-extern void do_altitude_measurement(u8 filter);
+extern void do_altitude_measurement(unsigned short filter);
 
 // menu functions
-extern void sx_altitude(u8 line);
-extern void mx_altitude(u8 line);
-extern void display_altitude(u8 line, u8 update);
+extern void sx_altitude(unsigned short line);
+extern void mx_altitude(unsigned short line);
+extern void display_altitude(unsigned short line, unsigned short update);
 
 
 // *************************************************************************************************
@@ -70,19 +70,19 @@ struct alt
 	menu_t	state; 
 
 	// Pressure (Pa)
-	u32		pressure;
+	unsigned long		pressure;
 
 	// Temperature (°K)
-	u16		temperature;
+	unsigned int		temperature;
 
 	// Altitude (m)
-	s16		altitude;
+	int		altitude;
 	
 	// Altitude offset stored during calibration
-	s16		altitude_offset;
+	int		altitude_offset;
 
 	// Timeout
-	u16		timeout;
+	unsigned int		timeout;
 	
 };
 extern struct alt sAlt;
