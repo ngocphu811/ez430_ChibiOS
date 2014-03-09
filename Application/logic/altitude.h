@@ -44,15 +44,15 @@
 // *************************************************************************************************
 // Prototypes section
 extern void reset_altitude_measurement(void);
-extern unsigned short is_altitude_measurement(void);
+extern unsigned char is_altitude_measurement(void);
 extern void start_altitude_measurement(void);
 extern void stop_altitude_measurement(void);
-extern void do_altitude_measurement(unsigned short filter);
+extern void do_altitude_measurement(unsigned char filter);
 
 // menu functions
-extern void sx_altitude(unsigned short line);
-extern void mx_altitude(unsigned short line);
-extern void display_altitude(unsigned short line, unsigned short update);
+extern void sx_altitude(unsigned char line);
+extern void mx_altitude(unsigned char line);
+extern void display_altitude(unsigned char line, unsigned char update);
 
 
 // *************************************************************************************************

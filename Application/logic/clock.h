@@ -46,15 +46,15 @@
 // *************************************************************************************************
 // Prototypes section
 extern void reset_clock(void);
-extern void sx_time(unsigned short line);
-extern void mx_time(unsigned short line);
+extern void sx_time(unsigned char line);
+extern void mx_time(unsigned char line);
 extern void clock_tick(void);
-extern void display_selection_Timeformat1(unsigned short segments, unsigned long index, unsigned short digits, unsigned short blanks, unsigned short dummy);
-extern void display_time(unsigned short line, unsigned short update);
+extern void display_selection_Timeformat1(unsigned char segments, unsigned long index, unsigned char digits, unsigned char blanks, unsigned char dummy);
+extern void display_time(unsigned char line, unsigned char update);
 
 // English units support
-extern unsigned short convert_hour_to_12H_format(unsigned short hour);
-extern unsigned short is_hour_am(unsigned short hour);
+extern unsigned char convert_hour_to_12H_format(unsigned char hour);
+extern unsigned char is_hour_am(unsigned char hour);
 
 
 // *************************************************************************************************
@@ -64,16 +64,16 @@ struct time
 	unsigned long 	system_time;
 
 	// Flag to minimize display updates
-	unsigned short 		drawFlag;
+	unsigned char 		drawFlag;
 
 	// Viewing style
-	unsigned short		line1ViewStyle;
-	unsigned short		line2ViewStyle;
+	unsigned char		line1ViewStyle;
+	unsigned char		line2ViewStyle;
 	
 	// Time data
-	unsigned short		hour;
-	unsigned short		minute;
-	unsigned short 		second;
+	unsigned char		hour;
+	unsigned char		minute;
+	unsigned char 		second;
 	
 	// Inactivity detection (exits set_value() function)
 	unsigned long 	last_activity;

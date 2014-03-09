@@ -35,6 +35,10 @@ static msg_t Thread1(void *arg) {
   return 0;
 }
 
+#define THREAD_STACKSIZE 			64
+static WORKING_AREA(waLCDThread, THREAD_STACKSIZE);
+extern msg_t LCD_Thread(void *args);
+
 /*
  * Application entry point.
  */
@@ -60,6 +64,8 @@ int main(void) {
    */
   chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO, Thread1, NULL);
 
+  chThdCreateStatic(waLCDThread, sizeof(waLCDThread), NORMALPRIO, LCD_Thread, nullptr);
+  
   /*
    * Normal main() thread activity, in this demo it does nothing except
    * checking a button and run a test suite if button was pressed.

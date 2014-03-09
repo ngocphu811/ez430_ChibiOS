@@ -29,6 +29,9 @@
 #include "ch.h"
 #include "hal.h"
 
+#include "../../boards/ezChronos_CC430_F6137/board.h"
+//#include "board.h"
+
 /*===========================================================================*/
 /* Driver local definitions.                                                 */
 /*===========================================================================*/
@@ -49,6 +52,7 @@
 /* Driver exported functions.                                                */
 /*===========================================================================*/
 
+extern void boardInit();
 /**
  * @brief   HAL initialization.
  * @details This function invokes the low level initialization code then

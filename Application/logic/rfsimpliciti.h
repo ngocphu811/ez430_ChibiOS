@@ -43,14 +43,14 @@
 // *************************************************************************************************
 // Prototypes section
 extern void reset_rf(void);
-extern void sx_rf(unsigned short line);
-extern void sx_ppt(unsigned short line);
-extern void sx_sync(unsigned short line);
-extern void display_rf(unsigned short line, unsigned short update);
-extern void display_ppt(unsigned short line, unsigned short update);
-extern void display_sync(unsigned short line, unsigned short update);
+extern void sx_rf(unsigned char line);
+extern void sx_ppt(unsigned char line);
+extern void sx_sync(unsigned char line);
+extern void display_rf(unsigned char line, unsigned char update);
+extern void display_ppt(unsigned char line, unsigned char update);
+extern void display_sync(unsigned char line, unsigned char update);
 extern void send_smpl_data(unsigned int data);
-extern unsigned short is_rf(void);
+extern unsigned char is_rf(void);
 
 // *************************************************************************************************
 // Defines section
@@ -116,7 +116,7 @@ extern unsigned char simpliciti_flag;
 extern void start_simpliciti_tx_only(simpliciti_mode_t mode);
 #endif
 
-extern int simpliciti_get_rvc_callback(unsigned short len) __attribute__((noinline));
+extern int simpliciti_get_rvc_callback(unsigned char len) __attribute__((noinline));
 
 
 #endif /*RFSIMPLICITI_H_*/

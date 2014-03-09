@@ -47,13 +47,13 @@ extern void start_stopwatch(void);
 extern void stop_stopwatch(void);
 extern void reset_stopwatch(void);
 extern void split_stopwatch(void);
-extern unsigned short is_stopwatch_run(void);
-extern unsigned short is_stopwatch_stop(void);
+extern unsigned char is_stopwatch_run(void);
+extern unsigned char is_stopwatch_stop(void);
 extern void stopwatch_tick(void);
 extern void update_stopwatch_timer(void);
-extern void mx_stopwatch(unsigned short line);
-extern void sx_stopwatch(unsigned short line);
-extern void display_stopwatch(unsigned short line, unsigned short update);
+extern void mx_stopwatch(unsigned char line);
+extern void sx_stopwatch(unsigned char line);
+extern void display_stopwatch(unsigned char line, unsigned char update);
 
 
 // *************************************************************************************************
@@ -76,10 +76,10 @@ extern void display_stopwatch(unsigned short line, unsigned short update);
 // Global Variable section
 struct stopwatch
 {
-	unsigned short 		state;
-	unsigned short		drawFlag;
-	unsigned short		swtIs1Hz;
-	unsigned short		swtIs10Hz;
+	unsigned char 		state;
+	unsigned char		drawFlag;
+	unsigned char		swtIs1Hz;
+	unsigned char		swtIs10Hz;
 	
 	//	time[0] 	hour H
 	//	time[1] 	hour L
@@ -89,12 +89,12 @@ struct stopwatch
 	//	time[5] 	second L
 	//	time[6] 	1/10 sec 
 	//	time[7] 	1/100 sec
-	unsigned short		time[8]; //ASCII codes
-	unsigned short		time_split[8];
+	unsigned char		time[8]; //ASCII codes
+	unsigned char		time_split[8];
 	
 	// Display style
-	unsigned short 	viewStyle;
-	unsigned short 	viewStyle_split;
+	unsigned char 	viewStyle;
+	unsigned char 	viewStyle_split;
 };
 extern struct stopwatch sStopwatch;
 

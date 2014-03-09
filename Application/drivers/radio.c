@@ -35,6 +35,7 @@
 // Radio core access functions. Taken from TI reference code for CC430.
 // *************************************************************************************************
 
+#include <msp430.h>
 // system
 #include "project.h"
 
@@ -45,6 +46,7 @@
 // logic
 #include "rfsimpliciti.h"
 //pfs
+//#define ELIMINATE_BLUEROBIN
 #ifndef ELIMINATE_BLUEROBIN
 #include "bluerobin.h"
 #endif
@@ -68,8 +70,8 @@ extern void BlueRobin_RadioISR_v(void);
 // *************************************************************************************************
 void radio_reset(void)
 {
-	volatile u16 i;
-	u8 x;
+	volatile unsigned int i;
+	unsigned char x;
 	
 	// Reset radio core
 	Strobe(RF_SRES);
@@ -177,10 +179,10 @@ interrupt (CC1101_VECTOR) radio_ISR(void)
 __interrupt void radio_ISR(void)
 #endif
 {
-	u8 rf1aivec = RF1AIV;
+	unsigned char rf1aivec = RF1AIV;
 	
 	// Forward to SimpliciTI interrupt service routine
-	if (is_rf())
+/*	if (is_rf())
 	{
 		MRFI_RadioIsr();
 	}
@@ -201,5 +203,5 @@ __interrupt void radio_ISR(void)
 		{
 			asm("	nop"); // break here
 		}
-	}
+	}*/
 }

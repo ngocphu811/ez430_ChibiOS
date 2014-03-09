@@ -41,7 +41,7 @@
 // Include section
 
 #include <project.h>
-
+#include "ch.h"
 /*
  * Set some options at compile time for how the time is displayed
  * The options are, in order of code space used-
@@ -58,16 +58,23 @@
 #warning "OPTION_TIME_DISPLAY not defined, 0 = 24Hr, 1 = AM/PM, 2 = selectable"
 #endif
 
+#define MBSIZE			5
+#define THREAD_STACKSIZE 	64
+#define WA_SIZE			THD_WA_SIZE(THREAD_STACKSIZE)
 
 
 // *************************************************************************************************
 // Extern section
 
 // Constants defined in library
-extern const unsigned short lcd_font[];
-extern const unsigned short * segments_lcdmem[];
-extern const unsigned short segments_bitmask[];
-extern const unsigned short itoa_conversion_table[][3];
+//extern const unsigned char lcd_font[];
+//extern const unsigned char * segments_lcdmem[];
+//extern const unsigned char segments_bitmask[];
+//extern const unsigned char itoa_conversion_table[][3];
+const unsigned char lcd_font[];
+const unsigned char * segments_lcdmem[];
+const unsigned char segments_bitmask[];
+const unsigned char itoa_conversion_table[][3];
 
 
 // *************************************************************************************************
@@ -232,18 +239,18 @@ extern volatile s_display_flags display;
 
 
 // LCD controller memory map
-#define LCD_MEM_1          			((unsigned short*)0x0A20)
-#define LCD_MEM_2          			((unsigned short*)0x0A21)
-#define LCD_MEM_3          			((unsigned short*)0x0A22)
-#define LCD_MEM_4          			((unsigned short*)0x0A23)
-#define LCD_MEM_5          			((unsigned short*)0x0A24)
-#define LCD_MEM_6          			((unsigned short*)0x0A25)
-#define LCD_MEM_7          			((unsigned short*)0x0A26)
-#define LCD_MEM_8          	 		((unsigned short*)0x0A27)
-#define LCD_MEM_9          			((unsigned short*)0x0A28)
-#define LCD_MEM_10         			((unsigned short*)0x0A29)
-#define LCD_MEM_11         			((unsigned short*)0x0A2A)
-#define LCD_MEM_12         			((unsigned short*)0x0A2B)
+#define LCD_MEM_1          			((unsigned char*)0x0A20)
+#define LCD_MEM_2          			((unsigned char*)0x0A21)
+#define LCD_MEM_3          			((unsigned char*)0x0A22)
+#define LCD_MEM_4          			((unsigned char*)0x0A23)
+#define LCD_MEM_5          			((unsigned char*)0x0A24)
+#define LCD_MEM_6          			((unsigned char*)0x0A25)
+#define LCD_MEM_7          			((unsigned char*)0x0A26)
+#define LCD_MEM_8          	 		((unsigned char*)0x0A27)
+#define LCD_MEM_9          			((unsigned char*)0x0A28)
+#define LCD_MEM_10         			((unsigned char*)0x0A29)
+#define LCD_MEM_11         			((unsigned char*)0x0A2A)
+#define LCD_MEM_12         			((unsigned char*)0x0A2B)
 
 
 // Memory assignment
@@ -334,45 +341,65 @@ extern volatile s_display_flags display;
 #define LCD_ICON_BEEPER2_MASK		(BIT3)
 #define LCD_ICON_BEEPER3_MASK		(BIT3)
 
+static MAILBOX_DECL(mbLCD, WA_SIZE, MBSIZE);
 
+typedef enum
+{
+  msgDATE,
+  msgTIME,
+  msgSYM,
+  msgERR,
+  msgUSR
+} emsgLCD_t;
+
+typedef struct
+{
+  emsgLCD_t ID;
+  unsigned char segment;
+  char str[6];
+  unsigned char state;
+} sLCD_Message_t;
 
 // *************************************************************************************************
 // API section
 
 // Physical LCD memory write
-extern void write_lcd_mem(unsigned short * lcdmem, unsigned short bits, unsigned short bitmask, unsigned short state);
+extern void write_lcd_mem(unsigned char * lcdmem, unsigned char bits, unsigned char bitmask, unsigned char state);
 
 // Display init / clear
 extern void lcd_init(void);
 extern void clear_display(void);
 extern void clear_display_all(void);
-extern void clear_line(unsigned short line);
+extern void clear_line(unsigned char line);
 
 // Blinking function
 extern void start_blink(void);
 extern void stop_blink(void);
 extern void clear_blink_mem(void);
-extern void set_blink_rate(unsigned short bits);
+extern void set_blink_rate(unsigned char bits);
 
 // Character / symbol draw functions
-extern void display_char(unsigned short segment, unsigned short chr, unsigned short mode);
-extern void display_chars(unsigned short segments, unsigned short * str, unsigned short mode);
-extern void display_symbol(unsigned short symbol, unsigned short mode);
+extern void display_char(unsigned char segment, unsigned char chr, unsigned char mode);
+extern void display_chars(unsigned char segments, unsigned char * str, unsigned char mode);
+extern void display_symbol(unsigned char symbol, unsigned char mode);
 
 // Time display function
-extern void DisplayTime(unsigned short updateMode);
-extern void display_am_pm_symbol(unsigned short timeAM);
+extern void DisplayTime(unsigned char updateMode);
+extern void display_am_pm_symbol(unsigned char timeAM);
 
 // Set_value display functions
-extern void display_value1(unsigned short segments, unsigned long value, unsigned short digits, unsigned short blanks, unsigned short disp_mode);
-extern void display_hours_12_or_24(unsigned short segments, unsigned long value, unsigned short digits, unsigned short blanks, unsigned short disp_mode);
+extern void display_value1(unsigned char segments, unsigned long value, unsigned char digits, unsigned char blanks, unsigned char disp_mode);
+extern void display_hours_12_or_24(unsigned char segments, unsigned long value, unsigned char digits, unsigned char blanks, unsigned char disp_mode);
 
 // Integer to string conversion 
-extern unsigned short * _itoa(unsigned long n, unsigned short digits, unsigned short blanks);
+extern unsigned char * _itoa(unsigned long n, unsigned char digits, unsigned char blanks);
 
 // Segment index helper function
-extern unsigned short switch_seg(unsigned short line, unsigned short index1, unsigned short index2);
+extern unsigned char switch_seg(unsigned char line, unsigned char index1, unsigned char index2);
 
 void display_all_off(void);
+
+//static WORKING_AREA(waLCDThread, THREAD_STACKSIZE);
+static msg_t LCD_Thread(void *args);
 
 #endif // __DISPLAY_

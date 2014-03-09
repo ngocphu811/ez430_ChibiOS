@@ -25,6 +25,8 @@
 #include "ch.h"
 #include "hal.h"
 
+#include <stdint.h>
+
 #if HAL_USE_PAL || defined(__DOXYGEN__)
 
 /*===========================================================================*/

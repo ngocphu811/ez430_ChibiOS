@@ -12,7 +12,7 @@
 //    V1.1  Added parameter for XTDrive
 //*******************************************************************************
 
-#include "msp430.h"
+#include <msp430.h>
 #include "hal_UCS.h"
 
 //************************************************************************
@@ -189,7 +189,7 @@ void Init_FLL_Settle(uint16_t fsystem, uint16_t ratio)
 {
   volatile uint16_t x = ratio * 32;       
   // save actual state of FLL loop control
-  uint16_t globalInterruptState = __get_SR_register() & SCG0;
+//  uint16_t globalInterruptState = __get_SR_register() & SCG0;
   								
   __bic_SR_register(SCG0);      // Enable FLL loop control
 
@@ -200,7 +200,7 @@ void Init_FLL_Settle(uint16_t fsystem, uint16_t ratio)
    __delay_cycles(30); 
   }
   
-  __bis_SR_register(globalInterruptState);	// restore previous state
+//  __bis_SR_register(globalInterruptState);	// restore previous state
 
 }
 

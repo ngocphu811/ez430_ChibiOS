@@ -52,6 +52,7 @@ include $(CHIBIOS)/os/ports/GCC/MSP430/port.mk
 include $(CHIBIOS)/os/kernel/kernel.mk
 include $(CHIBIOS)/Application/drivers/drivers.mk
 include $(CHIBIOS)/Application/logic/logic.mk
+#include $(CHIBIOS)/Application/simpliciti/simpliciti.mk
 #include $(CHIBIOS)Application/logic/logic.mk
 #include $(CHIBIOS)/test/test.mk
 
@@ -63,6 +64,7 @@ CSRC = $(PORTSRC) \
        $(PLATFORMSRC) \
        $(BOARDSRC) \
 	$(DRIVERSSRC) \
+	$(SIMPLICITISRC) \
 	$(CHIBIOSSRC) \
        $(CHIBIOS)/os/various/evtimer.c \
        main.c
@@ -75,7 +77,7 @@ ASMSRC = $(PORTASM)
 
 INCDIR = $(PORTINC) $(KERNINC) $(TESTINC) \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) \
-	$(DRIVERSINC) $(LOGICINC) \
+	$(DRIVERSINC) $(LOGICINC) $(SIMPLICITIINC) \
          $(CHIBIOS)/os/various
 
 #
@@ -117,13 +119,14 @@ CPPWARN = -Wall -Wextra
 #
 
 # List all default C defines here, like -D_DEBUG=1
-DDEFS = -D__CC430F6137__
+DDEFS = -D__CC430F6137__ -D__MSP430_6137__ -DMRFI_CC430 -DELIMINATE_BLUEROBIN -DISM_EU -DELIMINATE_SIMPLICITI
 
 # List all default ASM defines here, like -D_DEBUG=1
 DADEFS =
 
 # List all default directories to look for include files here
-DINCDIR =
+DINCDIR = $(CHIBIOS)/Application/drivers \
+	$(CHIBIOS)/Application/logic
 
 # List the default directory to look for the libraries here
 DLIBDIR =

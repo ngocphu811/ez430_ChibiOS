@@ -47,9 +47,9 @@ extern void stop_alarm(void);
 extern void alarm_tick(void);
 
 // menu functions
-extern void sx_alarm(u8 line);
-extern void mx_alarm(u8 line);
-extern void display_alarm(u8 line, u8 update);
+extern void sx_alarm(unsigned char line);
+extern void mx_alarm(unsigned char line);
+extern void display_alarm(unsigned char line, unsigned char update);
 
 
 // *************************************************************************************************
@@ -67,20 +67,20 @@ struct alarm
 	union {
 		struct {
 			// one shot alarm
-			u8 alarm:1;
+			unsigned char alarm:1;
 			// hourly chime
-			u8 chime:1;
+			unsigned char chime:1;
 		};
-		u8 state:2;
+		unsigned char state:2;
 	};
 	// is alarm running?
-	u8 running:1;
+	unsigned char running:1;
 	// Alarm hour
-	u8 hour:5;
+	unsigned char hour:5;
 	// Alarm minute
-	u8 minute;
+	unsigned char minute;
 	// Alarm duration
-	u8 duration;
+	unsigned char duration;
 };
 extern struct alarm sAlarm;
 

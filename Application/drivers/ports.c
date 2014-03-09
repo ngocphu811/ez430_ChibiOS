@@ -42,21 +42,25 @@
 // system
 #include "project.h"
 
+#include <msp430.h>
+
 // driver
 #include "ports.h"
 #include "buzzer.h"
 #ifdef FEATURE_PROVIDE_ACCEL
 #include "vti_as.h"
 #endif
-#include "vti_ps.h"
+//#include "vti_ps.h"
 #include "timer.h"
 #include "display.h"
 
 // logic
 #include "clock.h"
 #include "alarm.h"
+#ifndef ELIMINATE_SIMPLICITI
 #include "rfsimpliciti.h"
 #include "simpliciti.h"
+#endif
 #include "altitude.h"
 #include "stopwatch.h"
 
@@ -67,7 +71,7 @@
 
 // *************************************************************************************************
 // Prototypes section
-void button_repeat_on(u16 msec);
+void button_repeat_on(unsigned int msec);
 void button_repeat_off(void);
 void button_repeat_function(void);
 
@@ -127,19 +131,19 @@ void init_buttons(void)
 // @param       none
 // @return      none
 // *************************************************************************************************
-//pfs 
+//pfs
 #ifdef __GNUC__  
 #include <legacymsp430.h>
 interrupt (PORT2_VECTOR) PORT2_ISR(void)
 #else
 #pragma vector=PORT2_VECTOR
-__interrupt void PORT2_ISR(void)
+		__interrupt void PORT2_ISR(void)
 #endif
 {
-	u8 int_flag, int_enable;
-	u8 buzzer = 0;
-	u8 simpliciti_button_event = 0;
-	static u8 simpliciti_button_repeat = 0;
+	unsigned char int_flag, int_enable;
+	unsigned char buzzer = 0;
+	unsigned char simpliciti_button_event = 0;
+	static unsigned char simpliciti_button_repeat = 0;
 
 	// Clear button flags
 	button.all_flags = 0;
@@ -150,6 +154,7 @@ __interrupt void PORT2_ISR(void)
 	// Store valid button interrupt flag
 	int_flag = BUTTONS_IFG & int_enable;
 
+	#ifndef ELIMINATE_SIMPLICITI
 	// ---------------------------------------------------
 	// While SimpliciTI stack is active, buttons behave differently:
 	//  - Store button events in SimpliciTI packet data
@@ -190,6 +195,7 @@ __interrupt void PORT2_ISR(void)
 		if (simpliciti_button_event) simpliciti_flag |= SIMPLICITI_TRIGGER_SEND_DATA;
   	}
   	else // Normal operation
+	#endif
   	{
 		// Debounce buttons
 		if ((int_flag & ALL_BUTTONS) != 0)
@@ -363,13 +369,13 @@ __interrupt void PORT2_ISR(void)
   	}
 	#endif
 	
-  	// ---------------------------------------------------
+/*  	// ---------------------------------------------------
 	// Pressure sensor IRQ
 	if (IRQ_TRIGGERED(int_flag, PS_INT_PIN)) 
 	{
 		// Get data from sensor
 		request.flag.altitude_measurement = 1;
-  	}
+  	} */
   	
   	// ---------------------------------------------------
   	// Safe long button event detection
@@ -400,7 +406,7 @@ __interrupt void PORT2_ISR(void)
 // @param       none
 // @return      none
 // *************************************************************************************************
-void button_repeat_on(u16 msec)
+void button_repeat_on(unsigned int msec)
 {
 	// Set button repeat flag
 	sys.flag.up_down_repeat_enabled = 1;
@@ -438,8 +444,8 @@ void button_repeat_off(void)
 // *************************************************************************************************
 void button_repeat_function(void)
 {
-	static u8 start_delay = 10;	// Wait for 2 seconds before starting auto up/down
-	u8 repeat = 0;
+	static unsigned char start_delay = 10;	// Wait for 2 seconds before starting auto up/down
+	unsigned char repeat = 0;
 	
 	// If buttons UP or DOWN are continuously high, repeatedly set button flag
 	if (BUTTON_UP_IS_PRESSED)

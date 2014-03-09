@@ -60,6 +60,8 @@
 // system
 #include "project.h"
 
+#include <msp430.h>
+
 // driver
 #include "timer.h"
 #include "ports.h"
@@ -76,18 +78,21 @@
 #include "stopwatch.h"
 #include "altitude.h"
 #include "display.h"
+#ifndef ELIMINATE_SIMPLICITI
 #include "rfsimpliciti.h"
 #include "simpliciti.h"
+#endif
 #ifdef FEATURE_PROVIDE_ACCEL
 #include "acceleration.h"
 #endif
 
+//#define ELIMINATE_BLUEROBIN
 //pfs
 #ifndef ELIMINATE_BLUEROBIN
 #include "bluerobin.h"
 #endif
 
-#include "temperature.h"
+//#include "temperature.h"
 
 #ifdef CONFIG_SIDEREAL
 #include "sidereal.h"
@@ -104,15 +109,18 @@
 // Prototypes section
 void Timer0_Init(void);
 void Timer0_Stop(void);
-void Timer0_A1_Start(u16 ticks);
+void Timer0_A1_Start(unsigned int ticks);
 void Timer0_A1_Stop(void);
-void Timer0_A3_Start(u16 ticks);
+void Timer0_A3_Start(unsigned int ticks);
 void Timer0_A3_Stop(void);
-void Timer0_A4_Delay(u16 ticks);
+void Timer0_A4_Delay(unsigned int ticks);
 void (*fptr_Timer0_A3_function)(void);
 #ifdef CONFIG_USE_GPS
 void (*fptr_Timer0_A1_function)(void);
 #endif
+
+extern unsigned char is_rf(void);
+
 
 // *************************************************************************************************
 // Defines section
@@ -128,7 +136,7 @@ extern void BRRX_TimerTask_v(void);
 extern void to_lpm(void);
 
 #ifdef CONFIG_ALTI_ACCUMULATOR
-extern u8 alt_accum_enable; // 1 means the altitude accumulator is enabled
+extern unsigned char alt_accum_enable; // 1 means the altitude accumulator is enabled
 #endif
 
 // *************************************************************************************************
@@ -183,7 +191,7 @@ void Timer0_Stop(void)
 }
 
 
-void Timer0_A1_Start(u16 ticks)
+void Timer0_A1_Start(unsigned int ticks)
 {
 	/*old version
 	// Set interrupt frequency to 1Hz
@@ -192,7 +200,7 @@ void Timer0_A1_Start(u16 ticks)
 	// Enable timer interrupt
 	TA0CCTL1 |= CCIE; */
 
-	u16 value;
+	unsigned int value;
 
 		// Store timer ticks in global variable
 		sTimer.timer0_A1_ticks = ticks;
@@ -253,9 +261,9 @@ void Timer0_A1_Unregister(void (*callback)(void))
 // @param       ticks (1 tick = 1/32768 sec)
 // @return      none
 // *************************************************************************************************
-void Timer0_A3_Start(u16 ticks)
+void Timer0_A3_Start(unsigned int ticks)
 {
-	u16 value;
+	unsigned int value;
 	
 	// Store timer ticks in global variable
 	sTimer.timer0_A3_ticks = ticks;
@@ -294,9 +302,9 @@ void Timer0_A3_Stop(void)
 // @param       ticks (1 tick = 1/32768 sec)
 // @return      none
 // *************************************************************************************************
-void Timer0_A4_Delay(u16 ticks)
+void Timer0_A4_Delay(unsigned int ticks)
 {
-	u16 value;
+	unsigned int value;
 	
 	// Exit immediately if Timer0 not running - otherwise we'll get stuck here
 	if ((TA0CTL & (BIT4 | BIT5)) == 0) return;    
@@ -361,8 +369,8 @@ interrupt (TIMER0_A0_VECTOR) TIMER0_A0_ISR(void)
 __interrupt void TIMER0_A0_ISR(void)
 #endif
 {
-	static u8 button_lock_counter = 0;
-	static u8 button_beep_counter = 0;
+	static unsigned char button_lock_counter = 0;
+	static unsigned char button_beep_counter = 0;
 	
 	// Disable IE 
 	TA0CCTL0 &= ~CCIE;
@@ -374,7 +382,7 @@ __interrupt void TIMER0_A0_ISR(void)
 	TA0CCTL0 |= CCIE;
 	
 	// Add 1 second to global time
-	clock_tick();
+//	clock_tick();
 	
 	// Set clock update flag
 	display.flag.update_time = 1;
@@ -387,6 +395,7 @@ __interrupt void TIMER0_A0_ISR(void)
 	if (is_rf() || is_bluerobin_searching()) 
 	#endif
 	{
+		#ifndef ELIMINATE_SIMPLICITI
 		// SimpliciTI automatic timeout
 		if (sRFsmpl.timeout == 0) 
 		{
@@ -396,7 +405,7 @@ __interrupt void TIMER0_A0_ISR(void)
 		{
 			sRFsmpl.timeout--;
 		}
-		
+		#endif
 		// Exit from LPM3 on RETI
 		_BIC_SR_IRQ(LPM3_bits);     
 		return;
@@ -445,7 +454,7 @@ __interrupt void TIMER0_A0_ISR(void)
 	};
 
 	// Do a temperature measurement each second while menu item is active
-	if (is_temp_measurement()) request.flag.temperature_measurement = 1;
+//	if (is_temp_measurement()) request.flag.temperature_measurement = 1;
 	
 	// Do a pressure measurement each second while menu item is active
 #ifdef CONFIG_ALTITUDE
@@ -459,7 +468,7 @@ __interrupt void TIMER0_A0_ISR(void)
 		{
 			stop_altitude_measurement();
 			// Show ---- m/ft
-			display_chars(LCD_SEG_L1_3_0, (u8*)"----", SEG_ON);
+			display_chars(LCD_SEG_L1_3_0, (unsigned char*)"----", SEG_ON);
 			// Clear up/down arrow
 			display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
 			display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
@@ -569,7 +578,7 @@ __interrupt void TIMER0_A0_ISR(void)
 			message.flag.prepare = 1;
 			message.flag.timeout = 1;
 			if (sys.flag.no_beep)	message.flag.type_no_beep_on   = 1;
-			else					message.flag.type_no_beep_off  = 1;
+			else message.flag.type_no_beep_off  = 1;
 			
 			// Reset button beep counter
 			button_beep_counter = 0;
@@ -654,7 +663,7 @@ interrupt (TIMER0_A1_VECTOR) TIMER0_A1_5_ISR(void)
 __interrupt void TIMER0_A1_5_ISR(void)
 #endif
 {
-	u16 value;
+	unsigned int value;
 		
 	switch (TA0IV)
 	{

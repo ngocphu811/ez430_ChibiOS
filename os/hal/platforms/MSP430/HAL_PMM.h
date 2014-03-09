@@ -108,6 +108,6 @@
  * \param level     Level to which Vcore needs to be increased/decreased
  * \return status   Success/failure
  ******************************************************************************/
-extern uint16_t SetVCore(uint8_t level);
+extern unsigned int SetVCore(unsigned char level);
 
 #endif /* HAL_PMM_H */

@@ -23,4 +23,5 @@ HALSRC = ${CHIBIOS}/os/hal/src/hal.c \
          ${CHIBIOS}/os/hal/src/usb.c
 
 # Required include directories
-HALINC = ${CHIBIOS}/os/hal/include
+HALINC = ${CHIBIOS}/os/hal/include \
+		

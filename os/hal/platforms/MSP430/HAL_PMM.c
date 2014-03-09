@@ -47,9 +47,9 @@
  * \return status   Success/failure
  ******************************************************************************/
 
-static uint16_t SetVCoreUp(uint8_t level)
+static unsigned int SetVCoreUp(unsigned char level)
 {
-    uint16_t PMMRIE_backup, SVSMHCTL_backup, SVSMLCTL_backup;
+    unsigned int PMMRIE_backup, SVSMHCTL_backup, SVSMLCTL_backup;
 
     // The code flow for increasing the Vcore has been altered to work around
     // the erratum FLASH37.
@@ -158,9 +158,9 @@ static uint16_t SetVCoreUp(uint8_t level)
  * \return status   Success/failure
  ******************************************************************************/
 
-static uint16_t SetVCoreDown(uint8_t level)
+static unsigned int SetVCoreDown(unsigned char level)
 {
-    uint16_t PMMRIE_backup, SVSMHCTL_backup, SVSMLCTL_backup;
+    unsigned int PMMRIE_backup, SVSMHCTL_backup, SVSMLCTL_backup;
 
     // The code flow for decreasing the Vcore has been altered to work around
     // the erratum FLASH37.
@@ -226,10 +226,10 @@ static uint16_t SetVCoreDown(uint8_t level)
     return PMM_STATUS_OK;                  // Return: OK
 }
 
-uint16_t SetVCore(uint8_t level)
+unsigned int SetVCore(unsigned char level)
 {
-    uint16_t actlevel;
-    uint16_t status = 0;
+    unsigned int actlevel;
+    unsigned int status = 0;
 
     level &= PMMCOREV_3;                   // Set Mask for Max. level
     actlevel = (PMMCTL0 & PMMCOREV_3);     // Get actual VCore

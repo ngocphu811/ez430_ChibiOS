@@ -109,11 +109,11 @@ extern volatile s_button_flags button;
 
 struct struct_button
 {
-	unsigned short  star_timeout;		 
-	unsigned short  num_timeout;		 
+	unsigned char  star_timeout;		 
+	unsigned char  num_timeout;		 
 #ifndef USE_PRESS
-	unsigned short backlight_timeout;
-	unsigned short backlight_status;
+	unsigned char backlight_timeout;
+	unsigned char backlight_status;
 #endif	
 	int repeats;			
 };

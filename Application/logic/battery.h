@@ -49,7 +49,7 @@ extern void reset_batt_measurement(void);
 extern void battery_measurement(void);
 
 // Menu functions
-extern void display_battery_V(unsigned short line, unsigned short update);
+extern void display_battery_V(unsigned char line, unsigned char update);
 
 
 // *************************************************************************************************
@@ -73,7 +73,7 @@ struct batt
 	menu_t	 	state;
 	
 	// Counter for alternating "lobatt" display
-	unsigned short 			lobatt_display;
+	unsigned char 			lobatt_display;
 	
 	// Battery voltage
 	unsigned int		voltage;
