@@ -36,6 +36,7 @@
 #ifndef BUZZER_H_
 #define BUZZER_H_
 
+#include <stdint.h>
 
 // *************************************************************************************************
 // Include section
@@ -43,6 +44,7 @@
 
 // *************************************************************************************************
 // Prototypes section
+/*
 extern void reset_buzzer(void);
 extern void start_buzzer(unsigned char cycles, unsigned int on_time, unsigned int off_time);
 extern void start_buzzer_steps(unsigned char cycles, unsigned int on_time, unsigned int off_time, unsigned char steps);
@@ -50,20 +52,27 @@ extern void stop_buzzer(void);
 extern void toggle_buzzer(void);
 extern unsigned char is_buzzer(void);
 extern void countdown_buzzer(void);
-
+*/
+void reset_buzzer(void);
+void start_buzzer(uint8_t cycles, uint16_t on_time, uint16_t off_time);
+void start_buzzer_steps(uint8_t cycles, uint16_t on_time, uint16_t off_time, uint8_t steps);
+void stop_buzzer(void);
+void toggle_buzzer(void);
+uint8_t is_buzzer(void);
+void countdown_buzzer(void);
 
 // *************************************************************************************************
 // Defines section
 
 // Buzzer states
-#define BUZZER_OFF							(0u)
+#define BUZZER_OFF					(0u)
 #define BUZZER_ON_OUTPUT_DISABLED			(1u)
 #define BUZZER_ON_OUTPUT_ENABLED			(2u)
 
 // Buzzer modes
-#define BUZZER_MODE_SINGLE					(0u)
-#define BUZZER_MODE_SINGLE_CONTINUOUS		(1u)
-#define BUZZER_MODE_DOUBLE_CONTINUOUS		(2u)
+#define BUZZER_MODE_SINGLE				(0u)
+#define BUZZER_MODE_SINGLE_CONTINUOUS			(1u)
+#define BUZZER_MODE_DOUBLE_CONTINUOUS			(2u)
 
 // Buzzer output signal frequency = 32,768kHz/(BUZZER_TIMER_STEPS+1)/2 = 2.7kHz
 #define BUZZER_TIMER_STEPS					(5u)	
@@ -80,17 +89,17 @@ extern void countdown_buzzer(void);
 struct buzzer
 {
 	// Keep output for "time" seconds
-	unsigned char time;
+	uint8_t time;
 	
 	// On/off duty 
-	unsigned int on_time;
-	unsigned int off_time;
+	uint16_t on_time;
+	uint16_t off_time;
 	
 	// Current buzzer output state
-	unsigned char state;
+	uint8_t state;
 
         // Current steps (~freq)
-        unsigned char steps;
+        uint8_t steps;
 
 };
 extern struct buzzer sBuzzer;

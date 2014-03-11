@@ -400,6 +400,6 @@ extern unsigned char switch_seg(unsigned char line, unsigned char index1, unsign
 void display_all_off(void);
 
 //static WORKING_AREA(waLCDThread, THREAD_STACKSIZE);
-static msg_t LCD_Thread(void *args);
+/*static*/ msg_t LCD_Thread(void *args);
 
 #endif // __DISPLAY_

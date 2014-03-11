@@ -82,7 +82,7 @@ void sx_time(u8 line);
 
 // *************************************************************************************************
 // Global Variable section
-struct time sTime;
+//struct time sTime;
 
 // Display values for time format selection
 #if (OPTION_TIME_DISPLAY == CLOCK_DISPLAY_SELECT)

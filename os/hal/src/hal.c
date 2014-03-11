@@ -30,7 +30,6 @@
 #include "hal.h"
 
 #include "../../boards/ezChronos_CC430_F6137/board.h"
-//#include "board.h"
 
 /*===========================================================================*/
 /* Driver local definitions.                                                 */
@@ -52,7 +51,8 @@
 /* Driver exported functions.                                                */
 /*===========================================================================*/
 
-extern void boardInit();
+extern void boardInit(void);
+
 /**
  * @brief   HAL initialization.
  * @details This function invokes the low level initialization code then
@@ -124,7 +124,7 @@ void halInit(void) {
   rtcInit();
 #endif
   /* Board specific initialization.*/
-  boardInit();
+   boardInit();
 }
 
 #if HAL_IMPLEMENTS_COUNTERS || defined(__DOXYGEN__)

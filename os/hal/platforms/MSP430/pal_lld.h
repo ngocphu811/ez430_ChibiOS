@@ -313,7 +313,8 @@ typedef msp430_ioport_t *ioportid_t;
 #define pal_lld_setgroupmode(port, mask, offset, mode)                      \
   _pal_lld_setgroupmode(port, mask << offset, mode)
 
-extern const PALConfig pal_default_config;
+//extern const PALConfig pal_default_config;
+const PALConfig pal_default_config;
 
 #ifdef __cplusplus
 extern "C" {

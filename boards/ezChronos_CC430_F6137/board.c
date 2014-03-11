@@ -64,7 +64,7 @@ CH_IRQ_HANDLER(TIMERA0) {
 /*
  * Board-specific initialization code.
  */
-void boardInit(void) {
+static void boardInit(void) {
 
 #if USE_MSP430_USART0
   P3SEL |= (1 << 4) | (1 << 5);

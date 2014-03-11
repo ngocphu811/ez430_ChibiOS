@@ -18,6 +18,9 @@
 #include "hal.h"
 //#include "test.h"
 
+#include "project.h"
+#include "../globals.h"
+
 /*
  * Red LEDs blinker thread, times are in milliseconds.
  */
@@ -64,7 +67,7 @@ int main(void) {
    */
   chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO, Thread1, NULL);
 
-  chThdCreateStatic(waLCDThread, sizeof(waLCDThread), NORMALPRIO, LCD_Thread, nullptr);
+  chThdCreateStatic(waLCDThread, sizeof(waLCDThread), NORMALPRIO, LCD_Thread, NULL);
   
   /*
    * Normal main() thread activity, in this demo it does nothing except

@@ -82,7 +82,8 @@ struct time
 	s8		UTCoffset;
 	#endif
 };
-extern struct time sTime;
+//extern struct time sTime;
+struct time sTime;
 
 
 #endif /*CLOCKTIMER_H_*/

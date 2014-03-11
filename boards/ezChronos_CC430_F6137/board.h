@@ -75,7 +75,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-  void boardInit(void);
+  static void boardInit(void);
 #ifdef __cplusplus
 }
 #endif

@@ -388,11 +388,11 @@ __interrupt void TIMER0_A0_ISR(void)
 	display.flag.update_time = 1;
 	
 	// While SimpliciTI stack operates or BlueRobin searches, freeze system state
-	//pfs
-	#ifdef ELIMINATE_BLUEROBIN
+	//pfs	
+	#ifndef ELIMINATE_BLUEROBIN
 	if (is_rf())
-	#else
-	if (is_rf() || is_bluerobin_searching()) 
+	#else 	  
+//	if (is_rf() || is_bluerobin_searching()) 	
 	#endif
 	{
 		#ifndef ELIMINATE_SIMPLICITI

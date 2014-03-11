@@ -618,7 +618,7 @@ static void mbLCD_init()
   chMBInit(&mbLCD, (msg_t *)WA_SIZE, MBSIZE);
 }
 
-static msg_t LCD_Thread(void *args)
+/*static*/ msg_t LCD_Thread(void *args)
 {
   (void)args;
   msg_t res;
@@ -633,7 +633,9 @@ static msg_t LCD_Thread(void *args)
   }
   
   //	Print welcome string
-  
+  display_chars(LCD_SEG_L1_2_0, (uint8_t *)"Hi", SEG_ON);
+  chThdSleep(3000);
+  message.segment = LCD_SEG_L1_3_0;
   while (TRUE)
   {
     res = chMBFetch(&mbLCD, &message, TIME_INFINITE);
@@ -641,8 +643,8 @@ static msg_t LCD_Thread(void *args)
     {
       switch(message.ID)
       {
-	case msgTIME: _printf(0, message.segment, message.str, SEG_ON); break;
-	case msgDATE: _printf(0, message.segment, message.str, SEG_ON); break;
+	case msgTIME: display_chars(message.segment, message.str, SEG_ON); break;
+	case msgDATE: display_chars(message.segment, message.str, SEG_ON); break;
 	case msgSYM: display_symbol(message.segment, SEG_ON); break;
 	case msgERR: break;
 	case msgUSR: break;
